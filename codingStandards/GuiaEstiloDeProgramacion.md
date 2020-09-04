@@ -1,12 +1,12 @@
 En el siguiente documento presentaremos las reglas de estilo que debemos seguir los desarrolladores del equipo sosnovka para este proyecto.
 
-Archivos PHP
+### Archivos PHP
 
 
 Todos los archivos con extensión .php deben comenzar con el tag <?php y NUNCA se debe combinar diferentes lenguajes de programación en un solo archivo (por ejemplo, en un documento .html no debe haber código PHP.
 
 
-Variables
+### Variables
 
 
 El nombre de las variables debe ser claro, se deberan utilizar mayusculas y minusculas. Además cada variable debe comenzar con una letra minúscula, al final debe cerrar la variable con ';'
@@ -14,13 +14,13 @@ El nombre de las variables debe ser claro, se deberan utilizar mayusculas y minu
 $numPosts = 5;
 
 
-Nombramiento
+### Nombramiento
 
 
 Las funciones, variables, clases, etc tendran que ser nombradas en inglés y estas deben permitirnos identificar cual es la función de cada elemento.
 
 
-Utilizacion de operadores
+### Utilizacion de operadores
 
 
 Cuando se realicen procesos que requieran utilizar operadores se debe dejar un espacio entre los numeros o variables y el operador. A continuacion, encontraran unos ejemplos: 
@@ -30,19 +30,20 @@ $sum = $num1 + num2;
 $bool = ($num1 >= $num2) && ($sum < 100);
 
 
-Constantes
+### Constantes
 
 
 Cuando se desee declarar una constante, tendra que nombrarse en mayuscula sostenida como se mostrara en el siguiente ejemplo:
 const CONSTANT = valorPrueba
 
 
-Ciclos
+### Ciclos
 
 
 Aca estara la estructura basica que deben seguir los ciclos utilizados:
 
-Ciclos while
+#### Ciclos while
+
 while (condición) {
     // código a realizar
 }
@@ -54,8 +55,7 @@ while ($numCars < 20) {
 }
 
 
-Ciclos do-while
-
+#### Ciclos do-while
 
 do {
     // código a ejecutar
@@ -70,7 +70,8 @@ echo "Valor del contador do while:  $counter";
 while ($counter <= 10);
 
 
-Ciclos For) 
+#### Ciclos For
+
 Los ciclos for deben seguir la siguiente estructura, donde después de la palabra reservada for se deja un espacio, al igual que después de cada punto y coma y después de cerrar el paréntesis:
 
 for (inicialización; condición; incremento) {
@@ -81,7 +82,10 @@ Por ejemplo, para hacer un ciclo que imprima los números del 0 al 9:
 for ($i = 0; i < 10; i++) {
     echo $i;
 }
-Ciclos for each)
+
+
+#### Ciclos for each
+
 foreach (arreglo as valor) {
     // código a ejecutar
 }
@@ -92,7 +96,9 @@ $array = array(1, 2, 3, 4, 5);
 foreach ($array as $value) {
     echo $value;
 }
-Condicionales)
+
+
+### Condicionales
 La estructura básica de un condicional es:
 
 if (condición) {
