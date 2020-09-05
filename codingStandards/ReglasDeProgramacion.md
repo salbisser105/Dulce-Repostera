@@ -145,10 +145,15 @@ NOTA: Antes asegúrese de configurar el archivo .env con los datos respectivos q
 
 Una vez creada la tabla se ingresarán manualmente datos de ejemplo, para esto hay varias alternativas:
 Utilizando phpMyAdmin
+
 i. Ingrese a http://localhost/phpmyadmin/.
+
 ii. Seleccione la base de datos dulcereposteradb.
+
 iii.Ingrese a la tabla que acaba de crear y presione el botón Insertar en la parte superior de la pantalla.
+
 iv. Ingrese todos los datos y guarde los cambios.
+
 Para exportar los datos presione el botón Exportar, seleccione formato SQL e ingrese el nombre que desea para el archivo.
 
 Para importar los datos seleccione la tabla en la que los quiere almacenar, presione el botón Importar y seleccione el archivo .sql correspondiente a la tabla.
