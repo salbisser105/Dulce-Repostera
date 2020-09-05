@@ -1,12 +1,12 @@
 En el siguiente documento presentaremos las reglas de estilo que debemos seguir los desarrolladores del equipo sosnovka para este proyecto.
 
-### Archivos PHP
+### -Archivos PHP
 
 
 Todos los archivos con extensión .php deben comenzar con el tag <?php y NUNCA se debe combinar diferentes lenguajes de programación en un solo archivo (por ejemplo, en un documento .html no debe haber código PHP.
 
 
-### Variables
+### -Variables
 
 
 El nombre de las variables debe ser claro, se deberan utilizar mayusculas y minusculas. Además cada variable debe comenzar con una letra minúscula, al final debe cerrar la variable con ';'
@@ -14,13 +14,13 @@ El nombre de las variables debe ser claro, se deberan utilizar mayusculas y minu
 $numPosts = 5;
 
 
-### Nombramiento
+### -Nombramiento
 
 
 Las funciones, variables, clases, etc tendran que ser nombradas en inglés y estas deben permitirnos identificar cual es la función de cada elemento.
 
 
-### Utilizacion de operadores
+### -Utilizacion de operadores
 
 
 Cuando se realicen procesos que requieran utilizar operadores se debe dejar un espacio entre los numeros o variables y el operador. A continuacion, encontraran unos ejemplos: 
@@ -30,14 +30,14 @@ $sum = $num1 + num2;
 $bool = ($num1 >= $num2) && ($sum < 100);
 
 
-### Constantes
+### -Constantes
 
 
 Cuando se desee declarar una constante, tendra que nombrarse en mayuscula sostenida como se mostrara en el siguiente ejemplo:
 const CONSTANT = valorPrueba
 
 
-### Ciclos
+### -Ciclos
 
 
 Aca estara la estructura basica que deben seguir los ciclos utilizados:
@@ -98,7 +98,7 @@ foreach ($array as $value) {
 }
 
 
-### Condicionales
+### -Condicionales
 La estructura básica de un condicional es:
 
 if (condición) {
@@ -117,7 +117,7 @@ else {
 }
 
 
-### Clases
+### -Clases
 
 
 El nombre de las clases debe comenzar con una mayúscula y debe utilizar camel case, siguiendo la estructura:
@@ -127,7 +127,7 @@ class ClassName {
 }
 
 
-### Funciones
+### -Funciones
 
 
 Las funciones deben ser nombradas utilizando camel case y NO deben comenzar con letra mayúscula.
