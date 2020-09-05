@@ -1,7 +1,7 @@
 Acá presentaremos las reglas de programacion con las cuales nos guiaremos en este proyecto, aca especificaremos las reglas para los controladores, vistas, rutas, modelos, etc.
 Todos los integrantes del equipo sosnovka debemos seguir estos requisitos.
-Modelos)
-Estructura
+## Modelos
+### Estructura
 ```php
 <?php
 
@@ -60,8 +60,8 @@ Pero NUNCA de esta manera:
 ```php
 echo "Esto NO se debe hacer " . User["model"];
 ```
-Controladores )
-Estructura
+## Controladores
+### Estructura
 ```php
 <?php
 
@@ -76,8 +76,8 @@ Estructura
 1. Los controladores deben ubicarse en la ruta App/Http/Controllers.
 2. NUNCA haga un echo en un controlador.
 3. Si va a realizar las validaciones en el controlador asegúrese de que esto no implicará tener código repetido en un futuro. Se recomienda realizarlas en los modelos para evitar esto.
-Vistas
-Estructura
+## Vistas
+### Estructura
 ```php
 @extends('layouts.master')
 
@@ -92,15 +92,17 @@ Estructura
 4. Todas las vistas deben ser Blade.
 5. NUNCA utilice código php al interior de las vistas.
 6. El nombramiento de las vistas debe seguir la estructura nombreViews.blade.php
-Texto en las vistas)
-Reglas
+
+## Texto en las vistas
+### Reglas
 1. Todos los textos del proyecto deben ir en resources/lang/*
 
 2. Inicialmente se  utilizara el idioma de ingles, dependiendo de los tiempos implementaremos el español los textos de cada uno debe ir en resources/lang/en y resources/lang/es respectivamente. La ultima ruta se utilizara dado el caso que logremos implementarlo en español
 
 3. Para acceder a los textos desde las vistas se utilizará la siguiente estructura:
-
+```php
 @lang('messages.welcome');
+```
 Donde en resources/lang/es/messages.php se encuentra la siguiente estructura:
 ```php
 <?php
@@ -115,8 +117,8 @@ Documentos de estilo)
 Reglas
 1. El estilo de las vistas se realizará por medio de archivos .css.
 2. Los archivos .csv deben ubicarse en public/css
-### Rutas)
-Estructura
+## Rutas
+### Estructura
 ```php
 Route::get('/index', 'Controller@index')->name("controller.index");
 ```
@@ -125,14 +127,15 @@ Route::get('/index', 'Controller@index')->name("controller.index");
 2. Toda ruta debe estar asociada a un controlador.
 3. A cada ruta se le debe asociar un nombre por el que podrá ser accedida.
 4. Está prohibido establecer funciones al interior de una ruta. Estas deben ser manejadas por el controlador.
-Generacion automatica de datos) 
+
+## Generacion automatica de datos
 ### Reglas
 1. Para la creación de tablas en la base de datos se deberá utilizar Migrations para la generación automática de estas.
 2. Cada migration deberá ubicarse en database/migrations
 3. El nombre de cada migration deberá hacer referencia a la fecha de creación de la tabla y debe seguir la estructura 2020_02_21_000000_table_to_be_created.php
 4. Se exportarán los datos de ejemplo que se ingresen a las tablas en un archivo .sql que se almacenara en el directorio raíz del proyecto con el fin de que todos los desarrolladores cuenten con la misma información en la base de datos.
 5. El nombre del .sql generado debe especificar a que tabla de la base de datos pertenece.
-Instrucciones)
+### Instrucciones
 Para crear la tabla ejecute el siguiente comando: 
 Para crear la tabla ejecute el comando
 ```php
@@ -149,7 +152,7 @@ iv. Ingrese todos los datos y guarde los cambios.
 Para exportar los datos presione el botón Exportar, seleccione formato SQL e ingrese el nombre que desea para el archivo.
 
 Para importar los datos seleccione la tabla en la que los quiere almacenar, presione el botón Importar y seleccione el archivo .sql correspondiente a la tabla.
-Utilizando MySQL localmente)
+Utilizando MySQL localmente:
 Conectese a la base de datos ejecutando el siguiente comando reemplazando username por un usuario con acceso a mysql e ingrese la contraseña.
 ```php
 $ mysql -u <username> -p
