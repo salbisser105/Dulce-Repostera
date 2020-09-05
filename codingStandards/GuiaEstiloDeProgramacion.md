@@ -115,13 +115,21 @@ elseif (condición) {
 else {
     // código a ejecutar
 }
-Clases
+
+
+### Clases
+
+
 El nombre de las clases debe comenzar con una mayúscula y debe utilizar camel case, siguiendo la estructura:
 
 class ClassName {
     // contenido de la clase
 }
-Funciones
+
+
+### Funciones
+
+
 Las funciones deben ser nombradas utilizando camel case y NO deben comenzar con letra mayúscula.
 
 function functionName() {
