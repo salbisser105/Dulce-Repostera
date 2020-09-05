@@ -39,9 +39,9 @@ $bool = ($num1 >= $num2) && ($sum < 100);
 
 
 Cuando se desee declarar una constante, tendra que nombrarse en mayuscula sostenida como se mostrara en el siguiente ejemplo:
-
+```php
 const CONSTANT = valorPrueba
-
+```
 
 ### -Ciclos
 
