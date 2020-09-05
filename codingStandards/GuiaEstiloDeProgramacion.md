@@ -3,7 +3,7 @@ En el siguiente documento presentaremos las reglas de estilo que debemos seguir 
 ### -Archivos PHP
 
 
-Todos los archivos con extensión .php deben comenzar con el tag ```php<?php``` y NUNCA se debe combinar diferentes lenguajes de programación en un solo archivo por ejemplo, en un documento .html no debe haber código PHP.
+Todos los archivos con extensión .php deben comenzar con el tag ```<?php``` y NUNCA se debe combinar diferentes lenguajes de programación en un solo archivo por ejemplo, en un documento .html no debe haber código PHP.
 
 
 ### -Variables
