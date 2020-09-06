@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'HomeController@index')->name("home.index");
+Route::get('/admin/index', 'Admin\AdminHomeController@index')->name("admin.home.index");
 Route::get('/product/show/{id}', 'ProductController@show')->name("product.show");
 Route::get('/product/create', 'ProductController@create')->name("product.create");
 Route::post('/product/save', 'ProductController@save')->name("product.save");
@@ -28,3 +26,8 @@ Route::get('/post/create', 'PostController@create')->name("post.create");
 Route::post('/post/save', 'PostController@save')->name("post.save");
 Route::get('/post/showpost/{id}', 'PostController@showpost')->name("post.showpost");
 Route::post('/post/delete/{id}', 'PostController@delete')->name("post.delete");
+
+Auth::routes();
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
