@@ -21,11 +21,9 @@ Todos los integrantes del equipo sosnovka debemos seguir estos requisitos.
 ### Reglas
 1.Los modelos deben ubicarse en la ruta App.
 
-2.Se debe incluir un comentario de atributos donde se especifique cuales son los elementos del modelo.
+2.Todos los atributos deben tener sus funciones get y set.
 
-3.Todos los atributos deben tener sus funciones get y set.
-
-4.Para evitar repetición de código se recomienda realizar la validación de datos ingresados por el usuario en el modelo de la siguiente manera:
+3.Para evitar repetición de código se recomienda realizar la validación de datos ingresados por el usuario en el modelo de la siguiente manera:
 
 ```php
 <?php
