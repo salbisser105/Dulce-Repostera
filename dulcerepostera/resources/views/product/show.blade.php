@@ -11,12 +11,16 @@
                 <div class="card-body">
                     <b>Product name:</b> {{ $data["product"]["name"] }}<br />
                     <b>Product price:</b> {{ $data["product"]["price"] }}<br />
-                    <form method="POST" action='{{ route("product.delete",$data["product"]->getId()) }}'>
-                        @csrf
-                        <div>
-                            <button type="submit">Eliminar</button>
-                        </div>
-                    </form>
+
+                    @if (Auth::user()->getRole()=="admin")
+                        <form method="POST" action='{{ route("product.delete",$data["product"]->getId()) }}'>
+                            @csrf
+                            <div>
+                                <button type="submit">Eliminar</button>
+                            </div>
+                        </form>
+                    @endif
+                    
                     <br /><br />
                 </div>
             </div>
