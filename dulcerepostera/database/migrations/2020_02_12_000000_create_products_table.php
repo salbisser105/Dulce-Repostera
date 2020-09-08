@@ -1,15 +1,11 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-
 use Illuminate\Database\Schema\Blueprint;
-
 use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
-
 {
-
     /**
      * Run the migrations.
      *
@@ -24,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *

@@ -37,6 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getId()
+    {
+        return $this->attributes['id'];
+    }
+
+    public function setId($id)
+    {
+        $this->attributes['id'] = $id;
+    }
+
     public function getRole()
     {
         return $this->attributes['role'];
@@ -80,6 +90,10 @@ class User extends Authenticatable
     public function setPassword($password)
     {
         $this->attributes['password'] = $password;
+    }
+
+    public function comments(){
+        return $this->hasMany(ProductComment::class);
     }
 
 }
