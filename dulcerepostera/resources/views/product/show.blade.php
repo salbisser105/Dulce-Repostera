@@ -11,6 +11,9 @@
                 <div class="card-body">
                     <b>Product name:</b> {{ $data["product"]["name"] }}<br />
                     <b>Product price:</b> {{ $data["product"]["price"] }}<br />
+                    <b>Product category:</b> {{ $data["product"]["category"] }}<br />
+                    <b>Product description:</b> {{ $data["product"]["description"] }}<br />
+                    <b>Product ingredients:</b> {{ $data["product"]["ingredients"] }}<br />
                     @guest
                     @else
                         @if (Auth::user()->getRole()=="admin")
@@ -38,7 +41,6 @@
                             @endif
                         @endguest
                     @endforeach
-
 
                     <br><b>Create Comment:</b>
                     @if($errors->any())

@@ -25,6 +25,15 @@
                     <br><p>
                         Precio: <input type="text" placeholder="Insert price" name="price" value="{{ old('price') }}" />
                     </p>
+                    <br><p>
+                        Categoria: <input type="text" placeholder="Ingresar categorias" name="category" value="{{ old('category') }}" />
+                    </p>
+                    <br><p>
+                        Descripción: <input type="text" placeholder="Ingresar descripción" name="description" value="{{ old('description') }}" />
+                    </p>
+                    <br><p>
+                        Ingredientes: <input type="text" placeholder="Ingresar ingredientes" name="ingredients" value="{{ old('ingredients') }}" />
+                    </p>
                     <br><input type="submit" value="Enviar" />
                 </form>
 
