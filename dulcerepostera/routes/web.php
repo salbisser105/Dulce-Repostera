@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name("home.index");
+Auth::routes();
 Route::get('/index', 'HomeController@index')->name("home.index");
 Route::get('/home', 'HomeController@index')->name('home.index');
 
@@ -31,7 +32,5 @@ Route::get('/post/create', 'PostController@create')->name("post.create");
 Route::post('/post/save', 'PostController@save')->name("post.save");
 Route::get('/post/showpost/{id}', 'PostController@showpost')->name("post.showpost");
 Route::post('/post/delete/{id}', 'PostController@delete')->name("post.delete");
-
-Auth::routes();
 
 
