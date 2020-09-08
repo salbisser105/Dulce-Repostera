@@ -43,9 +43,11 @@ class ProductController extends Controller {
     {
         $request->validate([
             "name" => "required",
-            "price" => "required|numeric|gt:0"
+            "price" => "required|numeric|gt:0",
+            "description" => "required",
+            "ingredients" => "required"
         ]);
-        Product::create($request->only(["name","price"]));
+        Product::create($request->only(["name","price","description","ingredients"]));
         return back()->with('success','Elemento creado satisfactoriamente');
     }
 

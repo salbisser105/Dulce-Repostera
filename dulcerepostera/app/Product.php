@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model {
-
-    protected $fillable = ['name','price'];
+class Product extends Model 
+{
+    //attributes id, name, price, created_at, updated_at
+    protected $fillable = ['name','price','category','description','ingredients'];
 
     public function getId()
     {
@@ -38,8 +39,38 @@ class Product extends Model {
         $this->attributes['price'] = $price;
     }
 
+    public function getCategory()
+    {
+        return $this->attributes['category'];
+    }
+
+    public function setCategory($category)
+    {
+        $this->attributes['category'] = $category;
+    }
+
+    public function getDescription()
+    {
+        return $this->attributes['description'];
+    }
+
+    public function setDescription($description)
+    {
+        $this->attributes['description'] = $description;
+    }
+
+    public function getIngredients()
+    {
+        return $this->attributes['ingredients'];
+    }
+
+    public function setIngredientes($ingredients)
+    {
+        $this->attributes['price'] = $ingredients;
+    }
+
     public function comments(){
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(ProductComment::class);
     }
     
 }
