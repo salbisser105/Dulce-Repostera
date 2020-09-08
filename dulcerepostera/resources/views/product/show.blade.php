@@ -23,9 +23,9 @@
                         @endif
                     @endguest
 
-                    <b>Comments:<br/></b>
+                    <b>Comments:</b>
                     @foreach($data["product"]->comments as $comment)
-                        - {{ $comment->getDescription() }}
+                        <br/>- {{ $comment->getDescription() }}
                         @guest
                         @else
                             @if (Auth::user()->getId()==$comment->getUserId())

@@ -1,20 +1,66 @@
 @extends('layouts.master')
 
-@section("title", $data["title"])
+@section("title",$data["title"])
 
 @section('content')
-<div clas="col-md-6 col-lg-6-md-offset-4 col-lg-offset-3">
-    <div class="panel panel -primary">
-        <div class="panel-heading">Posts</div>
-        <div class="panel-body">
-            <ul class="list-group">
-                <li>{{ $data["post"]->getId() }} - {{ $data["post"]->getName() }} : {{ $data["post"]->getDescription() }}></li>
-                <form method="POST" action='{{ route("post.delete",$data["post"]->getId()) }}'>
-                    @csrf
-                    <button type="submit">Delete</button>
-                </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{$data["post"]->getName()}}</div>
+                <div class="card-body">
+                <b>Name:</b> {{$data["post"]->getName()}}<br/>
+                <b>Description:</b> {{ $data["post"]->getDescription()}}<br/>
+                @guest
+                @else
+                    @if (Auth::user()->getId()==$data["post"]->getId())
+                        <form method="POST" action='{{ route("post.delete",$data["post"]->getId()) }}'>
+                            @csrf
+                            <button type="submit">Delete</button>
+                        </form>
+                    @endif
+                @endguest
+
+                <b>Comments:</b>
+                @foreach($data["post"]->comments as $comment)
+                    <br/>- {{ $comment->getDescription() }}
+                    @guest
+                    @else
+                        @if (Auth::user()->getId()==$comment->getUserId())
+                            <form method="POST" action='{{ route("postcomment.delete",$comment->getId()) }}'>
+                                @csrf
+                                <div>
+                                    <button type="submit">Delete Comment</button>
+                                </div>
+                            </form>
+                        @endif
+                    @endguest
+                @endforeach
+
+                <br><b>Create Comment:</b>
+                @if($errors->any())
+                <ul id="errors">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
+                @guest
+                    To create a comment <a href="{{ route('login') }}">Login</a>
+                @else
+                    <form method="POST" action="{{ route('postcomment.save') }}">
+                        @csrf
+                        <p>
+                            Comment: <input type="text" placeholder="Inset Description" name="description" value="{{ old('description') }}" />
+                        </p>
+                        <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
+                        <input type="hidden" name="post_id" value='{{$data["post"]->getId()}}'>
+                        <input type="submit" value="Create" />
+                    </form>
+                @endguest
+                
             </ul>
         </div>
     </div>
 </div>
-@endsection
+@endsection 
