@@ -10,11 +10,7 @@
                 <div class="card-header">Produtos</div>
                 <div class="card-body">
                     @foreach($data["products"] as $product)
-                        @if($loop->index==0||$loop->index==1)
-                            <br><b><a style="color:black" href="{{ route('product.show',$product->getId()) }}">{{ $product->getId() }}</b> - {{ $product->getName() }} : {{ $product->getPrice() }}</a>
-                        @else
-                            <br><a style="color:black" href="{{ route('product.show',$product->getId()) }}">{{ $product->getId() }} - {{ $product->getName() }} : {{ $product->getPrice() }}</a>
-                        @endif
+                        <br><a style="color:black" href="{{ route('product.show',$product->getId()) }}">{{ $product->getId() }} - {{ $product->getName() }} : {{ $product->getPrice() }}</a>
                     @endforeach
                 </div>
             </div>

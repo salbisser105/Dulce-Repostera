@@ -17,7 +17,6 @@
                     @endforeach
                 </ul>
                 @endif
-
                 <form method="POST" action="{{ route('product.save') }}">
                     @csrf
                     <p>

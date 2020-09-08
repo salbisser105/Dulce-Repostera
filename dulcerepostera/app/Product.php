@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model {
-
+class Product extends Model 
+{
+    //attributes id, name, price, created_at, updated_at
     protected $fillable = ['name','price'];
 
     public function getId()
@@ -39,7 +40,7 @@ class Product extends Model {
     }
 
     public function comments(){
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(ProductComment::class);
     }
     
 }
