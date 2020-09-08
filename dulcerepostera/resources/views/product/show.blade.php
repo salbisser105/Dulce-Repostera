@@ -56,7 +56,7 @@
                         <form method="POST" action="{{ route('productcomment.save') }}">
                             @csrf
                             <br><p>
-                                Comment: <input type="text" placeholder="Inset Description" name="description" value="{{ old('description') }}" />
+                                Comment: <input type="text" placeholder="Insert Description" name="description" value="{{ old('description') }}" />
                             </p>
                             <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                             <input type="hidden" name="product_id" value='{{$data["product"]->getId()}}'>

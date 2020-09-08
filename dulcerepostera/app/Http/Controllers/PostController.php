@@ -9,7 +9,6 @@ class PostController extends Controller
 {
 
     public function show()
-
     {
         $data = [];                
         $data["title"] = "Lista de posts";
@@ -24,6 +23,7 @@ class PostController extends Controller
         $data["posts"] = Post::all();
         return view('post.create')->with("data", $data);
     }
+
     public function save(Request $request)
     {
         $request->validate([
@@ -35,6 +35,7 @@ class PostController extends Controller
             Post::create($request->only(["name","description"]));
             return back()->with('success','Item created successfully!');
     }
+
     public function showpost($id){
         $data = [];
         $post = Post::findOrFail($id);                
@@ -42,6 +43,7 @@ class PostController extends Controller
         $data["post"] = $post;
       return view('post.showpost')->with("data",$data);
     }
+    
     public function delete($id){
         $post= Post::find($id);
         $post->delete();

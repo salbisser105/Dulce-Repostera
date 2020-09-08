@@ -20,10 +20,10 @@
                 <form method="POST" action="{{ route('product.save') }}">
                     @csrf
                     <p>
-                        Nombre: <input type="text" placeholder="Ingresar nombre" name="name" value="{{ old('name') }}" />
+                        Nombre: <input type="text" placeholder="Insert name" name="name" value="{{ old('name') }}" />
                     </p>
                     <br><p>
-                        Precio: <input type="text" placeholder="Ingresar precio" name="price" value="{{ old('price') }}" />
+                        Precio: <input type="text" placeholder="Insert price" name="price" value="{{ old('price') }}" />
                     </p>
                     <br><p>
                         Categoria: <input type="text" placeholder="Ingresar categorias" name="category" value="{{ old('category') }}" />

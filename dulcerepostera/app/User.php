@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'user' ,'name', 'email', 'password',
     ];
 
     /**
@@ -39,6 +39,61 @@ class User extends Authenticatable
 
     public function getId()
     {
-        
+        return $this->attributes['id'];
     }
+
+    public function setId($id)
+    {
+        $this->attributes['id'] = $id;
+    }
+
+    public function getRole()
+    {
+        return $this->attributes['role'];
+    }
+
+    public function getName()
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName($name)
+    {
+        $this->attributes['name'] = $name;
+    }
+
+    public function getUser()
+    {
+        return $this->attributes['user'];
+    }
+
+    public function setUser($user)
+    {
+        $this->attributes['user'] = $user;
+    }
+
+    public function getEmail()
+    {
+        return $this->attributes['email'];
+    }
+
+    public function setEmail($email)
+    {
+        $this->attributes['email'] = $email;
+    }
+
+    public function getPassword()
+    {
+        return $this->attributes['password'];
+    }
+
+    public function setPassword($password)
+    {
+        $this->attributes['password'] = $password;
+    }
+
+    public function comments(){
+        return $this->hasMany(ProductComment::class);
+    }
+
 }
