@@ -21,7 +21,7 @@
                     <form method="POST" action="{{ route('post.save') }}">
                         @csrf
                         <input type="text" placeholder="Enter name" name="name" value="{{ old('name') }}" />
-                        <input type="text" placeholder="description" name="description" value="{{ old('description') }}" />
+                        <input type="text" placeholder="Description" name="description" value="{{ old('description') }}" />
                         <input type="submit" value="Send" />
                     </form>
                 </div>

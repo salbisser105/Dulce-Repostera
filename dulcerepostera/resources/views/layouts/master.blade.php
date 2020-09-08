@@ -19,7 +19,7 @@
                    Posts
                 </a>
                 <a class="navbar-brand" href="{{ route('product.list') }}">
-                    Productos
+                    Products
                 </a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
@@ -33,11 +33,11 @@
                         @else
                         @if (Auth::user()->getRole()=="admin")
                             <li><a class="navbar-brand" href="{{ route('product.create') }}">
-                                Crear Producto
+                                Create Product
                             </a></li>
                         @endif
                         <a class="navbar-brand" href="{{ route('post.create') }}">
-                            Create posts
+                            Create Post
                         </a>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
