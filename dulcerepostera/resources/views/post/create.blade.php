@@ -20,10 +20,12 @@
                     @endif
                     <form method="POST" action="{{ route('post.save') }}">
                         @csrf
+
                         <input type="text" placeholder="@lang('messages.postName')" name="name" value="{{ old('name') }}" />
                         <input type="text" placeholder="@lang('messages.postDescription')" name="description" value="{{ old('description') }}" />
                         <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                         <input type="submit" value="@lang('messages.save')" />
+
                     </form>
                 </div>
             </div>

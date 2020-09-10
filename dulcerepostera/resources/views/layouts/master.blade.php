@@ -19,6 +19,7 @@
                     @lang('messages.posts')
                 </a>
                 <a class="navbar-brand" href="{{ route('product.list') }}">
+
                     @lang('messages.products')
                 </a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -38,6 +39,7 @@
                         @endif
                         <a class="navbar-brand" href="{{ route('post.create') }}">
                             @lang('messages.createPost')
+
                         </a>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

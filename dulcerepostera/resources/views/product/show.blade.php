@@ -11,6 +11,9 @@
                 <div class="card-body">
                     <b>Product name:</b> {{ $data["product"]["name"] }}<br />
                     <b>Product price:</b> {{ $data["product"]["price"] }}<br />
+                    <b>Product category:</b> {{ $data["product"]["category"] }}<br />
+                    <b>Product description:</b> {{ $data["product"]["description"] }}<br />
+                    <b>Product ingredients:</b> {{ $data["product"]["ingredients"] }}<br />
                     @guest
                     @else
                         @if (Auth::user()->getRole()=="admin")
@@ -39,7 +42,6 @@
                         @endguest
                     @endforeach
 
-
                     <br><b>Create Comment:</b>
                     @if($errors->any())
                     <ul id="errors">
@@ -54,7 +56,7 @@
                         <form method="POST" action="{{ route('productcomment.save') }}">
                             @csrf
                             <br><p>
-                                Comment: <input type="text" placeholder="Inset Description" name="description" value="{{ old('description') }}" />
+                                Comment: <input type="text" placeholder="Insert Description" name="description" value="{{ old('description') }}" />
                             </p>
                             <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                             <input type="hidden" name="product_id" value='{{$data["product"]->getId()}}'>
