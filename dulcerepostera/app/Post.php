@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    //attributes id, name, price, created_at, updated_at, user_id
-    protected $fillable = ['name', 'description', "user_id"];
+    //attributes id, name, price, created_at, updated_at
+    protected $fillable = ['name', 'description'];
 
     public function getId()
     {
@@ -40,22 +40,8 @@ class Post extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getUserId()
-    {
-        return $this->attributes['user_id'];
-    }
-
-    public function setUserId($uId)
-    {
-        $this->attributes['user_id'] = $uId;
-    }
-
     public function comments(){
-        return $this->hasMany(PostComment::class);
-    }
-
-    public function user(){
-        return $this->belongsTo(User::class);
+        return $this->hasMany(Comment::class);
     }
 
 }

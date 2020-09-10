@@ -16,30 +16,28 @@
                     Dulce Repostera
                 </a>
                 <a class="navbar-brand" href="{{ route('post.show') }}">
-                    @lang('messages.posts')
+                   Posts
                 </a>
                 <a class="navbar-brand" href="{{ route('product.list') }}">
-
-                    @lang('messages.products')
+                    Products
                 </a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         @guest
                             <li class="nav-item mx-0 mx-lg-1"><a class="" href="{{ route('login') }}">
-                                @lang('messages.login')
+                                {{ __('Login') }}
                             </a></li>
                             <li class="nav-item mx-0 mx-lg-1"><a class="" href="{{ route('register') }}">
-                                @lang('messages.register')
+                                {{ __('Register') }}
                             </a></li>
                         @else
                         @if (Auth::user()->getRole()=="admin")
                             <li><a class="navbar-brand" href="{{ route('product.create') }}">
-                                @lang('messages.createProduct')
+                                Create Product
                             </a></li>
                         @endif
                         <a class="navbar-brand" href="{{ route('post.create') }}">
-                            @lang('messages.createPost')
-
+                            Create Post
                         </a>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -50,8 +48,9 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        @lang('messages.logout')
+                                        {{ __('Logout') }}
                                     </a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

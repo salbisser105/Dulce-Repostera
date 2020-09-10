@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 
-class ProductController extends Controller 
-{
+class ProductController extends Controller {
 
     public function show($id)
     {
@@ -58,4 +57,5 @@ class ProductController extends Controller
         Product::create($request->only(["name","price","category","description","product_image","ingredients"]));
         return back()->with('success','Elemento creado satisfactoriamente');
     }
+
 }
