@@ -17,10 +17,13 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->text('name');
             $table->float('price');
+            $table->text('category');
+            $table->text('description');
+            $table->text('image')->nullable();
+            $table->text('ingredients');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
