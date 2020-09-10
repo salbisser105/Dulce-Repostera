@@ -3,13 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Product;
+use App\Post;
 
-class ProductComment extends Model
+class PostComment extends Model
 {
     
-    //attributes id, description, user_id, product_id, created_at, updated_at
-    protected $fillable = ['description', 'product_id', 'user_id'];
+    //attributes id, description, user_id, post_id, created_at, updated_at
+    protected $fillable = ['description', 'post_id', 'user_id'];
 
     public function getId()
     {
@@ -31,14 +31,14 @@ class ProductComment extends Model
         $this->attributes['description'] = $desc;
     }
 
-    public function getProductId()
+    public function getPostId()
     {
-        return $this->attributes['product_id'];
+        return $this->attributes['post_id'];
     }
 
-    public function setProductId($pId)
+    public function setPostId($pId)
     {
-        $this->attributes['product_id'] = $pId;
+        $this->attributes['post_id'] = $pId;
     }
 
     public function getUserId()
@@ -51,8 +51,8 @@ class ProductComment extends Model
         $this->attributes['user_id'] = $uId;
     }
 
-    public function product(){
-        return $this->belongsTo(Product::class);
+    public function post(){
+        return $this->belongsTo(Post::class);
     }
 
     public function user(){
