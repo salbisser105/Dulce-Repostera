@@ -45,7 +45,7 @@ return [
     'view' => 'Visualizar',
     'delete' => 'Eliminar',
     'category' => 'Categoría',
-
+    //test
 ];
 
 ?>
