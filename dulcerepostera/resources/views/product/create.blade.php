@@ -29,8 +29,14 @@
                         Categoria: <input type="text" placeholder="Ingresar categorias" name="category" value="{{ old('category') }}" />
                     </p>
                     <br><p>
-                        Descripción: <input type="text" placeholder="Ingresar descripción" name="description" value="{{ old('description') }}" />
+                        Descripción:<br>
+                         <textarea name1="text" cols="40" rows="5" placeholder="Ingresar descripción" name="description" value="{{ old('description') }}"></textarea>
                     </p>
+                    <div class="form-group">
+                        <label>Image:</label>
+                        <input type="file" name="product_image" />
+                    </div>
+                    
                     <br><p>
                         Ingredientes: <input type="text" placeholder="Ingresar ingredientes" name="ingredients" value="{{ old('ingredients') }}" />
                     </p>
