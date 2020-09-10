@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name("home.index");
+Auth::routes();
 Route::get('/index', 'HomeController@index')->name("home.index");
 Route::get('/home', 'HomeController@index')->name('home.index');
-Auth::routes();
 
 Route::get('/product/show/{id}', 'ProductController@show')->name("product.show");
 Route::get('/product/create', 'ProductController@create')->name("product.create");
@@ -26,9 +26,6 @@ Route::post('/product/delete/{id}', 'ProductController@delete')->name("product.d
 
 Route::post('/productcomment/delete/{id}', 'ProductCommentController@delete')->name("productcomment.delete");
 Route::post('/productcomment/save', 'ProductCommentController@save')->name("productcomment.save");
-
-Route::post('/postcomment/delete/{id}', 'PostCommentController@delete')->name("postcomment.delete");
-Route::post('/postcomment/save', 'PostCommentController@save')->name("postcomment.save");
 
 Route::get('/post/show', 'PostController@show')->name("post.show");
 Route::get('/post/create', 'PostController@create')->name("post.create");

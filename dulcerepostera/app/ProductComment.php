@@ -8,8 +8,8 @@ use App\Product;
 class ProductComment extends Model
 {
     
-    //attributes id, description, user_id, product_id, created_at, updated_at
-    protected $fillable = ['description', 'product_id', 'user_id'];
+    //attributes id, description, user_id, post_id, product_id, created_at, updated_at
+    protected $fillable = ['description', 'post_id', 'product_id', 'user_id'];
 
     public function getId()
     {
@@ -39,6 +39,16 @@ class ProductComment extends Model
     public function setProductId($pId)
     {
         $this->attributes['product_id'] = $pId;
+    }
+
+    public function getPostId()
+    {
+        return $this->attributes['postt_id'];
+    }
+
+    public function setPostId($pId)
+    {
+        $this->attributes['post_id'] = $pId;
     }
 
     public function getUserId()
