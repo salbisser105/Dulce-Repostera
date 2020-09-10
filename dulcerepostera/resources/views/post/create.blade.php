@@ -9,7 +9,7 @@
         <div class="col-md-8">
             @include('util.message')
             <div class="card">
-                <div class="card-header">Create post</div>
+                <div class="card-header"> @lang('messages.createPost')</div>
                 <div class="card-body">
                     @if($errors->any())
                     <ul id="errors">
@@ -20,10 +20,10 @@
                     @endif
                     <form method="POST" action="{{ route('post.save') }}">
                         @csrf
-                        <input type="text" placeholder="Enter name" name="name" value="{{ old('name') }}" />
-                        <input type="text" placeholder="Description" name="description" value="{{ old('description') }}" />
+                        <input type="text" placeholder="@lang('messages.postName')" name="name" value="{{ old('name') }}" />
+                        <input type="text" placeholder="@lang('messages.postDescription')" name="description" value="{{ old('description') }}" />
                         <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
-                        <input type="submit" value="Send" />
+                        <input type="submit" value="@lang('messages.save')" />
                     </form>
                 </div>
             </div>
