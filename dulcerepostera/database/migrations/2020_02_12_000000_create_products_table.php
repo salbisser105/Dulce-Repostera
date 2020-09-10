@@ -1,23 +1,11 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-<<<<<<< HEAD
-
-use Illuminate\Database\Schema\Blueprint;
-
-use Illuminate\Support\Facades\Schema;
-
-class CreateProductsTable extends Migration
-
-{
-
-=======
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
->>>>>>> master
     /**
      * Run the migrations.
      *
@@ -29,13 +17,13 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->text('name');
             $table->float('price');
+            $table->text('category');
+            $table->text('description');
+            $table->text('image')->nullable();
+            $table->text('ingredients');
             $table->timestamps();
         });
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     /**
      * Reverse the migrations.
      *

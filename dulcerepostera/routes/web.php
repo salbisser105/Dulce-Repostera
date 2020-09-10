@@ -33,4 +33,3 @@ Route::post('/post/save', 'PostController@save')->name("post.save");
 Route::get('/post/showpost/{id}', 'PostController@showpost')->name("post.showpost");
 Route::post('/post/delete/{id}', 'PostController@delete')->name("post.delete");
 
-
