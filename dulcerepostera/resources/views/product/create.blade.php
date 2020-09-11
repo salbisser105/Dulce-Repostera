@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
                 @endif
-                <form method="POST" action="{{ route('product.save') }}">
+                <form method="POST" action="{{ route('product.save') }}" enctype="multipart/form-data">
                     @csrf
                     <p>
                         Nombre: <input type="text" placeholder="Insert name" name="name" value="{{ old('name') }}" />
@@ -30,11 +30,11 @@
                     </p>
                     <br><p>
                         Descripción:<br>
-                         <textarea name1="text" cols="40" rows="5" placeholder="Ingresar descripción" name="description" value="{{ old('description') }}"></textarea>
+                         <textarea name="description" cols="40" rows="5" placeholder="Ingresar descripción" value="{{ old('description') }}"></textarea>
                     </p>
                     <div class="form-group">
                         <label>Image:</label>
-                        <input type="file" name="product_image" />
+                        <input type="file" name="product_image" value="{{ old('image') }}"/>
                     </div>
                     
                     <br><p>

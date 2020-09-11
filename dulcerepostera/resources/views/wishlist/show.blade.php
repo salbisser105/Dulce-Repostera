@@ -15,11 +15,6 @@
                     <b>Product category:</b> {{ $data["product"]["category"] }}<br />
                     <b>Product description:</b> {{ $data["product"]["description"] }}<br />
                     <b>Product ingredients:</b> {{ $data["product"]["ingredients"] }}<br />
-                    <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
-                        <div>
-                            <button type="submit">Add to WishList</button>
-                        </div>
-                    </form>
                     @guest
                     @else
                         @if (Auth::user()->getRole()=="admin")
