@@ -9,32 +9,25 @@
             <div class="card">
                 <div class="card-header">{{ $data["product"]["name"] }}</div>
                 <div class="card-body">
-
                     <img width="300" height="200" src='/img/product/{{ $data["product"]["image"] }}' class="list-picture"><br />
-                    <b>@lang('messages.productName'):</b> {{ $data["product"]["name"] }}<br />
-                    <b>@lang('messages.productPrice'):</b> {{ $data["product"]["price"] }}<br />
-                    <b>@lang('messages.productCategory'):</b> {{ $data["product"]["category"] }}<br />
-                    <b>@lang('messages.productDescription'):</b> {{ $data["product"]["description"] }}<br />
-                    <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />
-                     <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
-                        <div>
-                            <button type="submit">Add to WishList</button>
-                        </div>
-                    </form>
-
+                    <b>Product name:</b> {{ $data["product"]["name"] }}<br />
+                    <b>Product price:</b> {{ $data["product"]["price"] }}<br />
+                    <b>Product category:</b> {{ $data["product"]["category"] }}<br />
+                    <b>Product description:</b> {{ $data["product"]["description"] }}<br />
+                    <b>Product ingredients:</b> {{ $data["product"]["ingredients"] }}<br />
                     @guest
                     @else
                         @if (Auth::user()->getRole()=="admin")
                             <form method="POST" action='{{ route("product.delete",$data["product"]->getId()) }}'>
                                 @csrf
                                 <div>
-                                    <button type="submit">@lang('messages.delete')</button>
+                                    <button type="submit">Delete Product</button>
                                 </div>
                             </form>
                         @endif
                     @endguest
 
-                    <b>@lang('messages.comments'):</b>
+                    <b>Comments:</b>
                     @foreach($data["product"]->comments as $comment)
                         <br/>- {{ $comment->getDescription() }}
                         @guest
@@ -43,14 +36,14 @@
                                 <form method="POST" action='{{ route("productcomment.delete",$comment->getId()) }}'>
                                     @csrf
                                     <div>
-                                        <button type="submit">@lang('messages.delete')</button>
+                                        <button type="submit">Delete Comment</button>
                                     </div>
                                 </form>
                             @endif
                         @endguest
                     @endforeach
 
-                    <br><b>@lang('messages.createComment'):</b>
+                    <br><b>Create Comment:</b>
                     @if($errors->any())
                     <ul id="errors">
                         @foreach($errors->all() as $error)
@@ -59,16 +52,16 @@
                     </ul>
                     @endif
                     @guest
-                        @lang('messages.guestComment') <a href="{{ route('login') }}">@lang('messages.login')</a>
+                        To create a comment <a href="{{ route('login') }}">Login</a>
                     @else
                         <form method="POST" action="{{ route('productcomment.save') }}">
                             @csrf
-                            <p>
-                                @lang('messages.commentDescription'): <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
+                            <br><p>
+                                Comment: <input type="text" placeholder="Insert Description" name="description" value="{{ old('description') }}" />
                             </p>
                             <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                             <input type="hidden" name="product_id" value='{{$data["product"]->getId()}}'>
-                            <input type="submit" value="@lang('messages.save')" />
+                            <input type="submit" value="Create" />
                         </form>
                     @endguest
                 </div>

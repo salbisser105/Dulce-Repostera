@@ -42,20 +42,27 @@ class ProductController extends Controller
 
     public function save(Request $request)
     {
+        $name = "";
         if($request->hasFile('product_image')){
             $file = $request->file('product_image');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/',$name);
+            $file->move(public_path().'/img/product/',$name);
         }
         $request->validate([
             "name" => "required",
             "price" => "required|numeric|gt:0",
             "category" => "required",
             "description" => "required",
-            "product_image" => "required",
             "ingredients" => "required"
         ]);
-        Product::create($request->only(["name","price","category","description","product_image","ingredients"]));
+        Product::create([
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'category' => $request->input('category'),
+            'description' => $request->input('description'),
+            'image' => $name,
+            'ingredients' => $request->input('ingredients')
+        ]);
         return back()->with('success','Elemento creado satisfactoriamente');
     }
 }

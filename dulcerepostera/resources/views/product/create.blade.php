@@ -17,7 +17,7 @@
                     @endforeach
                 </ul>
                 @endif
-                <form method="POST" action="{{ route('product.save') }}">
+                <form method="POST" action="{{ route('product.save') }}" enctype="multipart/form-data">
                     @csrf
                     <p>
                         @lang('messages.productName'): <input type="text" placeholder="@lang('messages.productName')" name="name" value="{{ old('name') }}" />
@@ -29,12 +29,14 @@
                         @lang('messages.productCategory'): <input type="text" placeholder="@lang('messages.productCategory')" name="category" value="{{ old('category') }}" />
                     </p>
                     <br><p>
-                        @lang('messages.productDescription') <br>
-                         <textarea name1="text" cols="40" rows="5" placeholder="Ingresar descripción" name="description" value="{{ old('description') }}"></textarea>
+
+                        Descripción:<br>
+                         <textarea name="description" cols="40" rows="5" placeholder="Ingresar descripción" value="{{ old('description') }}"></textarea>
                     </p>
                     <div class="form-group">
-                        <label>@lang('messages.image'):</label>
-                        <input type="file" name="product_image" />
+                        <label>Image:</label>
+                        <input type="file" name="product_image" value="{{ old('image') }}"/>
+
                     </div>
                     
                     <br><p>
