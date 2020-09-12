@@ -23,9 +23,11 @@ return [
     'createProduct' => 'Crear Producto',
     'listProduct' => 'Lista de Productos',
     'productName' => 'Nombre del Producto',
-    'productId' => 'ID del Producto',
+    'productCategory' => 'Categorias del Producto',
     'productPrice' => 'Precio del Producto',
     'productDescription' => 'Descripción del Producto',
+    'ingredients' => 'Ingredientes',
+    'image' => 'Imagen',
     'createPost' => 'Crear Post',
     'listPost' => 'Lista de Posts',
     'postName' => 'Nombre del Post',
@@ -38,14 +40,12 @@ return [
     'add_name' => 'Añadir Nombre',
     'add_description' => 'Añadir Descripción',
     'submit' => 'Agregar',
-    'created_at' => 'Creado en',
-    'updated_at' => 'Actualizado en',
     'edit' => 'Editar',
     'save' => 'Guardar',
     'view' => 'Visualizar',
     'delete' => 'Eliminar',
     'category' => 'Categoría',
-
+    //test
 ];
 
 ?>

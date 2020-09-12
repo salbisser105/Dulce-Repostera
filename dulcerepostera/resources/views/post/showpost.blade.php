@@ -51,11 +51,11 @@
                     <form method="POST" action="{{ route('postcomment.save') }}">
                         @csrf
                         <p>
-                            Comment: <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
+                            @lang('messages.commentDescription'): <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
                         </p>
                         <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                         <input type="hidden" name="post_id" value='{{$data["post"]->getId()}}'>
-                        <input type="submit" value="Create" />
+                        <input type="submit" value="@lang('messages.save')" />
                     </form>
                 @endguest
                 
