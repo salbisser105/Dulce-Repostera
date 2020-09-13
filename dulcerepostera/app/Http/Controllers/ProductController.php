@@ -21,15 +21,22 @@ class ProductController extends Controller
     {
         $data = [];
         $data["title"] = "Create product";
-        $data["products"] = Product::all();
         return view('product.create')->with("data",$data);
     }
 
     public function list()
     {
         $data = [];
-        $data["title"] = "Create product";
-        $data["products"] = Product::all();
+        $data["title"] = "List product";
+        $data["products"] = Product::with("comments")->get();
+        return view('product.list')->with("data",$data);
+    }
+
+    public function list_rating($rating)
+    {
+        $data = [];
+        $data["title"] = "List product";
+        $data["products"] = Product::where('rating','>=',$rating)->get();
         return view('product.list')->with("data",$data);
     }
 

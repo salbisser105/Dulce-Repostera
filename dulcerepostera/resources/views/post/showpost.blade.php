@@ -13,7 +13,7 @@
                 <b>@lang('messages.postDescription'):</b> {{ $data["post"]->getDescription()}}<br/>
                 @guest
                 @else
-                    @if (Auth::user()->getId()==$data["post"]->getId())
+                    @if (Auth::user()->getId()==$data["post"]->getUserId())
                         <form method="POST" action='{{ route("post.delete",$data["post"]->getId()) }}'>
                             @csrf
                             <button type="submit">@lang('messages.delete')</button>
