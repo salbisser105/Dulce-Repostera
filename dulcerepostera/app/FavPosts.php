@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use App\Product;
 use App\User;
 
-class WishList extends Model
+class FavPosts extends Model
 {
     
     //attributes id, description, user_id, post_id, created_at, updated_at
-    protected $fillable = ['product_id', 'user_id'];
-    public $table = "wishlist";
+    protected $fillable = ['post_id', 'user_id'];
+    public $table = "favposts";
 
     public function getId()
     {
@@ -23,14 +23,14 @@ class WishList extends Model
         $this->attributes['id'] = $id;
     }
 
-    public function getProductId()
+    public function getPostId()
     {
-        return $this->attributes['product_id'];
+        return $this->attributes['post_id'];
     }
 
-    public function setProductId($pId)
+    public function setPostId($pId)
     {
-        $this->attributes['product_id'] = $pId;
+        $this->attributes['post_id'] = $pId;
     }
 
     public function getUserId()
@@ -43,8 +43,8 @@ class WishList extends Model
         $this->attributes['user_id'] = $uId;
     }
 
-    public function product(){
-        return $this->belongsTo(Product::class);
+    public function post(){
+        return $this->belongsTo(Post::class);
     }
 
     public function user(){

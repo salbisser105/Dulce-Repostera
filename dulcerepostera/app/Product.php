@@ -89,17 +89,6 @@ class Product extends Model
         $this->attributes['image'] = $image;
     }
 
-    public static function validate($request)
-    {
-        $request->validate([
-            "name" => "required",
-            "price" => "required|numeric|gt:0",
-            "category" => "required",
-            "description" => "required",
-            "ingredients" => "required"
-        ]);
-    }
-
     public function comments(){
         return $this->hasMany(ProductComment::class);
     }
