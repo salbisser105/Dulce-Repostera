@@ -26,6 +26,7 @@
                     </form>
                     @guest
                     @else
+
                         @if (Auth::user()->getRole()=="admin")
                             <form method="POST" action='{{ route("product.delete",$data["product"]->getId()) }}'>
                                 @csrf
@@ -38,6 +39,7 @@
 
                     <b>@lang('messages.comments'):</b>
                     @foreach($data["product"]->comments as $comment)
+
                         <br/>- {{ $comment->getDescription() }} : Rating: {{ $comment->getRating() }}
                         @guest
                         @else
@@ -56,11 +58,12 @@
                     @if($errors->any())
                     <ul id="errors">
                         @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                        <li>{{ $error }}</li>
                         @endforeach
                     </ul>
                     @endif
                     @guest
+
                         @lang('messages.guestComment') <a href="{{ route('login') }}">@lang('messages.login')</a>
                     @else
                         <form method="POST" action="{{ route('productcomment.save') }}">
@@ -87,5 +90,16 @@
             </div>
         </div>
     </div>
+    <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
+        @csrf
+        <div class="form-row">
+            <div class="col-md-12">Qtt:
+                <input type="number" class="form-control" name="quantity" min="0" style="width: 80px;">
+            </div>
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-outline-success">Add</button>
+            </div>
+        </div>
+    </form>
 </div>
 @endsection
