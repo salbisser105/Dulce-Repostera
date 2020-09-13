@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>@yield('title','Home Page')</title>
@@ -8,9 +9,10 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link href="{{ asset('css/customStyle.css') }}" rel="stylesheet">
 </head>
-<body> 
+
+<body>
     <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="mainNav">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home.index') }}">
                     Dulce Repostera
@@ -22,18 +24,23 @@
 
                     @lang('messages.products')
                 </a>
+
+                <li class="nav-item mx-0 mx-lg-1"><a  href="{{ route('product.cart') }}">Cart</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a  href="{{ route('product.removeCart') }}">Remove Cart</a></li>
+ 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
+
                         @guest
-                            <li class="nav-item mx-0 mx-lg-1"><a class="" href="{{ route('login') }}">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="" href="{{ route('login') }}">
                                 @lang('messages.login')
                             </a></li>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="" href="{{ route('register') }}">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="" href="{{ route('register') }}">
                                 @lang('messages.register')
                             </a></li>
                         @else
                         @if (Auth::user()->getRole()=="admin")
-                            <li><a class="navbar-brand" href="{{ route('product.create') }}">
+                        <li><a class="navbar-brand" href="{{ route('product.create') }}">
                                 @lang('messages.createProduct')
                             </a></li>
                         @endif
@@ -41,23 +48,24 @@
                             @lang('messages.createPost')
 
                         </a>
-                        <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        @lang('messages.logout')
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                    @lang('messages.logout')
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
+
                     </ul>
                 </div>
             </div>
@@ -77,4 +85,3 @@
 
 
 </html>
-
