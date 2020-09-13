@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @include('util.message')
             <div class="card">
                 <div class="card-header">{{ $data["product"]["name"] }}</div>
                 <div class="card-body">
@@ -18,7 +19,7 @@
                     <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />
                     <b>Rating:</b> {{ $data["product"]["rating"] }}<br />
                     <!-- Para que de: quitar el POST_METHOD por ahora, ya cuando exista el wishlist no va a existir ningun problema -->
-                    <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
+                    <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>                  
                         <div>
                             <button type="submit">Add to WishList</button>
                         </div>
