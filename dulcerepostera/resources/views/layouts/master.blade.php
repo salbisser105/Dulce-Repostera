@@ -22,6 +22,10 @@
 
                     @lang('messages.products')
                 </a>
+                <a class="navbar-brand" href="{{ route('wishlist.show') }}">
+
+                    Lista de deseos
+                </a>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         @guest

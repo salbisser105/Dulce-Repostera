@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @include('util.message')
             <div class="card">
                 <div class="card-header">{{ $data["product"]["name"] }}</div>
                 <div class="card-body">
@@ -15,7 +16,8 @@
                     <b>Product category:</b> {{ $data["product"]["category"] }}<br />
                     <b>Product description:</b> {{ $data["product"]["description"] }}<br />
                     <b>Product ingredients:</b> {{ $data["product"]["ingredients"] }}<br />
-                    <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
+                    <form method="POST" action=" {{ route('wishlist.save',$data['product']->getId()) }}">
+                        @csrf
                         <div>
                             <button type="submit">Add to WishList</button>
                         </div>
