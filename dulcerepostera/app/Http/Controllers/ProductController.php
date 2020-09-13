@@ -23,16 +23,26 @@ class ProductController extends Controller
     {
         $data = [];
         $data["title"] = "Create product";
-        $data["products"] = Product::all();
-        return view('product.create')->with("data", $data);
+        return view('product.create')->with("data",$data);
+
     }
 
     public function list()
     {
         $data = [];
-        $data["title"] = "Create product";
-        $data["products"] = Product::all();
-        return view('product.list')->with("data", $data);
+
+        $data["title"] = "List product";
+        $data["products"] = Product::with("comments")->get();
+        return view('product.list')->with("data",$data);
+    }
+
+    public function list_rating($rating)
+    {
+        $data = [];
+        $data["title"] = "List product";
+        $data["products"] = Product::where('rating','>=',$rating)->get();
+        return view('product.list')->with("data",$data);
+
     }
 
     public function delete($id)
@@ -44,21 +54,30 @@ class ProductController extends Controller
 
     public function save(Request $request)
     {
-        if ($request->hasFile('product_image')) {
+
+        $name = "";
+        if($request->hasFile('product_image')){
             $file = $request->file('product_image');
-            $name = time() . $file->getClientOriginalName();
-            $file->move(public_path() . '/img/', $name);
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img/product/',$name);
         }
         $request->validate([
             "name" => "required",
             "price" => "required|numeric|gt:0",
             "category" => "required",
             "description" => "required",
-            "product_image" => "required",
             "ingredients" => "required"
         ]);
-        Product::create($request->only(["name", "price", "category", "description", "product_image", "ingredients"]));
-        return back()->with('success', 'Elemento creado satisfactoriamente');
+
+        Product::create([
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'category' => $request->input('category'),
+            'description' => $request->input('description'),
+            'image' => $name,
+            'ingredients' => $request->input('ingredients')
+        ]);
+        return back()->with('success','Elemento creado satisfactoriamente');
     }
     public function addToCart($id, Request $request)
     {

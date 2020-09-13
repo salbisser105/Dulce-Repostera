@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model 
 {
     //attributes id, name, price, created_at, updated_at
-    protected $fillable = ['name','price','category','description','ingredients','image'];
+    protected $fillable = ['name','price','category','description','image','ingredients'];
 
     public function getId()
     {
@@ -17,6 +17,16 @@ class Product extends Model
     public function setId($id)
     {
         $this->attributes['id'] = $id;
+    }
+
+    public function getRating()
+    {
+        return $this->attributes['rating'];
+    }
+
+    public function setRating($rating)
+    {
+        $this->attributes['rating'] = $rating;
     }
 
     public function getName()
@@ -64,7 +74,7 @@ class Product extends Model
         return $this->attributes['ingredients'];
     }
 
-    public function setIngredientes($ingredients)
+    public function setIngredients($ingredients)
     {
         $this->attributes['price'] = $ingredients;
     }

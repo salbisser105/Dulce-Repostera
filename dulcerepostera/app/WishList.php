@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
+use App\User;
 
-class ProductComment extends Model
+class WishList extends Model
 {
     
-    //attributes id, description, user_id, product_id, created_at, updated_at
-    protected $fillable = ['description', 'product_id', 'user_id','rating'];
+    //attributes id, description, user_id, post_id, created_at, updated_at
+    protected $fillable = ['product_id', 'user_id'];
+    public $table = "wishlist";
 
     public function getId()
     {
@@ -19,16 +21,6 @@ class ProductComment extends Model
     public function setId($id)
     {
         $this->attributes['id'] = $id;
-    }
-
-    public function getDescription()
-    {
-        return $this->attributes['description'];
-    }
-
-    public function setDescription($desc)
-    {
-        $this->attributes['description'] = $desc;
     }
 
     public function getProductId()
@@ -49,16 +41,6 @@ class ProductComment extends Model
     public function setUserId($uId)
     {
         $this->attributes['user_id'] = $uId;
-    }
-
-    public function getRating()
-    {
-        return $this->attributes['rating'];
-    }
-
-    public function setRating($id)
-    {
-        $this->attributes['rating'] = $id;
     }
 
     public function product(){

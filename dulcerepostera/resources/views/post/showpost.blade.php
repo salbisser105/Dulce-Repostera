@@ -11,9 +11,15 @@
                 <div class="card-body">
                 <b>@lang('messages.postName'):</b> {{$data["post"]->getName()}}<br/>
                 <b>@lang('messages.postDescription'):</b> {{ $data["post"]->getDescription()}}<br/>
+                <form method="POST" action=" {{ route('favposts.save',$data['post']->getId()) }}">
+                        @csrf
+                        <div>
+                            <button type="submit">Add to favorites</button>
+                        </div>
+                    </form>
                 @guest
                 @else
-                    @if (Auth::user()->getId()==$data["post"]->getId())
+                    @if (Auth::user()->getId()==$data["post"]->getUserId())
                         <form method="POST" action='{{ route("post.delete",$data["post"]->getId()) }}'>
                             @csrf
                             <button type="submit">@lang('messages.delete')</button>
@@ -51,11 +57,11 @@
                     <form method="POST" action="{{ route('postcomment.save') }}">
                         @csrf
                         <p>
-                            Comment: <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
+                            @lang('messages.commentDescription'): <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
                         </p>
                         <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                         <input type="hidden" name="post_id" value='{{$data["post"]->getId()}}'>
-                        <input type="submit" value="Create" />
+                        <input type="submit" value="@lang('messages.save')" />
                     </form>
                 @endguest
                 
