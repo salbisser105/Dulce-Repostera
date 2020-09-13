@@ -23,9 +23,11 @@ return [
     'createProduct' => 'Create Product',
     'listProduct' => 'Product List',
     'productName' => 'Product\'s Name',
-    'productId' => 'Product\'s ID',
+    'productCategory' => 'Product\'s Category',
     'productPrice' => 'Product\'s Price',
     'productDescription' => 'Product\'s Description',
+    'ingredients' => 'Ingredients',
+    'image' => 'Image',
     'createPost' => 'Create Post',
     'listPost' => 'Post List',
     'postName' => 'Post\'s Name',
@@ -38,14 +40,12 @@ return [
     'add_name' => 'Add Name',
     'add_description' => 'Add Description',
     'submit' => 'Submit',
-    'created_at' => 'Created at',
-    'updated_at' => 'Updated at',
     'edit' => 'Edit',
     'save' => 'Save',
     'view' => 'View',
     'delete' => 'Delete',
     'category' => 'Category',
- 
+    //test
 ];
 
 ?>
