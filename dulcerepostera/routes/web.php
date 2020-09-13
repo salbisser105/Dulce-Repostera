@@ -36,3 +36,7 @@ Route::post('/post/save', 'PostController@save')->name("post.save");
 Route::get('/post/showpost/{id}', 'PostController@showpost')->name("post.showpost");
 Route::post('/post/delete/{id}', 'PostController@delete')->name("post.delete");
 
+Route::post('/wishlist/save/{id}', 'WishListController@save')->name("wishlist.save");
+Route::get('/wishlist/show', 'WishListController@list')->name("wishlist.show");
+
+Route::post('/favposts/save/{id}', 'FavPostsController@save')->name("favposts.save");
