@@ -12,27 +12,18 @@
                 <div class="card-body">
 
                     <img width="300" height="200" src='/img/product/{{ $data["product"]["image"] }}' class="list-picture"><br />
-<<<<<<< HEAD
-                    <b>Product name:</b> {{ $data["product"]["name"] }}<br />
-                    <b>Product price:</b> {{ $data["product"]["price"] }}<br />
-                    <b>Product category:</b> {{ $data["product"]["category"] }}<br />
-                    <b>Product description:</b> {{ $data["product"]["description"] }}<br />
-                    <b>Product ingredients:</b> {{ $data["product"]["ingredients"] }}<br />
-                    <form method="POST" action=" {{ route('wishlist.save',$data['product']->getId()) }}">
-                        @csrf
-=======
                     <b>@lang('messages.productName'):</b> {{ $data["product"]["name"] }}<br />
                     <b>@lang('messages.productPrice'):</b> {{ $data["product"]["price"] }}<br />
                     <b>@lang('messages.productCategory'):</b> {{ $data["product"]["category"] }}<br />
                     <b>@lang('messages.productDescription'):</b> {{ $data["product"]["description"] }}<br />
                     <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />
-                     <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
->>>>>>> ddc758b73dd6c2dcf1d7fd7b9872c471e771ccb5
+                    <b>Rating:</b> {{ $data["product"]["rating"] }}<br />
+                    <!-- Para que de: quitar el POST_METHOD por ahora, ya cuando exista el wishlist no va a existir ningun problema -->
+                    <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>                  
                         <div>
                             <button type="submit">Add to WishList</button>
                         </div>
                     </form>
-
                     @guest
                     @else
                         @if (Auth::user()->getRole()=="admin")
@@ -47,7 +38,7 @@
 
                     <b>@lang('messages.comments'):</b>
                     @foreach($data["product"]->comments as $comment)
-                        <br/>- {{ $comment->getDescription() }}
+                        <br/>- {{ $comment->getDescription() }} : Rating: {{ $comment->getRating() }}
                         @guest
                         @else
                             @if (Auth::user()->getId()==$comment->getUserId())
@@ -74,9 +65,19 @@
                     @else
                         <form method="POST" action="{{ route('productcomment.save') }}">
                             @csrf
-                            <p>
-                                @lang('messages.commentDescription'): <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
-                            </p>
+                            @lang('messages.commentDescription'): <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
+                            <br><b> Puntuacion:</b> <br>
+                            <input type="radio" name="rating" value="1">
+                            <label for="radio-inline">1</label><br>
+                            <input type="radio" name="rating" value="2">
+                            <label for="radio-inline">2</label><br>
+                            <input type="radio" name="rating" value="3">
+                            <label for="radio-inline">3</label><br>
+                            <input type="radio" name="rating" value="4">
+                            <label for="radio-inline">4</label><br>
+                            <input type="radio" name="rating" value="5">
+                            <label for="radio-inline">5</label><br>
+
                             <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                             <input type="hidden" name="product_id" value='{{$data["product"]->getId()}}'>
                             <input type="submit" value="@lang('messages.save')" />

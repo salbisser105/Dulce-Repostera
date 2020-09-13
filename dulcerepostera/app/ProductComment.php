@@ -9,7 +9,7 @@ class ProductComment extends Model
 {
     
     //attributes id, description, user_id, product_id, created_at, updated_at
-    protected $fillable = ['description', 'product_id', 'user_id'];
+    protected $fillable = ['description', 'product_id', 'user_id','rating'];
 
     public function getId()
     {
@@ -49,6 +49,16 @@ class ProductComment extends Model
     public function setUserId($uId)
     {
         $this->attributes['user_id'] = $uId;
+    }
+
+    public function getRating()
+    {
+        return $this->attributes['rating'];
+    }
+
+    public function setRating($id)
+    {
+        $this->attributes['rating'] = $id;
     }
 
     public function product(){
