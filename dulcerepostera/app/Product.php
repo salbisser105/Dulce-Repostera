@@ -19,6 +19,16 @@ class Product extends Model
         $this->attributes['id'] = $id;
     }
 
+    public function getRating()
+    {
+        return $this->attributes['rating'];
+    }
+
+    public function setRating($rating)
+    {
+        $this->attributes['rating'] = $rating;
+    }
+
     public function getName()
     {
         return $this->attributes['name'];
