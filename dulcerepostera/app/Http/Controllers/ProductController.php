@@ -79,6 +79,7 @@ class ProductController extends Controller
         ]);
         return back()->with('success','Elemento creado satisfactoriamente');
     }
+
     public function addToCart($id, Request $request)
     {
         $data = []; //to be sent to the view
@@ -88,8 +89,8 @@ class ProductController extends Controller
         $request->session()->put('products', $products);
         return back();
     }
-    public function removeCart(Request $request)
 
+    public function removeCart(Request $request)
     {
         $request->session()->forget('products');
         return redirect()->route('product.list');
@@ -98,21 +99,17 @@ class ProductController extends Controller
     public function cart(Request $request)
     {
         $products = $request->session()->get("products");
-
         if ($products) {
 
             $keys = array_keys($products);
             $productsModels = Product::find($keys);
-            $data["products"] = $productsModels;
-            
+            $data["products"] = $productsModels;      
             return view('product.cart')->with("data", $data);
         }
-
         return redirect()->route('product.list');
     }
 
     public function buy(Request $request)
-
     {
         $order = new Order();
         $order->setTotal("0");

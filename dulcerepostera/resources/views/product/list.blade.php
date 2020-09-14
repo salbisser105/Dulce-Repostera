@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">@lang('messages.listProduct')</div>
                 <div class="card-body">
-                    <b>Filtro por Rating: </b>
+                    <b>@lang('messages.filterBy') @lang('messages.rating'): </b>
                     <a href="{{ route('product.list_rating',0) }}">0</a>
                     <a href="{{ route('product.list_rating',1) }}">1</a>
                     <a href="{{ route('product.list_rating',2) }}">2</a>

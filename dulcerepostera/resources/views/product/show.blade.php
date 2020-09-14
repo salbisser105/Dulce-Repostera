@@ -16,12 +16,14 @@
                     <b>@lang('messages.productPrice'):</b> {{ $data["product"]["price"] }}<br />
                     <b>@lang('messages.productCategory'):</b> {{ $data["product"]["category"] }}<br />
                     <b>@lang('messages.productDescription'):</b> {{ $data["product"]["description"] }}<br />
-                    <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />                    
-                    <b>Rating:</b> {{ $data["product"]["rating"] }}<br />                    
-                    <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>                  
-                    @csrf
+                      
+                    <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />
+                    <b>@lang('messages.rating'):</b> {{ $data["product"]["rating"] }}<br />
+                    <!-- Para que de: quitar el POST_METHOD por ahora, ya cuando exista el wishlist no va a existir ningun problema -->
+                    <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
+                     @csrf
                         <div>
-                            <button type="submit">Add to WishList</button>
+                            <button type="submit">@lang('messages.addWishlist')</button>
                         </div>
                     </form>
                     @guest
@@ -93,11 +95,11 @@
     <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
         @csrf
         <div class="form-row">
-            <div class="col-md-12">Qtt:
+            <div class="col-md-12">@lang('messages.quantity'):
                 <input type="number" class="form-control" name="quantity" min="0" style="width: 80px;">
             </div>
             <div class="form-group col-md-12">
-                <button type="submit" class="btn btn-outline-success">Add</button>
+                <button type="submit" class="btn btn-outline-success">@lang('messages.add')</button>
             </div>
         </div>
     </form>
