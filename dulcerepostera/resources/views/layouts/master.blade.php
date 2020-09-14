@@ -24,11 +24,16 @@
 
                     @lang('messages.products')
                 </a>
-                <a  href="{{ route('product.cart') }}">Cart</a>
-                <a  href="{{ route('product.removeCart') }}">Remove Cart</a>
                 <a class="navbar-brand" href="{{ route('wishlist.show') }}">
                   Lista de deseos
                 </a>
+                <a  class="navbar-brand" href="{{ route('product.cart') }}">
+                    Cart
+                </a>
+                <a  class="navbar-brand" href="{{ route('product.removeCart') }}">
+                    Remove Cart
+                </a>
+                
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
