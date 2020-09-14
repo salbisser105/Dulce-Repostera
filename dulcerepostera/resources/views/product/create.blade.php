@@ -20,27 +20,25 @@
                 <form method="POST" action="{{ route('product.save') }}" enctype="multipart/form-data">
                     @csrf
                     <p>
-                        @lang('messages.productName'): <input type="text" placeholder="@lang('messages.productName')" name="name" value="{{ old('name') }}" />
+                        <b>@lang('messages.productName')</b>: <input type="text" placeholder="@lang('messages.productName')" name="name" value="{{ old('name') }}" />
                     </p>
                     <br><p>
-                        @lang('messages.productPrice'): <input type="text" placeholder="@lang('messages.productPrice')" name="price" value="{{ old('price') }}" />
+                        <b>@lang('messages.productPrice')</b>: <input type="text" placeholder="@lang('messages.productPrice')" name="price" value="{{ old('price') }}" />
                     </p>
                     <br><p>
-                        @lang('messages.productCategory'): <input type="text" placeholder="@lang('messages.productCategory')" name="category" value="{{ old('category') }}" />
+                        <b>@lang('messages.productCategory')</b>: <input type="text" placeholder="@lang('messages.productCategory')" name="category" value="{{ old('category') }}" />
                     </p>
                     <br><p>
-
-                        Descripción:<br>
-                         <textarea name="description" cols="40" rows="5" placeholder="Ingresar descripción" value="{{ old('description') }}"></textarea>
+                        <b>@lang('messages.productDescription')</b>:<br>
+                        <textarea name="description" cols="40" rows="5" placeholder="Ingresar descripción" value="{{ old('description') }}"></textarea>
                     </p>
                     <div class="form-group">
-                        <label>Image:</label>
+                        <label><b>@lang('messages.image')</b>:</label>
                         <input type="file" name="product_image" value="{{ old('image') }}"/>
 
                     </div>
-                    
                     <br><p>
-                        @lang('messages.ingredients'): <input type="text" placeholder="@lang('messages.ingredients')" name="ingredients" value="{{ old('ingredients') }}" />
+                        <b>@lang('messages.ingredients')</b>: <input type="text" placeholder="@lang('messages.ingredients')" name="ingredients" value="{{ old('ingredients') }}" />
                     </p>
                     <br><input type="submit" value="@lang('messages.save')" />
                 </form>

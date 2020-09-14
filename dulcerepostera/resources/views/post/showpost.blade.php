@@ -14,9 +14,9 @@
                 <form method="POST" action=" {{ route('favposts.save',$data['post']->getId()) }}">
                         @csrf
                         <div>
-                            <button type="submit">Add to favorites</button>
+                            <button type="submit">@lang('messages.favorites')</button>
                         </div>
-                    </form>
+                </form>
                 @guest
                 @else
                     @if (Auth::user()->getId()==$data["post"]->getUserId())

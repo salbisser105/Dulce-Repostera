@@ -2,6 +2,21 @@
 
 return [
 
+    'english'=>'Ingles',
+    'spanish'=>'Español',
+    'language'=>'Idioma',
+    'cart'=>'Carrito',
+    'removeCart'=>'Eliminar Carrito',
+    'wishlist'=>'Lista de deseo',
+    'favorites'=>'Añadir a favoritos',
+    'quantity'=>'Cantidad',
+    'total'=>'Total',
+    'buy'=>'Comprar',
+    'filterBy'=>'Filtrar por',
+    'rating'=>'Calificacion',
+    'addWishlist'=>'Añadir a Lista de Deseo',
+    'add'=>'Añadir',
+
     'login' => 'Iniciar sesión',
     'register' => 'Registrarse',
     'logout' => 'Cerrar Sesion',
@@ -14,8 +29,6 @@ return [
     'createComment' => 'Crear Comentario',
     'commentDescription' => 'Descripcion del Comentario',
     'guestComment' => 'Para crear un comentario ',
-    'spanish' => 'Español',
-    'english' => 'Ingles',
     'products' => 'Productos',
     'posts' => 'Posts',
     'aboutUs' => 'Nosotros',
@@ -35,7 +48,6 @@ return [
     'postPrice' => 'Precio del Post',
     'postDescription' => 'Descripción del Post',
     'add_cart' => 'Agregar al Carrito',
-    'score' => 'Calificación',
     'add_title' => 'Añadir Titulo',
     'add_name' => 'Añadir Nombre',
     'add_description' => 'Añadir Descripción',

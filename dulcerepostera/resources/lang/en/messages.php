@@ -2,6 +2,21 @@
 
 return [
 
+    'english'=>'English',
+    'spanish'=>'Spanish',
+    'language'=>'Language',
+    'cart'=>'Cart',
+    'removeCart'=>'Remove Cart',
+    'wishlist'=>'WishList',
+    'favorites'=>'Add to favorites',
+    'quantity'=>'Quantity',
+    'total'=>'Total',
+    'buy'=>'Buy',
+    'filterBy'=>'Filter by',
+    'rating'=>'Rating',
+    'addWishlist'=>'Add to WishList',
+    'add'=>'Add',
+
     'login' => 'Login',
     'register' => 'Register',
     'logout' => 'Logout',
@@ -14,8 +29,6 @@ return [
     'createComment' => 'Create Comment',
     'commentDescription' => 'Comment\'s Description',
     'guestComment' => 'To create a comment ',
-    'spanish' => 'Spanish',
-    'english' => 'English',
     'products' => 'Products',
     'posts' => 'Posts',
     'aboutUs' => 'About us',
@@ -35,7 +48,6 @@ return [
     'postPrice' => 'Post\'s Price',
     'postDescription' => 'Post\'s Description',
     'add_cart' => 'Add to Cart',
-    'score' => 'Score',
     'add_title' => 'Add Title',
     'add_name' => 'Add Name',
     'add_description' => 'Add Description',

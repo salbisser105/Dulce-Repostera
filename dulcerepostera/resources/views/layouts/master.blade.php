@@ -21,14 +21,32 @@
                     @lang('messages.posts')
                 </a>
                 <a class="navbar-brand" href="{{ route('product.list') }}">
-
                     @lang('messages.products')
                 </a>
-                <a  href="{{ route('product.cart') }}">Cart</a>
-                <a  href="{{ route('product.removeCart') }}">Remove Cart</a>
-                <a class="navbar-brand" href="{{ route('wishlist.show') }}">
-                  Lista de deseos
+                <a class="navbar-brand" href="{{ route('product.cart') }}">
+                    @lang('messages.cart')
                 </a>
+                <a class="navbar-brand" href="{{ route('product.removeCart') }}">
+                    @lang('messages.removeCart')
+                </a>
+                <a class="navbar-brand" href="{{ route('wishlist.show') }}">
+                    @lang('messages.wishlist')
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        @lang('messages.language')
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/language/es">
+                            @lang('messages.spanish')
+                        </a>
+                        <a class="dropdown-item" href="/language/en">
+                            @lang('messages.english')
+                        </a>
+                    </div>
+                </div>
 
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
