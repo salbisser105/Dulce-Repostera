@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['middleware' => 'language'], function () {
+
 Route::get('/', 'HomeController@index')->name("home.index");
 Route::get('/index', 'HomeController@index')->name("home.index");
 Route::get('/home', 'HomeController@index')->name('home.index');
 Auth::routes();
+
+Route::get('/language/{lang}', 'LanguageController@setLanguage')->name("language.setLanguage");
 
 Route::get('/product/show/{id}', 'ProductController@show')->name("product.show");
 Route::get('/product/create', 'ProductController@create')->name("product.create");
@@ -48,3 +52,4 @@ Route::get('/wishlist/show', 'WishListController@list')->name("wishlist.show");
 
 Route::post('/favposts/save/{id}', 'FavPostsController@save')->name("favposts.save");
 
+});

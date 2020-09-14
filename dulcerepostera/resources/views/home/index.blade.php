@@ -14,8 +14,6 @@
                             <br><iframe width="680" height="480" src="https://www.youtube.com/embed/z5CmxGtfq9s?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allowautoplay></iframe>
                         @endif
                     @endguest
-
-                    
                 </div>
             </div>
         </div>

@@ -6,18 +6,24 @@
     <div class="col-lg-8 mx-auto">
         <div class="row p-5">
             <div class="col-md-12">
-                <ul id="errors">
-                    @foreach($data["products"] as $product)
-                    <li>Nombre: {{ $product->getName() }} - Precio: {{ $product->getPrice() }}
-                        - Cantidad: {{ Session::get('products')[$product->getId()] }}</li>
-                    @endforeach
-                    <br /><br />
-                    Total: tu precio es secreto
-                    <form action="{{ route('product.buy') }}" method="POST">
-                        @csrf
-                        <button type="submit">Buy</button>
-                        </from>
-                </ul>
+                <div class="card">
+                    <div class="card-header">@lang('messages.cart')</div>
+                        <div class="card-body">
+                            <?php $presio=0 ?>
+                            @foreach($data["products"] as $product)
+                            <li><b>@lang('messages.name')</b>: {{ $product->getName() }} - <b>@lang('messages.productPrice')</b>: {{ $product->getPrice()}}
+                                - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$product->getId()] }}</li>
+                            <?php $presio=$presio + $product->getPrice() * Session::get('products')[$product->getId()] ?>
+                            @endforeach
+                            <br />
+                            <b>@lang('messages.total'):</b> {{$presio}}
+                            <form action="{{ route('product.buy') }}" method="POST">
+                                @csrf
+                                <button type="submit">@lang('messages.buy')</button>
+                            </from>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
