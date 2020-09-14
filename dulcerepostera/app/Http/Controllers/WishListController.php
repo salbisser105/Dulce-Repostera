@@ -14,7 +14,6 @@ class WishListController extends Controller {
         $data = [];
         $data["title"] = "Wishlist";
         $data["products"] = WishList::all()->where('user_id', '==', Auth::user()->id);
-        $data["productsinfo"] = WishList::with('product')->get();
         return view('wishlist.show')->with("data",$data);
     }
 

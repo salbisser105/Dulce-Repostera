@@ -15,11 +15,23 @@
                     <b>@lang('messages.productName'):</b> {{ $data["product"]["name"] }}<br />
                     <b>@lang('messages.productPrice'):</b> {{ $data["product"]["price"] }}<br />
                     <b>@lang('messages.productCategory'):</b> {{ $data["product"]["category"] }}<br />
-                    <b>@lang('messages.productDescription'):</b> {{ $data["product"]["description"] }}<br />
-                      
+                    <b>@lang('messages.productDescription'):</b> {{ $data["product"]["description"] }}<br />                  
                     <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />
                     <b>@lang('messages.rating'):</b> {{ $data["product"]["rating"] }}<br />
-                    <!-- Para que de: quitar el POST_METHOD por ahora, ya cuando exista el wishlist no va a existir ningun problema -->
+                    
+                    @guest
+                    @else
+
+                        @if (Auth::user()->getRole()=="admin")
+                            <form method="POST" action='{{ route("product.delete",$data["product"]->getId()) }}'>
+                                @csrf
+                                <div>
+                                    <button type="submit">@lang('messages.delete')</button>
+                                </div>
+                            </form>
+                        @endif
+                    @endguest
+
                     <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
                      @csrf
                         <div>
@@ -40,18 +52,6 @@
                             </div>
                         </div>
                     </form>
-                    @guest
-                    @else
-
-                        @if (Auth::user()->getRole()=="admin")
-                            <form method="POST" action='{{ route("product.delete",$data["product"]->getId()) }}'>
-                                @csrf
-                                <div>
-                                    <button type="submit">@lang('messages.delete')</button>
-                                </div>
-                            </form>
-                        @endif
-                    @endguest
 
                     <b>@lang('messages.comments'):</b>
                     @foreach($data["product"]->comments as $comment)
@@ -78,6 +78,7 @@
                         @endforeach
                     </ul>
                     @endif
+
                     @guest
 
                         @lang('messages.guestComment') <a href="{{ route('login') }}">@lang('messages.login')</a>
