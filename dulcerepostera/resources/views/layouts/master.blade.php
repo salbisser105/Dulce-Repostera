@@ -23,16 +23,15 @@
                 <a class="navbar-brand" href="{{ route('product.list') }}">
                     @lang('messages.products')
                 </a>
-                <a class="navbar-brand" href="{{ route('product.cart') }}">
+                <a class="navbar-brand" href="{{ route('wishlist.show') }}">
+                    @lang('messages.wishlist')
+                </a>
+                 <a class="navbar-brand" href="{{ route('product.cart') }}">
                     @lang('messages.cart')
                 </a>
                 <a class="navbar-brand" href="{{ route('product.removeCart') }}">
                     @lang('messages.removeCart')
                 </a>
-                <a class="navbar-brand" href="{{ route('wishlist.show') }}">
-                    @lang('messages.wishlist')
-                </a>
-
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <div class="nav-item dropdown">
