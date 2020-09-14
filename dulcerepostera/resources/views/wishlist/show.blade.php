@@ -10,7 +10,7 @@
                 <div class="card-header">Wishlist</div>
                 <div class="card-body">
                     @foreach($data["products"] as $productWishlist)
-                        <br><a style="color:black" href="{{ route('product.show',$product->getId()) }}">
+                        <br><a style="color:black" href="{{ route('product.show',$productWishlist->getId()) }}">
                         {{ $productWishlist->getProductId() }} : {{ $productWishlist->product->getName()}}</a>
                     @endforeach
                 </div>

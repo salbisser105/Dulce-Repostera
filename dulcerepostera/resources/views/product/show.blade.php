@@ -20,8 +20,8 @@
                     <b>@lang('messages.rating'):</b> {{ $data["product"]["rating"] }}<br />
                     
                     @guest
+                        @lang('messages.guestWishlist') <a href="{{ route('login') }}">@lang('messages.login')</a>
                     @else
-
                         @if (Auth::user()->getRole()=="admin")
                             <form method="POST" action='{{ route("product.delete",$data["product"]->getId()) }}'>
                                 @csrf
@@ -30,21 +30,19 @@
                                 </div>
                             </form>
                         @endif
+                        <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
+                        @csrf
+                            <div>
+                                <button type="submit">@lang('messages.addWishlist')</button>
+                            </div>
+                        </form>
                     @endguest
-
-                    <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
-                     @csrf
-                        <div>
-                            <button type="submit">@lang('messages.addWishlist')</button>
-                        </div>
-                    </form>
 
                     <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
                         @csrf
                         <div class="form-row">
                             <div class="col-md-12">@lang('messages.quantity'):
                                 <input type="number" class="form-control" name="quantity" min="0" style="width: 65px;">
-                                <!-- <button type="submit" >@lang('messages.add')</button> -->
                             </div>
 
                             <div class="form-group col-md-12">
@@ -80,7 +78,6 @@
                     @endif
 
                     @guest
-
                         @lang('messages.guestComment') <a href="{{ route('login') }}">@lang('messages.login')</a>
                     @else
                         <form method="POST" action="{{ route('productcomment.save') }}">
