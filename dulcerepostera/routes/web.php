@@ -40,3 +40,7 @@ Route::post('/wishlist/save/{id}', 'WishListController@save')->name("wishlist.sa
 Route::get('/wishlist/show', 'WishListController@list')->name("wishlist.show");
 
 Route::post('/favposts/save/{id}', 'FavPostsController@save')->name("favposts.save");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

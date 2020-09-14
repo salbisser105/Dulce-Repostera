@@ -12,22 +12,13 @@
                 <div class="card-body">
 
                     <img width="300" height="200" src='/img/product/{{ $data["product"]["image"] }}' class="list-picture"><br />
-<<<<<<< HEAD
-                    <b>Product name:</b> {{ $data["product"]["name"] }}<br />
-                    <b>Product price:</b> {{ $data["product"]["price"] }}<br />
-                    <b>Product category:</b> {{ $data["product"]["category"] }}<br />
-                    <b>Product description:</b> {{ $data["product"]["description"] }}<br />
-                    <b>Product ingredients:</b> {{ $data["product"]["ingredients"] }}<br />
-                    <form method="POST" action=" {{ route('wishlist.save',$data['product']->getId()) }}">
-                        @csrf
-=======
                     <b>@lang('messages.productName'):</b> {{ $data["product"]["name"] }}<br />
                     <b>@lang('messages.productPrice'):</b> {{ $data["product"]["price"] }}<br />
                     <b>@lang('messages.productCategory'):</b> {{ $data["product"]["category"] }}<br />
                     <b>@lang('messages.productDescription'):</b> {{ $data["product"]["description"] }}<br />
                     <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />
                      <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>
->>>>>>> ddc758b73dd6c2dcf1d7fd7b9872c471e771ccb5
+                        @csrf
                         <div>
                             <button type="submit">Add to WishList</button>
                         </div>
