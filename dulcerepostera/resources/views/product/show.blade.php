@@ -24,6 +24,20 @@
                             <button type="submit">@lang('messages.addWishlist')</button>
                         </div>
                     </form>
+
+                    <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
+                        @csrf
+                        <div class="form-row">
+                            <div class="col-md-12">@lang('messages.quantity'):
+                                <input type="number" class="form-control" name="quantity" min="0" style="width: 65px;">
+                                <!-- <button type="submit" >@lang('messages.add')</button> -->
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                  <button type="submit" >@lang('messages.add')</button><!-- class="btn btn-outline-success" -->
+                            </div>
+                        </div>
+                    </form>
                     @guest
                     @else
 
@@ -90,16 +104,6 @@
             </div>
         </div>
     </div>
-    <form action="{{ route('product.addToCart',['id'=> $data['product']->getId()]) }}" method="POST">
-        @csrf
-        <div class="form-row">
-            <div class="col-md-12">@lang('messages.quantity'):
-                <input type="number" class="form-control" name="quantity" min="0" style="width: 80px;">
-            </div>
-            <div class="form-group col-md-12">
-                <button type="submit" class="btn btn-outline-success">@lang('messages.add')</button>
-            </div>
-        </div>
-    </form>
+
 </div>
 @endsection

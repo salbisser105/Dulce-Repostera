@@ -87,7 +87,7 @@ class ProductController extends Controller
         $products = $request->session()->get("products");
         $products[$id] = $quantity;
         $request->session()->put('products', $products);
-        return back();
+        return back()->with('success','Elemento añadido satisfactoriamente');;
     }
 
     public function removeCart(Request $request)

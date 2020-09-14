@@ -33,29 +33,27 @@
                     @lang('messages.wishlist')
                 </a>
 
-                <div class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        @lang('messages.language')
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/language/es">
-                            @lang('messages.spanish')
-                        </a>
-                        <a class="dropdown-item" href="/language/en">
-                            @lang('messages.english')
-                        </a>
-                    </div>
-                </div>
-
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @lang('messages.language')
+                            </a>
 
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/language/es">
+                                    @lang('messages.spanish')
+                                </a>
+                                <a class="dropdown-item" href="/language/en">
+                                    @lang('messages.english')
+                                </a>
+                            </div>
+                        </div>
                         @guest
-                        <li class="nav-item mx-0 mx-lg-1"><a class="" href="{{ route('login') }}">
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="{{ route('login') }}">
                                 @lang('messages.login')
                             </a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="" href="{{ route('register') }}">
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="{{ route('register') }}">
                                 @lang('messages.register')
                             </a></li>
                         @else
