@@ -52,4 +52,6 @@ Route::get('/wishlist/show', 'WishListController@list')->name("wishlist.show");
 
 Route::post('/favposts/save/{id}', 'FavPostsController@save')->name("favposts.save");
 
+
 });
+
