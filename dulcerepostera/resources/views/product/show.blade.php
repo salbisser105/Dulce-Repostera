@@ -16,10 +16,10 @@
                     <b>@lang('messages.productPrice'):</b> {{ $data["product"]["price"] }}<br />
                     <b>@lang('messages.productCategory'):</b> {{ $data["product"]["category"] }}<br />
                     <b>@lang('messages.productDescription'):</b> {{ $data["product"]["description"] }}<br />
-                    <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />
-                    <b>Rating:</b> {{ $data["product"]["rating"] }}<br />
-                    <!-- Para que de: quitar el POST_METHOD por ahora, ya cuando exista el wishlist no va a existir ningun problema -->
+                    <b>@lang('messages.ingredients'):</b> {{ $data["product"]["ingredients"] }}<br />                    
+                    <b>Rating:</b> {{ $data["product"]["rating"] }}<br />                    
                     <form method="POST" action='{{ route("wishlist.save",$data["product"]->getId()) }}'>                  
+                    @csrf
                         <div>
                             <button type="submit">Add to WishList</button>
                         </div>
