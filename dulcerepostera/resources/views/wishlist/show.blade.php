@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">wishlist</div>
+                <div class="card-header">@lang('messages.wishlist')</div>
                 <div class="card-body">
                     @foreach($data["products"] as $productWishlist)
                         <br><a style="color:black" href="{{ route('product.show',$productWishlist->getId()) }}">

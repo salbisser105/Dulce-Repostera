@@ -18,6 +18,7 @@ return [
     'addWishlist'=>'Add to WishList',
     'add'=>'Add',
     'guestWishlist' => 'To add to your WishList ',
+    'guestFavPost' => 'To add to your Favorite Posts ',
     'login' => 'Login',
     'register' => 'Register',
     'logout' => 'Logout',

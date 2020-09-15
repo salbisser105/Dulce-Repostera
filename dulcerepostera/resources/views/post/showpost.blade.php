@@ -13,13 +13,8 @@
                 <div class="card-body">
                 <b>@lang('messages.postName'):</b> {{$data["post"]->getName()}}<br/>
                 <b>@lang('messages.postDescription'):</b> {{ $data["post"]->getDescription()}}<br/>
-                <form method="POST" action=" {{ route('favposts.save',$data['post']->getId()) }}">
-                        @csrf
-                        <div>
-                            <button type="submit">@lang('messages.favorites')</button>
-                        </div>
-                </form>
                 @guest
+                    @lang('messages.guestFavPost') <a href="{{ route('login') }}">@lang('messages.login')</a> <br>
                 @else
                     @if (Auth::user()->getId()==$data["post"]->getUserId())
                         <form method="POST" action='{{ route("post.delete",$data["post"]->getId()) }}'>
@@ -27,6 +22,12 @@
                             <button type="submit">@lang('messages.delete')</button>
                         </form>
                     @endif
+                    <form method="POST" action=" {{ route('favposts.save',$data['post']->getId()) }}">
+                        @csrf
+                        <div>
+                            <button type="submit">@lang('messages.favorites')</button>
+                        </div>
+                    </form>
                 @endguest
 
                 <b>@lang('messages.comments'):</b>
