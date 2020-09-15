@@ -73,10 +73,10 @@
                                 @lang('messages.language')
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/language/es">
+                                <a class="dropdown-item" href="{{ route('language.setLanguage','es')}}">
                                     @lang('messages.spanish')
                                 </a>
-                                <a class="dropdown-item" href="/language/en">
+                                <a class="dropdown-item" href="{{ route('language.setLanguage','en')}}">
                                     @lang('messages.english')
                                 </a>
                             </div>
