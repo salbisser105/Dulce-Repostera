@@ -13,16 +13,21 @@
                         <div class="card-body">
                             <?php $presio=0 ?>
                             @foreach($data["products"] as $product)
-                            <li><b>@lang('messages.name')</b>: {{ $product->getName() }} - <b>@lang('messages.productPrice')</b>: {{ $product->getPrice()}}
-                                - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$product->getId()] }}</li>
-                            <?php $presio=$presio + $product->getPrice() * Session::get('products')[$product->getId()] ?>
+                                <li><b>@lang('messages.name')</b>: {{ $product->getName() }} - <b>@lang('messages.productPrice')</b>: {{ $product->getPrice()}}
+                                    - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$product->getId()] }}</li>
+                                <?php $presio=$presio + $product->getPrice() * Session::get('products')[$product->getId()] ?>
                             @endforeach
                             <br />
                             <b>@lang('messages.total'):</b> {{$presio}}
-                            <form action="{{ route('product.buy') }}" method="POST">
-                                @csrf
-                                <button type="submit">@lang('messages.buy')</button>
-                            </from>
+                            <div class="row">
+                                <div class="col">
+                                    <form action="{{ route('product.buy') }}" method="POST">
+                                        @csrf
+                                        <button type="submit">@lang('messages.buy')</button>
+                                    </from>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

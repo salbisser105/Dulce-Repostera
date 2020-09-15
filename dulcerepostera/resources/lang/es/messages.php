@@ -17,7 +17,7 @@ return [
     'rating'=>'Calificacion',
     'addWishlist'=>'Añadir a Lista de Deseo',
     'add'=>'Añadir',
-
+    'guestWishlist' => 'Para añadir a tu Lista de Deseo ',
     'login' => 'Iniciar sesión',
     'register' => 'Registrarse',
     'logout' => 'Cerrar Sesion',
