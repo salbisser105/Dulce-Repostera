@@ -29,14 +29,14 @@
                         <a class="nav-link" href="{{ route('login') }}">
                             @lang('messages.wishlist')
                         </a>
-                         <a class="navbar-brand" href="{{ route('login') }}">
+                         <a class="nav-link" href="{{ route('login') }}">
                           @lang('messages.favposts')
                         </a>
                     @else
                         <a class="nav-link" href="{{ route('wishlist.show') }}">
                             @lang('messages.wishlist')
                         </a>
-                         <a class="navbar-brand" href="{{ route('favposts.show') }}">
+                         <a class="nav-link" href="{{ route('favposts.show') }}">
                     @lang('messages.favposts')
                           </a>
                     @endguest

@@ -12,7 +12,7 @@
                 <div class="card-header">{{$data["post"]->getName()}}</div>
                 <div class="card-body">
                 <b>@lang('messages.postName'):</b> {{$data["post"]->getName()}}<br/>
-                <b>@lang('messages.postDescription'):</b> {{ $data["post"]->getDescription()}}<br/>
+                <b>@lang('messages.postDescription'):</b><br> {{ $data["post"]->getDescription()}}<br/>
                 <form method="POST" action=" {{ route('favposts.save',$data['post']->getId()) }}">
                         @csrf
                         <div>
