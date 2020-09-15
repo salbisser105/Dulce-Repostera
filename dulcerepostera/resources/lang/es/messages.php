@@ -2,6 +2,7 @@
 
 return [
 
+    'favposts'=>'Posts Favoritos',
     'english'=>'Ingles',
     'spanish'=>'Español',
     'language'=>'Idioma',

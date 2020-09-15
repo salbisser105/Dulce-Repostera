@@ -17,6 +17,7 @@
                 <a class="navbar-brand" href="{{ route('home.index') }}">
                     Dulce Repostera
                 </a>
+
                 <ul class="navbar-nav ml-auto">
                     <a class="nav-link" href="{{ route('post.show') }}">
                         @lang('messages.posts')
@@ -28,10 +29,16 @@
                         <a class="nav-link" href="{{ route('login') }}">
                             @lang('messages.wishlist')
                         </a>
+                         <a class="navbar-brand" href="{{ route('login') }}">
+                          @lang('messages.favposts')
+                        </a>
                     @else
                         <a class="nav-link" href="{{ route('wishlist.show') }}">
                             @lang('messages.wishlist')
                         </a>
+                         <a class="navbar-brand" href="{{ route('favposts.show') }}">
+                    @lang('messages.favposts')
+                          </a>
                     @endguest
                     <a class="nav-link" href="{{ route('product.cart') }}">
                         @lang('messages.cart')
@@ -40,6 +47,7 @@
                         @lang('messages.removeCart')
                     </a>
                 </ul>
+
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         
