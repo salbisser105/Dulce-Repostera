@@ -26,6 +26,9 @@
                 <a class="navbar-brand" href="{{ route('wishlist.show') }}">
                     @lang('messages.wishlist')
                 </a>
+                <a class="navbar-brand" href="{{ route('favposts.show') }}">
+                    @lang('messages.favposts')
+                </a>
                  <a class="navbar-brand" href="{{ route('product.cart') }}">
                     @lang('messages.cart')
                 </a>

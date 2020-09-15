@@ -8,12 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class FavPostsController extends Controller {
 
+    public function delete($id)
+    {
+        $favpost = FavPosts::find($id);
+        $favpost->delete();
+        return back()->with('deleted',"Se fue");
+    }
+
     public function list()
     {
         $data = [];
-        $data["title"] = "Create product";
-        $data["products"] = FavPosts::all();
-        return view('wishlist.show')->with("data",$data);
+        $data["title"] = "Favorite posts";
+        $data["posts"] = FavPosts::all()->where('user_id', '==', Auth::user()->id);
+        return view('favposts.show')->with("data",$data);
     }
 
     public function save($postid)
@@ -22,7 +29,7 @@ class FavPostsController extends Controller {
         $favpost->user_id = Auth::user()->id;
         $favpost->post_id = $postid;
         $favpost->save();
-        return back()->with('success','Post agregasionado');
+        return back()->with('success','Post agregado');
     }
 
 }

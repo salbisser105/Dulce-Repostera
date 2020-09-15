@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class WishListController extends Controller {
 
+    public function delete($id)
+    {
+        $wishlist = WishList::find($id);
+        $wishlist->delete();
+        return back()->with('deleted',"Se fue");
+    }
+    
     public function list()
     {
         $data = [];
@@ -23,7 +30,7 @@ class WishListController extends Controller {
         $wishlist->user_id = Auth::user()->id;
         $wishlist->product_id = $productid;
         $wishlist->save();
-        return back()->with('success','Produto agregasionado');
+        return back()->with('success','Producto agregado');
     }
 
 }

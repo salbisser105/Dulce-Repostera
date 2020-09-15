@@ -7,11 +7,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Wishlist</div>
+                <div class="card-header">wishlist</div>
                 <div class="card-body">
                     @foreach($data["products"] as $productWishlist)
-                        <br><a style="color:black" href="{{ route('product.show',$product->getId()) }}">
-                        {{ $productWishlist->getProductId() }} : {{ $productWishlist->product->getName()}}</a>
+                        <br><a style="color:black" href="{{ route('product.show',$productWishlist->getId()) }}">
+                        {{ $productWishlist->product->getName()}} - {{$productWishlist->product->getPrice() }}</a><img width="200" height="150" src='/img/product/{{ $productWishlist->product->getImage() }}' class="list-picture">
+                        <form method="POST" action='{{ route("wishlist.delete",$productWishlist->getId()) }}'>
+                        @csrf
+                            <div>
+                                <button type="submit">@lang('messages.delete')</button>
+                            </div>
+                        </form>
                     @endforeach
                 </div>
             </div>

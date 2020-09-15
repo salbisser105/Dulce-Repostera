@@ -49,8 +49,11 @@ Route::post('/cart/buy', 'ProductController@buy')->name("product.buy");
 
 Route::post('/wishlist/save/{id}', 'WishListController@save')->name("wishlist.save");
 Route::get('/wishlist/show', 'WishListController@list')->name("wishlist.show");
+Route::post('/wishlist/delete/{id}', 'WishListController@delete')->name("wishlist.delete");
 
 Route::post('/favposts/save/{id}', 'FavPostsController@save')->name("favposts.save");
+Route::get('/favposts/show', 'FavPostsController@list')->name("favposts.show");
+Route::post('/favposts/delete/{id}', 'FavPostsController@delete')->name("favposts.delete");
 
 
 });
