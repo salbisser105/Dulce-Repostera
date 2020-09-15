@@ -17,7 +17,7 @@ return [
     'rating'=>'Rating',
     'addWishlist'=>'Add to WishList',
     'add'=>'Add',
-
+    'guestWishlist' => 'To add to your WishList ',
     'login' => 'Login',
     'register' => 'Register',
     'logout' => 'Logout',

@@ -17,40 +17,40 @@
                 <a class="navbar-brand" href="{{ route('home.index') }}">
                     Dulce Repostera
                 </a>
-                <a class="navbar-brand" href="{{ route('post.show') }}">
-                    @lang('messages.posts')
-                </a>
-                <a class="navbar-brand" href="{{ route('product.list') }}">
-                    @lang('messages.products')
-                </a>
-                <a class="navbar-brand" href="{{ route('wishlist.show') }}">
-                    @lang('messages.wishlist')
-                </a>
-                <a class="navbar-brand" href="{{ route('favposts.show') }}">
+
+                <ul class="navbar-nav ml-auto">
+                    <a class="nav-link" href="{{ route('post.show') }}">
+                        @lang('messages.posts')
+                    </a>
+                    <a class="nav-link" href="{{ route('product.list') }}">
+                        @lang('messages.products')
+                    </a>
+                    @guest
+                        <a class="nav-link" href="{{ route('login') }}">
+                            @lang('messages.wishlist')
+                        </a>
+                         <a class="navbar-brand" href="{{ route('login') }}">
+                          @lang('messages.favposts')
+                        </a>
+                    @else
+                        <a class="nav-link" href="{{ route('wishlist.show') }}">
+                            @lang('messages.wishlist')
+                        </a>
+                         <a class="navbar-brand" href="{{ route('favposts.show') }}">
                     @lang('messages.favposts')
-                </a>
-                 <a class="navbar-brand" href="{{ route('product.cart') }}">
-                    @lang('messages.cart')
-                </a>
-                <a class="navbar-brand" href="{{ route('product.removeCart') }}">
-                    @lang('messages.removeCart')
-                </a>
+                          </a>
+                    @endguest
+                    <a class="nav-link" href="{{ route('product.cart') }}">
+                        @lang('messages.cart')
+                    </a>
+                    <a class="nav-link" href="{{ route('product.removeCart') }}">
+                        @lang('messages.removeCart')
+                    </a>
+                </ul>
+
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <div class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                @lang('messages.language')
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/language/es">
-                                    @lang('messages.spanish')
-                                </a>
-                                <a class="dropdown-item" href="/language/en">
-                                    @lang('messages.english')
-                                </a>
-                            </div>
-                        </div>
+                        
                         @guest
                             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="{{ route('login') }}">
                                 @lang('messages.login')
@@ -60,15 +60,27 @@
                             </a></li>
                         @else
                         @if (Auth::user()->getRole()=="admin")
-                        <li><a class="navbar-brand" href="{{ route('product.create') }}">
+                        <li><a class="nav-link" href="{{ route('product.create') }}">
                                 @lang('messages.createProduct')
                             </a></li>
                         @endif
-                        <a class="navbar-brand" href="{{ route('post.create') }}">
+                        <a class="nav-link" href="{{ route('post.create') }}">
                             @lang('messages.createPost')
 
                         </a>
-
+                        <div class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @lang('messages.language')
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/language/es">
+                                    @lang('messages.spanish')
+                                </a>
+                                <a class="dropdown-item" href="/language/en">
+                                    @lang('messages.english')
+                                </a>
+                            </div>
+                        </div>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
