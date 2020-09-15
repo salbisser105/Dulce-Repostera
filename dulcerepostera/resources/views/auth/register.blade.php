@@ -1,3 +1,5 @@
+<!-- Created by: Ricardo Saldarriaga -->
+
 @extends('layouts.master')
 
 @section('content')
