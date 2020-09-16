@@ -17,6 +17,7 @@
                 <a class="navbar-brand" href="{{ route('home.index') }}">
                     Dulce Repostera
                 </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
