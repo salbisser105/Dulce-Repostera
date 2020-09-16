@@ -18,6 +18,7 @@ return [
     'addWishlist'=>'Añadir a Lista de Deseo',
     'add'=>'Añadir',
     'guestWishlist' => 'Para añadir a tu Lista de Deseo ',
+    'guestFavPost' => 'Para añadir a tus Posts Favoritos ',
     'login' => 'Iniciar sesión',
     'register' => 'Registrarse',
     'logout' => 'Cerrar Sesion',

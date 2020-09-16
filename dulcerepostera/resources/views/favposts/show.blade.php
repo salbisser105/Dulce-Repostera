@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Favorite Posts</div>
+                <div class="card-header">@lang('messages.favposts')</div>
                 <div class="card-body">
                     @foreach($data["posts"] as $postFavorites)
                         <br><a style="color:black" href="{{ route('post.showpost',$postFavorites->getId()) }}">
