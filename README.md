@@ -18,3 +18,9 @@ $ php artisan serve
 ```
 
 Apenas se genere el link, entrar a ese y ya se puede navegar por todas las funcionalidades del proyecto.
+
+Si se desea correr las pruebas unitarias se debe correr el siguiente comando en la misma ruta del proyecto que indica al principio de este documento:
+
+```php
+$ vendor/bin/phpunit --filter WelcomeTest
+```
