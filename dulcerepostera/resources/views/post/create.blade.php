@@ -23,8 +23,8 @@
                     <form method="POST" action="{{ route('post.save') }}">
                         @csrf
 
-                        <input type="text" placeholder="@lang('messages.postName')" name="name" value="{{ old('name') }}" />
-                        <input type="text" placeholder="@lang('messages.postDescription')" name="description" value="{{ old('description') }}" />
+                        <br><input type="text" placeholder="@lang('messages.postName')" name="name" value="{{ old('name') }}" /> </br>
+                        <br><textarea name="description" cols="40" rows="5" placeholder="@lang('messages.postDescription')" value="{{ old('description') }}"></textarea></br>
                         <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                         <input type="submit" value="@lang('messages.save')" />
 
