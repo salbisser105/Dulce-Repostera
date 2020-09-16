@@ -12,7 +12,7 @@
                 <div class="card-header">@lang('messages.favposts')</div>
                 <div class="card-body">
                     @foreach($data["posts"] as $postFavorites)
-                        <br><a style="color:black" href="{{ route('post.showpost',$postFavorites->getId()) }}">
+                        <br><a style="color:black" href="{{ route('post.showpost',$postFavorites->getPostId()) }}">
                         {{ $postFavorites->post->getName()}} - {{$postFavorites->post->getDescription() }}</a>
                         <form method="POST" action='{{ route("favposts.delete",$postFavorites->getId()) }}'>
                         @csrf

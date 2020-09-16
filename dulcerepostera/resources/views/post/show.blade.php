@@ -12,7 +12,7 @@
                 <div class="card-header">@lang('messages.posts')</div>
                 <div class="card-body">
                 @foreach($data["post"] as $post)
-                    <li><a style="color:black" href="{{ route('post.showpost',$post->getId())}}">{{ $post->getId() }} - {{ $post->getName() }} : {{ $post->getDescription() }}</a></li>
+                    <li><a style="color:black" href="{{ route('post.showpost',$post->getId())}}">{{ $post->getName() }}</a></li>
                 @endforeach
             </ul>
         </div>
