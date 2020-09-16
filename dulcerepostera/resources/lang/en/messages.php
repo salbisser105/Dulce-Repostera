@@ -1,7 +1,7 @@
 <?php 
 
 return [
-
+    'guestCreateProduct'=>'You need to be an Admin to create a product ',
     'favposts'=>'Favorite Posts',
     'english'=>'English',
     'spanish'=>'Spanish',
@@ -44,6 +44,7 @@ return [
     'ingredients' => 'Ingredients',
     'image' => 'Image',
     'createPost' => 'Create Post',
+    'guestCreatePost' => 'To create a Post ',
     'listPost' => 'Post List',
     'postName' => 'Post\'s Name',
     'postId' => 'Post\'s ID',
