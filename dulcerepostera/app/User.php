@@ -102,4 +102,16 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
+    public function favoritePosts(){
+        return $this->hasMany(FavPosts::class);
+    }
+
+    public function wishList(){
+        return $this->hasMany(WishList::class);
+    }
+
 }
