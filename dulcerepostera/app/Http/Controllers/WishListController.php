@@ -8,13 +8,15 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\WishList;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
 
 class WishListController extends Controller {
 
     public function delete($id){
         $wishlist = WishList::find($id);
         $wishlist->delete();
-        return back()->with('deleted',"Se fue");//usar lang
+        $message = Lang::get('messages.productDeletedFromWish');
+        return back()->with('deleted',$message);
     }
     
     public function list(){
@@ -29,7 +31,8 @@ class WishListController extends Controller {
         $wishlist->user_id = Auth::user()->id;
         $wishlist->product_id = $productid;
         $wishlist->save();
-        return back()->with('success','Producto agregado');//usar lang
+        $message = Lang::get('messages.productAddedToWish');
+        return back()->with('success',$message);
     }
 
 }

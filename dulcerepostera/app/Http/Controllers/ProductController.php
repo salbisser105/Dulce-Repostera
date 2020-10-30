@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
 use App\Item;
+use Illuminate\Support\Facades\Lang;
 
 class ProductController extends Controller {
 
@@ -44,7 +45,8 @@ class ProductController extends Controller {
     public function delete($id){
         $product = Product::find($id);
         $product->delete();
-        return redirect('product/list')->with('deleted', "Se fue");//lang
+        $message = Lang::get('messages.productDeleted');
+        return redirect('product/list')->with('deleted', $message);
     }
 
     public function save(Request $request){
@@ -64,16 +66,18 @@ class ProductController extends Controller {
             'image' => $name,
             'ingredients' => $request->input('ingredients')
         ]);
-        return back()->with('success','Elemento creado satisfactoriamente');//lang
+        $message = Lang::get('messages.productCreated');
+        return back()->with('success',$message);
     }
 
     public function addToCart($id, Request $request){
-        $data = []; //to be sent to the view
+        $data = [];
         $quantity = $request->quantity;
         $products = $request->session()->get("products");
         $products[$id] = $quantity;
         $request->session()->put('products', $products);
-        return back()->with('success','Elemento añadido satisfactoriamente');//lang
+        $message = Lang::get('messages.productAddedToCart');
+        return back()->with('success',$message);
     }
 
     public function removeCart(Request $request){
@@ -116,6 +120,7 @@ class ProductController extends Controller {
             $order->save();
             $request->session()->forget('products');
         }
-        return back()->with('success', 'you have bought what you wanted.');//lang
+        $message = Lang::get('messages.purchaseDone');
+        return back()->with('success', $message);
     }
 }

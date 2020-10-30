@@ -104,11 +104,12 @@ class Product extends Model
     }
 
     public static function validate(){
-        return[
-        "name" => "required",
-        "price" => "required|numeric|gt:0",
-        "category" => "required",
-        "description" => "required",
-        "ingredients" => "required"];
+        return [
+            "name" => "required",
+            "price" => "required|numeric|gt:0",
+            "category" => "required",
+            "description" => "required",
+            "ingredients" => "required"
+        ];
     }
 }

@@ -60,4 +60,12 @@ class PostComment extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public static function validate(){
+        return [
+            "description" => "required",
+            "user_id" => "required",
+            "post_id" => "required"
+        ];
+    }
 }

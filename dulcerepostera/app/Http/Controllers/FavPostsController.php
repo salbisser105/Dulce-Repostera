@@ -7,13 +7,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\FavPosts;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
 
 class FavPostsController extends Controller {
 
     public function delete($id){
         $favpost = FavPosts::find($id);
         $favpost->delete();
-        return back()->with('deleted',"Se fue");//lang
+        $message = Lang::get('messages.productFromFavPostDeleted');
+        return back()->with('deleted', $message);
     }
 
     public function list(){
@@ -28,7 +30,8 @@ class FavPostsController extends Controller {
         $favpost->user_id = Auth::user()->id;
         $favpost->post_id = $postid;
         $favpost->save();
-        return back()->with('success','Post agregado');//lang
+        $message = Lang::get('messages.postAdded');
+        return back()->with('success',$message);
     }
 
 }
