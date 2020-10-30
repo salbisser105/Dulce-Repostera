@@ -10,8 +10,7 @@ use App\Product;
 
 class ProductCommentController extends Controller {
 
-    public function delete($id)
-    {
+    public function delete($id){
         $comment = ProductComment::find($id);
 
         $productRating = Product::findOrFail($comment->product_id)->getRating();
@@ -20,12 +19,11 @@ class ProductCommentController extends Controller {
         $update = Product::where('id',$comment->product_id)->update(['rating' => $productRating]);
 
         $comment->delete();
-        return back()->with('deleted',"Se fue");
+        return back()->with('deleted',"Se fue");//lang
     }
 
-    public function save(Request $request)
-    {
-        $request->validate([
+    public function save(Request $request){
+        $request->validate([//validasion
             "description" => "required",
             "user_id" => "required",
             "product_id" => "required",
@@ -37,7 +35,7 @@ class ProductCommentController extends Controller {
         $update = Product::where('id',$request->product_id)->update(['rating' => $productRating]);
 
         ProductComment::create($request->only(["description", "user_id", "product_id","rating"]));
-        return back()->with('success','Elemento creado satisfactoriamente');
+        return back()->with('success','Elemento creado satisfactoriamente');//lang
     }
 
 }

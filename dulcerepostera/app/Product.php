@@ -102,4 +102,13 @@ class Product extends Model
     public function wishList(){
         return $this->hasMany(WishList::class);
     }
+
+    public static function validate(){
+        return[
+        "name" => "required",
+        "price" => "required|numeric|gt:0",
+        "category" => "required",
+        "description" => "required",
+        "ingredients" => "required"];
+    }
 }
