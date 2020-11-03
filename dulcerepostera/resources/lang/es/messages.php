@@ -60,6 +60,18 @@ return [
     'view' => 'Visualizar',
     'delete' => 'Eliminar',
     'category' => 'Categoría',
+    'productAddedToWish' => 'Producto agregado a la wishlist',
+    'productDeletedFromWish' => 'Producto eliminado de la wishlist',
+    'productFromFavPostDeleted' => 'Post eliminado de los favoritos',
+    'postAdded' => 'Post agregado a favoritos',
+    'postCreated' => 'Post creado',
+    'postDeleted' => 'Post eliminado',
+    'productDeleted' => 'Producto eliminado',
+    'productCreated' => 'Producto creado',
+    'productAddedToCart' => 'Producto agregado a la carta',
+    'purchaseDone' => 'Compra realizada',
+    'deleteComment' => 'Comentario eliminado',
+    'commentCreated' => 'Comentario creado'
     //test
 ];
 

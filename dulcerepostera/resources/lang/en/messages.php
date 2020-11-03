@@ -60,6 +60,18 @@ return [
     'view' => 'View',
     'delete' => 'Delete',
     'category' => 'Category',
+    'productAddedToWish' => 'Product added',
+    'productDeletedFromWish' => 'Product deleted',
+    'productFromFavPostDeleted' => 'Post deleted from favorite posts',
+    'postAdded' => 'Post added to favorites',
+    'postCreated' => 'Post created',
+    'postDeleted' => 'Post deleted',
+    'productDeleted' => 'Product deleted',
+    'productCreated' => 'Product created',
+    'productAddedToCart' => 'Product added to cart',
+    'purchaseDone' => 'Purchase done',
+    'deleteComment' => 'Comment deleted',
+    'commentCreated' => 'Comment created'
     //test
 ];
 

@@ -6,26 +6,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PostComment;
+use Illuminate\Support\Facades\Lang;
 
 class PostCommentController extends Controller {
 
-    public function delete($id)
-    {
+    public function delete($id){
         $comment = PostComment::find($id);
         $comment->delete();
-        return back()->with('deleted',"Se fue");
+        $message = Lang::get('messages.deleteComment');
+        return back()->with('deleted', $message);
     }
 
-    public function save(Request $request)
-    {
-        $request->validate([
-            "description" => "required",
-            "user_id" => "required",
-            "post_id" => "required"
-
-        ]);
+    public function save(Request $request){
+        $request->validate(PostComment::validate());
         PostComment::create($request->only(["description", "user_id", "post_id"]));
-        return back()->with('success','Elemento creado satisfactoriamente');
+        $message = Lang::get('messages.commentCreated');
+        return back()->with('success', $message);
     }
 
 }

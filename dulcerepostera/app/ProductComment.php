@@ -70,4 +70,13 @@ class ProductComment extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public static function validate(){
+        return [
+            "description" => "required",
+            "user_id" => "required",
+            "product_id" => "required",
+            "rating" => "required|numeric"
+        ];
+    }
 }

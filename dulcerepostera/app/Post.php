@@ -60,4 +60,12 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public static function validate(){
+        return [
+            "name" => "required",            
+            "description" => "required",
+            "user_id" => "required"
+        ];
+    }
+
 }

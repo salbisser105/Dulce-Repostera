@@ -39,58 +39,47 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getId()
-    {
+    public function getId(){
         return $this->attributes['id'];
     }
 
-    public function setId($id)
-    {
+    public function setId($id){
         $this->attributes['id'] = $id;
     }
 
-    public function getRole()
-    {
+    public function getRole(){
         return $this->attributes['role'];
     }
 
-    public function getName()
-    {
+    public function getName(){
         return $this->attributes['name'];
     }
 
-    public function setName($name)
-    {
+    public function setName($name){
         $this->attributes['name'] = $name;
     }
 
-    public function getUser()
-    {
+    public function getUser(){
         return $this->attributes['user'];
     }
 
-    public function setUser($user)
-    {
+    public function setUser($user){
         $this->attributes['user'] = $user;
     }
 
-    public function getEmail()
-    {
+    public function getEmail(){
         return $this->attributes['email'];
     }
 
-    public function setEmail($email)
-    {
+    public function setEmail($email){
         $this->attributes['email'] = $email;
     }
 
-    public function getPassword()
-    {
+    public function getPassword(){
         return $this->attributes['password'];
     }
 
-    public function setPassword($password)
-    {
+    public function setPassword($password){
         $this->attributes['password'] = $password;
     }
 
@@ -100,6 +89,18 @@ class User extends Authenticatable
 
     public function post(){
         return $this->hasMany(Post::class);
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
+    public function favoritePosts(){
+        return $this->hasMany(FavPosts::class);
+    }
+
+    public function wishList(){
+        return $this->hasMany(WishList::class);
     }
 
 }

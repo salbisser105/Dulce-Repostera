@@ -8,12 +8,11 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
 use App\Item;
+use Illuminate\Support\Facades\Lang;
 
-class ProductController extends Controller
-{
+class ProductController extends Controller {
 
-    public function show($id)
-    {
+    public function show($id){
         $data = [];
         $product = Product::findOrFail($id);
         $data["title"] = $product->getName();
@@ -21,25 +20,21 @@ class ProductController extends Controller
         return view('product.show')->with("data", $data);
     }
 
-    public function create()
-    {
+    public function create(){
         $data = [];
         $data["title"] = "Create product";
         return view('product.create')->with("data",$data);
 
     }
 
-    public function list()
-    {
+    public function list(){
         $data = [];
-
         $data["title"] = "List product";
         $data["products"] = Product::with("comments")->get();
         return view('product.list')->with("data",$data);
     }
 
-    public function list_rating($rating)
-    {
+    public function list_rating($rating){
         $data = [];
         $data["title"] = "List product";
         $data["products"] = Product::where('rating','>=',$rating)->get();
@@ -47,29 +42,21 @@ class ProductController extends Controller
 
     }
 
-    public function delete($id)
-    {
+    public function delete($id){
         $product = Product::find($id);
         $product->delete();
-        return redirect('product/list')->with('deleted', "Se fue");
+        $message = Lang::get('messages.productDeleted');
+        return redirect('product/list')->with('deleted', $message);
     }
 
-    public function save(Request $request)
-    {
-
+    public function save(Request $request){
         $name = "";
         if($request->hasFile('product_image')){
             $file = $request->file('product_image');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/product/',$name);
+            $file->move(public_path().'/img/product/',$name);//cambiar el path
         }
-        $request->validate([
-            "name" => "required",
-            "price" => "required|numeric|gt:0",
-            "category" => "required",
-            "description" => "required",
-            "ingredients" => "required"
-        ]);
+        $request->validate(Product::validate());
 
         Product::create([
             'name' => $request->input('name'),
@@ -79,27 +66,26 @@ class ProductController extends Controller
             'image' => $name,
             'ingredients' => $request->input('ingredients')
         ]);
-        return back()->with('success','Elemento creado satisfactoriamente');
+        $message = Lang::get('messages.productCreated');
+        return back()->with('success',$message);
     }
 
-    public function addToCart($id, Request $request)
-    {
-        $data = []; //to be sent to the view
+    public function addToCart($id, Request $request){
+        $data = [];
         $quantity = $request->quantity;
         $products = $request->session()->get("products");
         $products[$id] = $quantity;
         $request->session()->put('products', $products);
-        return back()->with('success','Elemento añadido satisfactoriamente');;
+        $message = Lang::get('messages.productAddedToCart');
+        return back()->with('success',$message);
     }
 
-    public function removeCart(Request $request)
-    {
+    public function removeCart(Request $request){
         $request->session()->forget('products');
         return redirect()->route('product.list');
     }
 
-    public function cart(Request $request)
-    {
+    public function cart(Request $request){
         $products = $request->session()->get("products");
         if ($products) {
 
@@ -111,8 +97,7 @@ class ProductController extends Controller
         return redirect()->route('product.list');
     }
 
-    public function buy(Request $request)
-    {
+    public function buy(Request $request){
         $order = new Order();
         $order->setTotal("0");
         $order->save();
@@ -135,6 +120,7 @@ class ProductController extends Controller
             $order->save();
             $request->session()->forget('products');
         }
-        return back()->with('success', 'you have bought what you wanted.');
+        $message = Lang::get('messages.purchaseDone');
+        return back()->with('success', $message);
     }
 }
