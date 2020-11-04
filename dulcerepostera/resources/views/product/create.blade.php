@@ -36,7 +36,7 @@
                             </p>
                             <br><p>
                                 <b>@lang('messages.productDescription')</b>:<br>
-                                <textarea name="description" cols="40" rows="5" placeholder="Ingresar descripción" value="{{ old('description') }}"></textarea>
+                                <textarea name="description" cols="40" rows="5" placeholder="Ingresar descripción" value="">{{{ old('description') }}}</textarea>
                             </p>
                             <div class="form-group">
                                 <label><b>@lang('messages.image')</b>:</label>
