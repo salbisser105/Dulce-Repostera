@@ -88,13 +88,59 @@ class ProductController extends Controller {
     public function cart(Request $request){
         $products = $request->session()->get("products");
         if ($products) {
-
             $keys = array_keys($products);
             $productsModels = Product::find($keys);
-            $data["products"] = $productsModels;      
+            $prName = array();
+            $prPrice = array();
+            $precio=0;
+            foreach($productsModels as $product)
+            {
+                array_push($prName,$product->getName());
+                array_push($prPrice,$product->getPrice());
+                $precio += $request->session()->get("products")[$product->getId()] * $product->getPrice();
+            }
+            $data["products"] = $productsModels;
+            $data["name"] = $prName;
+            $data["price"] = $prPrice;
+            $data["precio"] = $precio;
+            // dd(count($prPrice)); 
             return view('product.cart')->with("data", $data);
         }
         return redirect()->route('product.list');
+    }
+
+    public function usd(Request $request){
+        $products = $request->session()->get("products");
+        $keys = array_keys($products);
+        $productsModels = Product::find($keys);
+        $prName = array();
+        $prPrice = array();
+        $precio=0;
+        //Comienzo API
+        $amount = $request->input('amount');
+        $from_currency = $request->input('from_currency');
+        $to_currency = $request->input('to_currency');
+        $apikey = "803332e007126d41e9a9";
+        $from_Currency = urlencode($from_currency);
+        $to_Currency = urlencode($to_currency);
+        $query =  "{$from_Currency}_{$to_Currency}";
+        $json = file_get_contents("https://free.currconv.com/api/v7/convert?q={$query}&compact=ultra&apiKey={$apikey}");
+        $obj = json_decode($json, true);
+        $val = floatval($obj["$query"]);
+        //Fin APi
+        foreach($productsModels as $product)
+        {
+            array_push($prName,$product->getName());
+            $total = $val * $amount;
+            array_push($prPrice,number_format($total, 2, '.', ''));
+            $precio += $request->session()->get("products")[$product->getId()] * number_format($total, 2, '.', '');
+        }
+        $data["products"] = $productsModels;
+        $data["name"] = $prName;
+        $data["price"] = $prPrice;
+
+        $data["precio"] = $precio;
+        return view('product.cart')->with("data", $data);
     }
 
     public function buy(Request $request){
