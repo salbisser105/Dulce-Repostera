@@ -57,6 +57,9 @@ Route::post('/favposts/delete/{id}', 'FavPostsController@delete')->name("favpost
 
 Route::get('pdfview',array('as'=>'pdfview','uses'=>'BestInterviewQuestionController@pdfview'));
 
+Route::post('/cart/usd', 'ProductController@usd')->name("product.usd");
+
+
 
 });
 

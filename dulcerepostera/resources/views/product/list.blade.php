@@ -8,25 +8,25 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">@lang('messages.listProduct')</div>
-                <div class="card-body">
-                    <b>@lang('messages.filterBy') @lang('messages.rating'): </b>
-                    <a href="{{ route('product.list_rating',0) }}">0</a>
-                    <a href="{{ route('product.list_rating',1) }}">1</a>
-                    <a href="{{ route('product.list_rating',2) }}">2</a>
-                    <a href="{{ route('product.list_rating',3) }}">3</a>
-                    <a href="{{ route('product.list_rating',4) }}">4</a>
-                    <a href="{{ route('product.list_rating',5) }}">5</a>
-                    @foreach($data["products"] as $product)
-                        <br><a style="color:black" href="{{ route('product.show',$product->getId()) }}">
-                            <b>@lang('messages.productName'):</b>{{ $product->getName() }} <br> 
-                            <b>@lang('messages.productPrice'):</b>{{ $product->getPrice() }} <br>
-                            <b>@lang('messages.rating'):</b>{{ $product->getRating() }} <br>
-                        </a>
-                        <img width="200" height="150" src='/img/product/{{ $product->getImage() }}' class="list-picture">
-                    @endforeach
+            <b>@lang('messages.filterBy') @lang('messages.rating'): </b>
+            <a href="{{ route('product.list_rating',0) }}">0</a>
+            <a href="{{ route('product.list_rating',1) }}">1</a>
+            <a href="{{ route('product.list_rating',2) }}">2</a>
+            <a href="{{ route('product.list_rating',3) }}">3</a>
+            <a href="{{ route('product.list_rating',4) }}">4</a>
+            <a href="{{ route('product.list_rating',5) }}">5</a>
+            <div class="row">
+                @foreach($data["products"] as $product)
+                <div class="card bg-light mb-3 text-center">
+                    <img width="200" height="150" src='/img/product/{{ $product->getImage() }}' class="list-picture">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:deeppink">{{ $product->getName() }}</h5>
+                        $ {{ $product->getPrice() }}<br><br>
+                        <b>@lang('messages.rating'):</b>{{ $product->getRating() }} <br><br>
+                        <a href="{{ route('product.show',$product->getId()) }}" id="button_css" class="btn btn-primary">Ir</a>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

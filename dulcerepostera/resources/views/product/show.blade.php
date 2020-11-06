@@ -12,7 +12,6 @@
             <div class="card">
                 <div class="card-header">{{ $data["product"]["name"] }}</div>
                 <div class="card-body">
-
                     <img width="300" height="200" src="{{ asset('img/product/'.$data['product']['image']) }}" class="list-picture"><br />
                     <b>@lang('messages.productName'):</b> {{ $data["product"]["name"] }}<br />
                     <b>@lang('messages.productPrice'):</b> {{ $data["product"]["price"] }}<br />

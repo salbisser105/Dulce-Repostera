@@ -12,6 +12,10 @@ class ProductResource extends JsonResource
             'id' => $this->getId(),
             'name' => $this->getName(),
             'price' => $this->getPrice(),
+            'rating' => $this->getRating(),
+            'category' => $this->getCategory(),
+            'ingredients' => $this->getIngredients(),
+            'description' => $this-> getDescription(),
         ];
     }
 }
