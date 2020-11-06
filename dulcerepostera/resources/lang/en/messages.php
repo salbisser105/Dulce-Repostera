@@ -71,7 +71,8 @@ return [
     'productAddedToCart' => 'Product added to cart',
     'purchaseDone' => 'Purchase done',
     'deleteComment' => 'Comment deleted',
-    'commentCreated' => 'Comment created'
+    'commentCreated' => 'Comment created',
+    'ir' => 'Go'
     //test
 ];
 

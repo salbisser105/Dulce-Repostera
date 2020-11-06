@@ -9,12 +9,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <b>@lang('messages.filterBy') @lang('messages.rating'): </b>
-            <a href="{{ route('product.list_rating',0) }}">0</a>
-            <a href="{{ route('product.list_rating',1) }}">1</a>
-            <a href="{{ route('product.list_rating',2) }}">2</a>
-            <a href="{{ route('product.list_rating',3) }}">3</a>
-            <a href="{{ route('product.list_rating',4) }}">4</a>
-            <a href="{{ route('product.list_rating',5) }}">5</a>
+            <a style="color:deeppink" href="{{ route('product.list_rating',0) }}">0</a>
+            <a style="color:deeppink" href="{{ route('product.list_rating',1) }}">1</a>
+            <a style="color:deeppink" href="{{ route('product.list_rating',2) }}">2</a>
+            <a style="color:deeppink" href="{{ route('product.list_rating',3) }}">3</a>
+            <a style="color:deeppink" href="{{ route('product.list_rating',4) }}">4</a>
+            <a style="color:deeppink" href="{{ route('product.list_rating',5) }}">5</a>
             <div class="row">
                 @foreach($data["products"] as $product)
                 <div class="card bg-light mb-3 text-center">
@@ -23,7 +23,7 @@
                         <h5 class="card-title" style="color:deeppink">{{ $product->getName() }}</h5>
                         $ {{ $product->getPrice() }}<br><br>
                         <b>@lang('messages.rating'):</b>{{ $product->getRating() }} <br><br>
-                        <a href="{{ route('product.show',$product->getId()) }}" id="button_css" class="btn btn-primary">Ir</a>
+                        <a href="{{ route('product.show',$product->getId()) }}" id="button_go" class="btn btn-primary">@lang('messages.ir')</messagges></a>
                     </div>
                 </div>
                 @endforeach

@@ -12,7 +12,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="mainNav">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="navbar1">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home.index') }}">
                     Dulce Repostera
@@ -21,7 +21,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">       
+                <div class="collapse navbar-collapse justify-content-end">       
                     <ul class="navbar-nav ml-auto">
                         <a class="nav-link" href="{{ route('post.show') }}">
                             @lang('messages.posts')
