@@ -54,7 +54,7 @@ class ProductController extends Controller {
         if($request->hasFile('product_image')){
             $file = $request->file('product_image');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/product/',$name);//cambiar el path
+            $file->move(public_path().'/img/product/',$name);
         }
         $request->validate(Product::validate());
 
