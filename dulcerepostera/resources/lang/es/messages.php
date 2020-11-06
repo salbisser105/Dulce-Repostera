@@ -71,7 +71,8 @@ return [
     'productAddedToCart' => 'Producto agregado a la carta',
     'purchaseDone' => 'Compra realizada',
     'deleteComment' => 'Comentario eliminado',
-    'commentCreated' => 'Comentario creado'
+    'commentCreated' => 'Comentario creado',
+    'ir' => 'Ir'
     //test
 ];
 
