@@ -169,43 +169,44 @@ class ProductController extends Controller {
         return back()->with('success', $message);
     }
     
-    public function pdfView(Request $request){
+    public function pdfView(Request $request)
+    {
         $order = new Order();
         $order->setTotal("0");
         $order->save();
+        $data = [];
+        $data['products'] = [];
+
         $precioTotal = 0;
-        $data= [];
-        
+
         $products = $request->session()->get("products");
-        
-        if ($products) {
+        if ($products)
+        {
             $keys = array_keys($products);
-            $data['products']=array();
-            for ($i = 0; $i < count($keys); $i++) {
-                $item = new Item();
-                $item->setProductId($keys[$i]);
-                $item->setOrderId($order->getId());
-                $item->setQuantity($products[$keys[$i]]);
-                $item->save();
-                array_push($data['products'],$item);
+            for ($i=0;$i<count($keys);$i++)
+            {
+                $item = [];
+                $item['product'] = Product::find($keys[$i]);
+                $item['order'] = $order;
+                $item['quantity'] = $products[$keys[$i]];
+
+                array_push($data['products'], $item);
                 $productActual = Product::find($keys[$i]);
-                $precioTotal = $precioTotal + $productActual->getPrice() * $products[$keys[$i]];
-                
+                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
             }
+
             $order->setTotal($precioTotal);
             $order->save();
-            $data['order']=$order; 
-            view()->share('items',$data);
-            $pdf = PDF::loadView('pdf/pdfview', $data);
-            $request->session()->forget('products');
-            dd($data);
-            return $pdf->download('pdf_file.pdf');
-            
+            $data['order'] = $order;
+
+            view()->share('data',$data);
+
         }
-        $message = Lang::get('messages.purchaseDone');
-        
-        return back()->with('success', $message);
-        
+
+        //dd($data);
+
+        $pdf = PDF::loadView('pdf/pdfview', $data);
+        return $pdf->download('pdf_file.pdf');
     }
     
 
