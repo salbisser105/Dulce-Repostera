@@ -26,13 +26,18 @@
                             <br />
                             <div class="row">
                                 <div class="col">
+                                    @if ($data["moneda"] == 0)
                                     <form action="{{ route('product.usd') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="from_currency" value="COP">
                                                 <input type="hidden" name="to_currency" value="USD">
-                                                <input type="hidden" name="amount" value={{$data["precio"]}}>
                                                 <button type="submit">USD</button>
                                     </from>
+                                    @else
+                                    <form action="{{ route('product.cart') }}">
+                                                <button type="submit">COP</button>
+                                    </from>
+                                    @endif
                                 </div>
                             </div>
                                 
