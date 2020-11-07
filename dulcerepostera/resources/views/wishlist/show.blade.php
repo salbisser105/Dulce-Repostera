@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="row">
-                    @foreach($data["products"] as $productWishlist)
+                @foreach($data["products"] as $productWishlist)
                     <div class="card bg-light mb-3 text-center">
                         <img width="200" height="150" src='/img/product/{{ $productWishlist->product->getImage() }}' class="list-picture">
                         <div class="card-body">
@@ -24,7 +24,7 @@
                             </form>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
             </div>
         </div>
     </div>
