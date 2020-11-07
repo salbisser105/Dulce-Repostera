@@ -49,7 +49,8 @@
                                     <form action="{{ route('product.buy') }}" method="POST">
                                         @csrf
                                         <button type="submit">@lang('messages.buy')</button>
-                                    </from> 
+                                    </form> 
+                                    <a class="btn btn-primary" href="{{ route('product.pdfView') }}">Export to PDF</a>
                                 </div>
                             </div>
                             

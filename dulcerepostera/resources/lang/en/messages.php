@@ -28,7 +28,7 @@ return [
     'password' => 'Password',
     'confirmpassword' => ' Confirm Password',
     'comments' => 'Comments',
-    'createComment' => 'Create Comment',
+    'createComment' => 'New comment',
     'commentDescription' => 'Comment\'s Description',
     'guestComment' => 'To create a comment ',
     'products' => 'Products',
@@ -71,7 +71,8 @@ return [
     'productAddedToCart' => 'Product added to cart',
     'purchaseDone' => 'Purchase done',
     'deleteComment' => 'Comment deleted',
-    'commentCreated' => 'Comment created'
+    'commentCreated' => 'Comment created',
+    'ir' => 'Go'
     //test
 ];
 

@@ -55,7 +55,11 @@ Route::post('/favposts/save/{id}', 'FavPostsController@save')->name("favposts.sa
 Route::get('/favposts/show', 'FavPostsController@list')->name("favposts.show");
 Route::post('/favposts/delete/{id}', 'FavPostsController@delete')->name("favposts.delete");
 
+
+Route::get('cart/pdfView','ProductController@pdfView')->name("product.pdfView");
+
 Route::post('/cart/usd', 'ProductController@usd')->name("product.usd");
+
 
 
 });

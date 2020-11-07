@@ -4,6 +4,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use PDF;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
@@ -54,7 +56,7 @@ class ProductController extends Controller {
         if($request->hasFile('product_image')){
             $file = $request->file('product_image');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/product/',$name);//cambiar el path
+            $file->move(public_path().'/img/product/',$name);
         }
         $request->validate(Product::validate());
 
@@ -162,11 +164,50 @@ class ProductController extends Controller {
                 $precioTotal = $precioTotal + $productActual->getPrice() * $products[$keys[$i]];
                 
             }
-            $order->setTotal($precioTotal);
-            $order->save();
-            $request->session()->forget('products');
         }
         $message = Lang::get('messages.purchaseDone');
         return back()->with('success', $message);
     }
+    
+    public function pdfView(Request $request)
+    {
+        $order = new Order();
+        $order->setTotal("0");
+        $order->save();
+        $data = [];
+        $data['products'] = [];
+
+        $precioTotal = 0;
+
+        $products = $request->session()->get("products");
+        if ($products)
+        {
+            $keys = array_keys($products);
+            for ($i=0;$i<count($keys);$i++)
+            {
+                $item = [];
+                $item['product'] = Product::find($keys[$i]);
+                $item['order'] = $order;
+                $item['quantity'] = $products[$keys[$i]];
+
+                array_push($data['products'], $item);
+                $productActual = Product::find($keys[$i]);
+                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
+            }
+
+            $order->setTotal($precioTotal);
+            $order->save();
+            $data['order'] = $order;
+
+            view()->share('data',$data);
+
+        }
+
+        //dd($data);
+
+        $pdf = PDF::loadView('pdf/pdfview', $data);
+        return $pdf->download('pdf_file.pdf');
+    }
+    
+
 }
