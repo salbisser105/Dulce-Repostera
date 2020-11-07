@@ -28,7 +28,7 @@ return [
     'password' => 'Contraseña',
     'confirmpassword' => ' Confirmar Contraseña',
     'comments' => 'Comentarios',
-    'createComment' => 'Crear Comentario',
+    'createComment' => 'Nuevo comentario',
     'commentDescription' => 'Descripcion del Comentario',
     'guestComment' => 'Para crear un comentario ',
     'products' => 'Productos',

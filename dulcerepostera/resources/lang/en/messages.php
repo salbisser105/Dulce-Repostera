@@ -28,7 +28,7 @@ return [
     'password' => 'Password',
     'confirmpassword' => ' Confirm Password',
     'comments' => 'Comments',
-    'createComment' => 'Create Comment',
+    'createComment' => 'New comment',
     'commentDescription' => 'Comment\'s Description',
     'guestComment' => 'To create a comment ',
     'products' => 'Products',

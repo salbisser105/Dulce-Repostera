@@ -6,14 +6,13 @@
 
 @section('content')
 <div class="container">
-    @include('util.message')
     <div class="row">
         <div class="col-md-8 my-3">
             <div class="card bg-light mb-3 text-center">
                 <div class="card-body">
                     <h2 class="card-title" style="color:deeppink">{{ $data["product"]["name"] }}</h2>
                     <img width="300" height="200" src="{{ asset('img/product/'.$data['product']['image']) }}" class="list-picture"><br><br>
-                    <b><h5>@lang('messages.productPrice'):</b> {{ $data["product"]["price"] }}</h5><br />
+                    <b><h5>@lang('messages.productPrice'):</b> $ {{ $data["product"]["price"] }}</h5><br />
                     <b><h5>@lang('messages.productCategory'):</b></h5> {{ $data["product"]["category"] }}<br /><br>
                     <b><h5>@lang('messages.productDescription'):</b></h5> {{ $data["product"]["description"] }}<br /><br>                
                     <b><h5>@lang('messages.ingredients'):</b></h5> {{ $data["product"]["ingredients"] }}<br /><br>
@@ -60,36 +59,34 @@
                 </div>
             </div>
         </div>
-        <h3 class="card-title" style="color:deeppink">@lang('messages.comments')</h3><br>
+        
         <div class="col-md my-5">
-            <div class="row">
-            
-                @foreach($data["product"]->comments as $comment)
-                
-                <div class="row">
-                    <div class="card bg-light mb-3 text-center">
-                        <div class="card-body">
-                            <br/>{{ $comment->getDescription() }} - @lang('messages.rating'): {{ $comment->getRating() }}
-                            @guest
-                            @else
-                                @if (Auth::user()->getId()==$comment->getUserId())
-                                    <form method="POST" action='{{ route("productcomment.delete",$comment->getId()) }}'>
-                                        @csrf
-                                        <div>
-                                            <button type="submit" id="button_delete" class="btn btn-primary">@lang('messages.delete')</button>
-                                        </div>
-                                    </form>
-                                @endif
-                            @endguest
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
+            <h3 class="card-title" style="color:deeppink">@lang('messages.comments')</h3><br>
+            @foreach($data["product"]->comments as $comment)
             <div class="row">
                 <div class="card bg-light mb-3 text-center">
                     <div class="card-body">
-                        <br><h5><b>@lang('messages.createComment'):</b></h5>
+                        <br/>{{ $comment->getDescription() }}<br> 
+                        <b>@lang('messages.rating'): {{ $comment->getRating() }}</b>
+                        @guest
+                        @else
+                            @if (Auth::user()->getId()==$comment->getUserId())
+                                <form method="POST" action='{{ route("productcomment.delete",$comment->getId()) }}'>
+                                    @csrf
+                                    <div>
+                                        <button type="submit" id="button_delete" class="btn btn-primary">@lang('messages.delete')</button>
+                                    </div>
+                                </form>
+                            @endif
+                        @endguest
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            <div class="row">
+                <div class="card bg-light mb-3 text-center">
+                    <div class="card-body">
+                        <h3 class="card-title" style="color:deeppink">@lang('messages.createComment'):<br></h3>
                         @if($errors->any())
                         <ul id="errors">
                             @foreach($errors->all() as $error)
@@ -105,7 +102,7 @@
                                 @csrf
                                 @lang('messages.commentDescription'): <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
                                 <br><br><h5><b> @lang('messages.rating'):</b></h5>
-                                <input type="radio" name="rating" value="1" {{ (old('rating') == "1") ? "checked" : ""}}>
+                                <!--<input type="radio" name="rating" value="1" {{ (old('rating') == "1") ? "checked" : ""}}>
                                 <label for="radio-inline">1</label><br>
                                 <input type="radio" name="rating" value="2" {{ (old('rating') == "2") ? "checked" : ""}}>
                                 <label for="radio-inline">2</label><br>
@@ -114,7 +111,19 @@
                                 <input type="radio" name="rating" value="4" {{ (old('rating') == "4") ? "checked" : ""}}>
                                 <label for="radio-inline">4</label><br>
                                 <input type="radio" name="rating" value="5" {{ (old('rating') == "5") ? "checked" : ""}}>
-                                <label for="radio-inline">5</label><br>
+                                <label for="radio-inline">5</label><br>-->
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <label for="star5" title="text">5 stars</label>
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label for="star1" title="text">1 star</label>
+                                </div>
 
                                 <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                                 <input type="hidden" name="product_id" value='{{$data["product"]->getId()}}'>
