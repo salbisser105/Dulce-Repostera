@@ -71,7 +71,13 @@ return [
     'productAddedToCart' => 'Producto agregado a la carta',
     'purchaseDone' => 'Compra realizada',
     'deleteComment' => 'Comentario eliminado',
-    'commentCreated' => 'Comentario creado'
+    'commentCreated' => 'Comentario creado',
+    'order_receipt' => 'Recibo de tu orden',
+    'order_number' => 'Numero de la orden',
+    'total-sub-price' => 'Precio semi total',
+    'total-price' => 'Precio total',
+    'Tortas' => 'Tortas',
+    'pdf' => 'Descargar como PDF'
     //test
 ];
 

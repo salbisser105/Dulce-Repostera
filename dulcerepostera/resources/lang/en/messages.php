@@ -71,7 +71,13 @@ return [
     'productAddedToCart' => 'Product added to cart',
     'purchaseDone' => 'Purchase done',
     'deleteComment' => 'Comment deleted',
-    'commentCreated' => 'Comment created'
+    'commentCreated' => 'Comment created',
+    'order_receipt' => 'Order Receipt',
+    'order_number' => 'Order Number',
+    'total-sub-price' => 'Total sub price',
+    'total-price' => 'Total price',
+    'pdf' => 'Download as PDF',
+    'Tortas' => 'Cakes'
     //test
 ];
 

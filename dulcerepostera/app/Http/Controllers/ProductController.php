@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
 use App\Item;
+use App\User;
 use Illuminate\Support\Facades\Lang;
 
 class ProductController extends Controller {
@@ -174,6 +175,7 @@ class ProductController extends Controller {
         $order = new Order();
         $order->setTotal("0");
         $order->save();
+        $userid = $request->input("pdf");
         $data = [];
         $data['products'] = [];
 
@@ -189,7 +191,7 @@ class ProductController extends Controller {
                 $item['product'] = Product::find($keys[$i]);
                 $item['order'] = $order;
                 $item['quantity'] = $products[$keys[$i]];
-
+                $item['userid']= $userid;
                 array_push($data['products'], $item);
                 $productActual = Product::find($keys[$i]);
                 $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
