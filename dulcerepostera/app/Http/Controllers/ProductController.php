@@ -4,6 +4,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use PDF;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
@@ -162,11 +164,49 @@ class ProductController extends Controller {
                 $precioTotal = $precioTotal + $productActual->getPrice() * $products[$keys[$i]];
                 
             }
-            $order->setTotal($precioTotal);
-            $order->save();
-            $request->session()->forget('products');
         }
         $message = Lang::get('messages.purchaseDone');
         return back()->with('success', $message);
     }
+    
+    public function pdfView(Request $request){
+        $order = new Order();
+        $order->setTotal("0");
+        $order->save();
+        $precioTotal = 0;
+        $data= [];
+        
+        $products = $request->session()->get("products");
+        
+        if ($products) {
+            $keys = array_keys($products);
+            $data['products']=array();
+            for ($i = 0; $i < count($keys); $i++) {
+                $item = new Item();
+                $item->setProductId($keys[$i]);
+                $item->setOrderId($order->getId());
+                $item->setQuantity($products[$keys[$i]]);
+                $item->save();
+                array_push($data['products'],$item);
+                $productActual = Product::find($keys[$i]);
+                $precioTotal = $precioTotal + $productActual->getPrice() * $products[$keys[$i]];
+                
+            }
+            $order->setTotal($precioTotal);
+            $order->save();
+            $data['order']=$order; 
+            view()->share('items',$data);
+            $pdf = PDF::loadView('pdf/pdfview', $data);
+            $request->session()->forget('products');
+            dd($data);
+            return $pdf->download('pdf_file.pdf');
+            
+        }
+        $message = Lang::get('messages.purchaseDone');
+        
+        return back()->with('success', $message);
+        
+    }
+    
+
 }
