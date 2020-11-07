@@ -72,7 +72,9 @@ return [
     'purchaseDone' => 'Purchase done',
     'deleteComment' => 'Comment deleted',
     'commentCreated' => 'Comment created',
-    'ir' => 'Go'
+    'ir' => 'Go',
+    'newPost' => 'NEW POST',
+    'newProduct' => 'NEW PRODUCT'
     //test
 ];
 

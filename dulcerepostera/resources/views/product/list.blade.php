@@ -8,6 +8,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        @include('util.message')
             <b>@lang('messages.filterBy') @lang('messages.rating'): </b>
             <a style="color:deeppink" href="{{ route('product.list_rating',0) }}">0</a>
             <a style="color:deeppink" href="{{ route('product.list_rating',1) }}">1</a>
@@ -27,6 +28,16 @@
                     </div>
                 </div>
                 @endforeach
+                @guest
+                @else
+                    @if (Auth::user()->getRole()=="admin")
+                    <div class="card bg-light mb-3 text-center">
+                        <div class="card-body">
+                            <a href="{{ route('product.create') }}" id="button_go" class="btn btn-primary"><b>@lang('messages.newProduct')</b></a>
+                        </div>
+                    </div>
+                    @endif
+                @endguest
             </div>
         </div>
     </div>
