@@ -94,17 +94,20 @@ class ProductController extends Controller {
             $productsModels = Product::find($keys);
             $prName = array();
             $prPrice = array();
+            $prId = array();
             $precio=0;
             foreach($productsModels as $product)
             {
                 array_push($prName,$product->getName());
                 array_push($prPrice,$product->getPrice());
+                array_push($prId,$product->getId());
                 $precio += $request->session()->get("products")[$product->getId()] * $product->getPrice();
             }
             $data["products"] = $productsModels;
             $data["name"] = $prName;
             $data["price"] = $prPrice;
             $data["precio"] = $precio;
+            $data["id"] = $prId;
             $data["moneda"] = 0;
             // dd(count($prPrice)); 
             return view('product.cart')->with("data", $data);
@@ -118,10 +121,11 @@ class ProductController extends Controller {
         $productsModels = Product::find($keys);
         $prName = array();
         $prPrice = array();
+        $prId = array();
         $precio=0;
         //Comienzo API
-        $from_currency = $request->input('from_currency');
-        $to_currency = $request->input('to_currency');
+        $from_currency = "COP";
+        $to_currency = "USD";
         $apikey = "803332e007126d41e9a9";
         $from_Currency = urlencode($from_currency);
         $to_Currency = urlencode($to_currency);
@@ -133,6 +137,7 @@ class ProductController extends Controller {
         foreach($productsModels as $product)
         {
             array_push($prName,$product->getName());
+            array_push($prId,$product->getId());
             $total = $val * $product->getPrice();
             array_push($prPrice,number_format($total, 2, '.', ''));
             $precio += $request->session()->get("products")[$product->getId()] * number_format($total, 2, '.', '');
@@ -140,8 +145,9 @@ class ProductController extends Controller {
         $data["products"] = $productsModels;
         $data["name"] = $prName;
         $data["price"] = $prPrice;
-        $data["moneda"] = 1;
         $data["precio"] = $precio;
+        $data["id"] = $prId;
+        $data["moneda"] = 1;
         return view('product.cart')->with("data", $data);
     }
 

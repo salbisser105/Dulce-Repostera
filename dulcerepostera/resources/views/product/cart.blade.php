@@ -20,29 +20,21 @@
                             @for ($i = 0; $i < count($data["name"]);$i++)
                             <li>
                                 <b>@lang('messages.name')</b>: {{ $data["name"][$i] }} - <b>@lang('messages.productPrice')</b>: {{ $data["price"][$i]}}
-                                - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$product->getId()] }}
+                                - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$data["id"][$i]] }}
                             </li>
                             @endfor
                             <br />
                             <div class="row">
                                 <div class="col">
                                     @if ($data["moneda"] == 0)
-                                    <form action="{{ route('product.usd') }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="from_currency" value="COP">
-                                                <input type="hidden" name="to_currency" value="USD">
-                                                <button type="submit">USD</button>
-                                    </from>
+                                    <a class="btn btn-primary" href="{{ route('product.usd') }}">USD</a>
                                     @else
-                                    <form action="{{ route('product.cart') }}">
-                                                <button type="submit">COP</button>
-                                    </from>
+                                    <a class="btn btn-primary" href="{{ route('product.cart') }}">COP</a>
                                     @endif
                                 </div>
                             </div>
                                 
-                            
-                                <b>@lang('messages.total'):</b> {{$data["precio"]}}
+                            <b>@lang('messages.total'):</b> {{$data["precio"]}}
                             
                             <div class="row">
                                 <div class="col">
