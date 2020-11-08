@@ -16,14 +16,14 @@
   <h2 class="page-header mt-4">
     <small>@lang('messages.order_number'): {{ $data['order']->getId() }}</small>
   </h2>
-
+  <small>@lang('messages.productName')</small>
   <table class="table table-bordered">
     <thead>
       <tr class="table-success">
-        <td>@lang('messages.product_name')</td>
-        <td>@lang('messages.product_description')</td>
-        <td>@lang('messages.product_category')</td>
-        <td>@lang('messages.product_price')</td>
+        <td>@lang('messages.productName')</td>
+        <td>@lang('messages.productDescription')</td>
+        <td>@lang('messages.productCategory')</td>
+        <td>@lang('messages.productPrice')</td>
         <td>@lang('messages.quantity')</td>
         <td>@lang('messages.total-sub-price')</td>
       </tr>
@@ -32,7 +32,7 @@
       @foreach ($data['products'] as $item)
       <tr>
         <td>{{ $item['product']->getName() }}</td>
-        <td>{{ $item['product']->getDescription() }}</td>
+        <td>{{ $item['userid'] }}</td>
         <td>@lang('messages.' . $item['product']->getCategory())</td>
         <td>${{ $item['product']->getPrice() }}</td>
         <td>{{ $item['quantity'] }}</td>

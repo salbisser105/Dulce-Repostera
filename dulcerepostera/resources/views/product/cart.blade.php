@@ -42,7 +42,11 @@
                                         @csrf
                                         <button type="submit">@lang('messages.buy')</button>
                                     </form> 
-                                    <a class="btn btn-primary" href="{{ route('product.pdfView') }}">Export to PDF</a>
+                                    <form action="{{ route('product.pdfView') }}" method="GET">
+                                        @csrf
+                                        <input type="hidden" name="pdf" value="{{Auth::user()->getName()}}">
+                                        <button type="submit">@lang('messages.pdf')</button>
+                                    </form> 
                                 </div>
                             </div>
                             
