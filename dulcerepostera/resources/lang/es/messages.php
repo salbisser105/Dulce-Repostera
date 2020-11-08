@@ -28,7 +28,7 @@ return [
     'password' => 'Contraseña',
     'confirmpassword' => ' Confirmar Contraseña',
     'comments' => 'Comentarios',
-    'createComment' => 'Crear Comentario',
+    'createComment' => 'Nuevo comentario',
     'commentDescription' => 'Descripcion del Comentario',
     'guestComment' => 'Para crear un comentario ',
     'products' => 'Productos',
@@ -77,7 +77,11 @@ return [
     'total-sub-price' => 'Precio semi total',
     'total-price' => 'Precio total',
     'Tortas' => 'Tortas',
-    'pdf' => 'Descargar como PDF'
+    'pdf' => 'Descargar como PDF',
+    'ir' => 'Ir',
+    "newPost" => 'NUEVO POST',
+    "newProduct" => 'NUEVO PRODUCTO',
+    'allies' => 'Aliados'
     //test
 ];
 

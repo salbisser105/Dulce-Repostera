@@ -12,43 +12,46 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" id="mainNav">
+        <nav class="navbar navbar-expand-md navbar-light" id="navbar1">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home.index') }}">
-                    Dulce Repostera
+                    <b>Dulce Repostera</b>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">       
+                <div class="collapse navbar-collapse justify-content-end">       
                     <ul class="navbar-nav ml-auto">
                         <a class="nav-link" href="{{ route('post.show') }}">
-                            @lang('messages.posts')
+                            <b>@lang('messages.posts')</b>
                         </a>
                         <a class="nav-link" href="{{ route('product.list') }}">
-                            @lang('messages.products')
+                            <b>@lang('messages.products')</b>
                         </a>
                         @guest
                             <a class="nav-link" href="{{ route('login') }}">
-                                @lang('messages.wishlist')
+                                <b>@lang('messages.wishlist')</b>
                             </a>
                             <a class="nav-link" href="{{ route('login') }}">
-                                @lang('messages.favposts')
+                                <b>@lang('messages.favposts')</b>
                             </a>
                         @else
                             <a class="nav-link" href="{{ route('wishlist.show') }}">
-                                @lang('messages.wishlist')
+                                <b>@lang('messages.wishlist')</b>
                             </a>
                             <a class="nav-link" href="{{ route('favposts.show') }}">
-                                @lang('messages.favposts')
+                                <b>@lang('messages.favposts')</b>
                             </a>
                         @endguest
                         <a class="nav-link" href="{{ route('product.cart') }}">
-                            @lang('messages.cart')
+                            <b>@lang('messages.cart')</b>
                         </a>
                         <a class="nav-link" href="{{ route('product.removeCart') }}">
-                            @lang('messages.removeCart')
+                            <b>@lang('messages.removeCart')</b>
+                        </a>
+                        <a class="nav-link" href="{{ route('allies.api') }}">
+                            <b>@lang('messages.allies')</b>
                         </a>
                     </ul>
                 
@@ -56,43 +59,43 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @lang('messages.language')
+                                    <b>@lang('messages.language')</b>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('language.setLanguage','es')}}">
-                                        @lang('messages.spanish')
+                                        <b>@lang('messages.spanish')</b>
                                     </a>
                                     <a class="dropdown-item" href="{{ route('language.setLanguage','en')}}">
-                                        @lang('messages.english')
+                                        <b>@lang('messages.english')</b>
                                     </a>
                                 </div>
                             </li>
 
                             @guest
                                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="{{ route('login') }}">
-                                    @lang('messages.login')
+                                    <b>@lang('messages.login')</b>
                                 </a></li>
                                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link" href="{{ route('register') }}">
-                                    @lang('messages.register')
+                                    <b>@lang('messages.register')</b>
                                 </a></li>
                             @else
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                                        <b>{{ Auth::user()->name }}</b>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         @if (Auth::user()->getRole()=="admin")
                                             <a class="dropdown-item" href="{{ route('product.create') }}">
-                                                @lang('messages.createProduct')
+                                                <b>@lang('messages.createProduct')</b>
                                             </a>
                                         @endif
                                         <a class="dropdown-item" href="{{ route('post.create') }}">
-                                            @lang('messages.createPost')
+                                            <b>@lang('messages.createPost')</b>
                                         </a>
 
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
-                                            @lang('messages.logout')
+                                            <b>@lang('messages.logout')</b>
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf

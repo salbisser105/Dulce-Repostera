@@ -58,9 +58,10 @@ Route::post('/favposts/delete/{id}', 'FavPostsController@delete')->name("favpost
 
 Route::get('cart/pdfView','ProductController@pdfView')->name("product.pdfView");
 
-Route::post('/cart/usd', 'ProductController@usd')->name("product.usd");
+Route::get('/cart/usd', 'ProductController@usd')->name("product.usd");
 
-
+Route::get('/allies/index','AlliesController@index')->name("allies.index");
+Route::get('/allies/api','AlliesController@api')->name("allies.api");
 
 });
 

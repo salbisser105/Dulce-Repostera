@@ -28,7 +28,7 @@ return [
     'password' => 'Password',
     'confirmpassword' => ' Confirm Password',
     'comments' => 'Comments',
-    'createComment' => 'Create Comment',
+    'createComment' => 'New comment',
     'commentDescription' => 'Comment\'s Description',
     'guestComment' => 'To create a comment ',
     'products' => 'Products',
@@ -77,7 +77,11 @@ return [
     'total-sub-price' => 'Total sub price',
     'total-price' => 'Total price',
     'pdf' => 'Download as PDF',
-    'Tortas' => 'Cakes'
+    'Tortas' => 'Cakes',
+    'ir' => 'Go',
+    'newPost' => 'NEW POST',
+    'newProduct' => 'NEW PRODUCT',
+    'allies' => 'Allies'
     //test
 ];
 
