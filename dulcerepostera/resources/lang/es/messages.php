@@ -81,6 +81,7 @@ return [
     'ir' => 'Ir',
     "newPost" => 'NUEVO POST',
     "newProduct" => 'NUEVO PRODUCTO',
+    'toUSD' => 'A USD',
     'allies' => 'Aliados'
     //test
 ];
