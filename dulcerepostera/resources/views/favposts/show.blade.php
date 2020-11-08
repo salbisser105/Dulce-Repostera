@@ -8,20 +8,22 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">@lang('messages.favposts')</div>
-                <div class="card-body">
-                    @foreach($data["posts"] as $postFavorites)
-                        <br><a style="color:black" href="{{ route('post.showpost',$postFavorites->getPostId()) }}">
-                        {{ $postFavorites->post->getName()}} - {{$postFavorites->post->getDescription() }}</a>
+        @include('util.message')
+            <div class="row">
+                @foreach($data["posts"] as $postFavorites)
+                    <div class="card bg-light mb-3 text-center">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:deeppink">{{ $postFavorites->post->getName() }}</h5>
+                            <a href="{{ route('post.showpost',$postFavorites->post->getId()) }}" id="button_go" class="btn btn-primary">@lang('messages.ir')</messagges></a>
+                        </div>
                         <form method="POST" action='{{ route("favposts.delete",$postFavorites->getId()) }}'>
                         @csrf
                             <div>
-                                <button type="submit">@lang('messages.delete')</button>
+                                <button type="submit" id="button_delete" class="btn btn-primary">@lang('messages.delete')</button>
                             </div>
                         </form>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

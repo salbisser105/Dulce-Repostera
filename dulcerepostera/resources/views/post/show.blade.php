@@ -16,6 +16,15 @@
                 </div>
             </div>
             @endforeach
+            @guest
+            <br> @lang('messages.guestCreatePost')<a href="{{ route('login') }}">@lang('messages.login')</a>
+            @else
+            <div class="card bg-light mb-3 text-center">
+                <div class="card-body">
+                    <a href="{{ route('post.create') }}" id="button_go" class="btn btn-primary"><b>@lang('messages.newPost')</b></a>
+                </div>
+            </div>
+            @endguest
         </div>
     </div>
 </div>
