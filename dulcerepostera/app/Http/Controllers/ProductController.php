@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
 use App\Item;
+use App\User;
 use Illuminate\Support\Facades\Lang;
 
 class ProductController extends Controller {
@@ -94,17 +95,21 @@ class ProductController extends Controller {
             $productsModels = Product::find($keys);
             $prName = array();
             $prPrice = array();
+            $prId = array();
             $precio=0;
             foreach($productsModels as $product)
             {
                 array_push($prName,$product->getName());
                 array_push($prPrice,$product->getPrice());
+                array_push($prId,$product->getId());
                 $precio += $request->session()->get("products")[$product->getId()] * $product->getPrice();
             }
             $data["products"] = $productsModels;
             $data["name"] = $prName;
             $data["price"] = $prPrice;
             $data["precio"] = $precio;
+            $data["id"] = $prId;
+            $data["moneda"] = 0;
             // dd(count($prPrice)); 
             return view('product.cart')->with("data", $data);
         }
@@ -117,11 +122,11 @@ class ProductController extends Controller {
         $productsModels = Product::find($keys);
         $prName = array();
         $prPrice = array();
+        $prId = array();
         $precio=0;
         //Comienzo API
-        $amount = $request->input('amount');
-        $from_currency = $request->input('from_currency');
-        $to_currency = $request->input('to_currency');
+        $from_currency = "COP";
+        $to_currency = "USD";
         $apikey = "803332e007126d41e9a9";
         $from_Currency = urlencode($from_currency);
         $to_Currency = urlencode($to_currency);
@@ -133,15 +138,17 @@ class ProductController extends Controller {
         foreach($productsModels as $product)
         {
             array_push($prName,$product->getName());
-            $total = $val * $amount;
+            array_push($prId,$product->getId());
+            $total = $val * $product->getPrice();
             array_push($prPrice,number_format($total, 2, '.', ''));
             $precio += $request->session()->get("products")[$product->getId()] * number_format($total, 2, '.', '');
         }
         $data["products"] = $productsModels;
         $data["name"] = $prName;
         $data["price"] = $prPrice;
-
         $data["precio"] = $precio;
+        $data["id"] = $prId;
+        $data["moneda"] = 1;
         return view('product.cart')->with("data", $data);
     }
 
@@ -169,43 +176,45 @@ class ProductController extends Controller {
         return back()->with('success', $message);
     }
     
-    public function pdfView(Request $request){
+    public function pdfView(Request $request)
+    {
         $order = new Order();
         $order->setTotal("0");
         $order->save();
+        $userid = $request->input("pdf");
+        $data = [];
+        $data['products'] = [];
+
         $precioTotal = 0;
-        $data= [];
-        
+
         $products = $request->session()->get("products");
-        
-        if ($products) {
+        if ($products)
+        {
             $keys = array_keys($products);
-            $data['products']=array();
-            for ($i = 0; $i < count($keys); $i++) {
-                $item = new Item();
-                $item->setProductId($keys[$i]);
-                $item->setOrderId($order->getId());
-                $item->setQuantity($products[$keys[$i]]);
-                $item->save();
-                array_push($data['products'],$item);
+            for ($i=0;$i<count($keys);$i++)
+            {
+                $item = [];
+                $item['product'] = Product::find($keys[$i]);
+                $item['order'] = $order;
+                $item['quantity'] = $products[$keys[$i]];
+                $item['userid']= $userid;
+                array_push($data['products'], $item);
                 $productActual = Product::find($keys[$i]);
-                $precioTotal = $precioTotal + $productActual->getPrice() * $products[$keys[$i]];
-                
+                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
             }
+
             $order->setTotal($precioTotal);
             $order->save();
-            $data['order']=$order; 
-            view()->share('items',$data);
-            $pdf = PDF::loadView('pdf/pdfview', $data);
-            $request->session()->forget('products');
-            dd($data);
-            return $pdf->download('pdf_file.pdf');
-            
+            $data['order'] = $order;
+
+            view()->share('data',$data);
+
         }
-        $message = Lang::get('messages.purchaseDone');
-        
-        return back()->with('success', $message);
-        
+
+        //dd($data);
+
+        $pdf = PDF::loadView('pdf/pdfview', $data);
+        return $pdf->download('pdf_file.pdf');
     }
     
 

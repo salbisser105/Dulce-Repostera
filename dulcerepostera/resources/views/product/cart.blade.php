@@ -16,32 +16,37 @@
                                 - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$product->getId()] }}</li>
                         @endforeach -->
 
-                        @for ($i = 0; $i < count($data["name"]);$i++)
-                        <li>
-                            {{ $data["name"][$i] }} - <b>@lang('messages.productPrice')</b>: $ {{ $data["price"][$i]}}
-                            - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$product->getId()] }}
-                        </li>
-                        @endfor
-                        <br />
-                        <b>@lang('messages.total'):</b> $ {{$data["precio"]}}<br>
-                        <div class="row">
-                            <div class="col">
-                                <form action="{{ route('product.usd') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="from_currency" value="COP">
-                                            <input type="hidden" name="to_currency" value="USD">
-                                            <input type="hidden" name="amount" value={{$data["precio"]}}>
-                                            <button type="submit" id="button_toUsd" class="btn btn-primary">@lang('messages.toUSD')</button>
-                                </from>
+                            @for ($i = 0; $i < count($data["name"]);$i++)
+                            <li>
+                                <b>@lang('messages.name')</b>: {{ $data["name"][$i] }} - <b>@lang('messages.productPrice')</b>: {{ $data["price"][$i]}}
+                                - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$data["id"][$i]] }}
+                            </li>
+                            @endfor
+                            <br />
+                            <div class="row">
+                                <div class="col">
+                                    @if ($data["moneda"] == 0)
+                                    <a class="btn btn-primary" href="{{ route('product.usd') }}">USD</a>
+                                    @else
+                                    <a class="btn btn-primary" href="{{ route('product.cart') }}">COP</a>
+                                    @endif
+                                </div>
                             </div>
-                        </div> 
-                        <div class="row">
-                            <div class="col">
-                                <form action="{{ route('product.buy') }}" method="POST">
-                                    @csrf
-                                    <br><button type="submit" id="button_add" class="btn btn-primary"><b>@lang('messages.buy')</b></button>
-                                </form> 
-                                <a id="button_add" class="btn btn-primary" href="{{ route('product.pdfView') }}"><b>Export to PDF</b></a>
+                                
+                            <b>@lang('messages.total'):</b> {{$data["precio"]}}
+                            
+                            <div class="row">
+                                <div class="col">
+                                    <form action="{{ route('product.buy') }}" method="POST">
+                                        @csrf
+                                        <button type="submit">@lang('messages.buy')</button>
+                                    </form> 
+                                    <form action="{{ route('product.pdfView') }}" method="GET">
+                                        @csrf
+                                        <input type="hidden" name="pdf" value="{{Auth::user()->getName()}}">
+                                        <button type="submit">@lang('messages.pdf')</button>
+                                    </form> 
+                                </div>
                             </div>
                         </div>        
                     </div>

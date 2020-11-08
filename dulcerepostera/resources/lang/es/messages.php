@@ -72,10 +72,17 @@ return [
     'purchaseDone' => 'Compra realizada',
     'deleteComment' => 'Comentario eliminado',
     'commentCreated' => 'Comentario creado',
+    'order_receipt' => 'Recibo de tu orden',
+    'order_number' => 'Numero de la orden',
+    'total-sub-price' => 'Precio semi total',
+    'total-price' => 'Precio total',
+    'Tortas' => 'Tortas',
+    'pdf' => 'Descargar como PDF',
     'ir' => 'Ir',
     "newPost" => 'NUEVO POST',
     "newProduct" => 'NUEVO PRODUCTO',
-    'toUSD' => 'A USD'
+    'toUSD' => 'A USD',
+    'allies' => 'Aliados'
     //test
 ];
 

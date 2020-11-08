@@ -72,10 +72,17 @@ return [
     'purchaseDone' => 'Purchase done',
     'deleteComment' => 'Comment deleted',
     'commentCreated' => 'Comment created',
+    'order_receipt' => 'Order Receipt',
+    'order_number' => 'Order Number',
+    'total-sub-price' => 'Total sub price',
+    'total-price' => 'Total price',
+    'pdf' => 'Download as PDF',
+    'Tortas' => 'Cakes',
     'ir' => 'Go',
     'newPost' => 'NEW POST',
     'newProduct' => 'NEW PRODUCT',
-    'toUSD' => 'To USD'
+    'toUSD' => 'To USD',
+    'allies' => 'Allies'
     //test
 ];
 
