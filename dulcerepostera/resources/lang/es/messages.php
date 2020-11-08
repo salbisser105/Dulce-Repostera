@@ -74,7 +74,8 @@ return [
     'commentCreated' => 'Comentario creado',
     'ir' => 'Ir',
     "newPost" => 'NUEVO POST',
-    "newProduct" => 'NUEVO PRODUCTO'
+    "newProduct" => 'NUEVO PRODUCTO',
+    'toUSD' => 'A USD'
     //test
 ];
 

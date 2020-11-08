@@ -74,7 +74,8 @@ return [
     'commentCreated' => 'Comment created',
     'ir' => 'Go',
     'newPost' => 'NEW POST',
-    'newProduct' => 'NEW PRODUCT'
+    'newProduct' => 'NEW PRODUCT',
+    'toUSD' => 'To USD'
     //test
 ];
 
