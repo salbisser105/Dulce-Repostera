@@ -32,7 +32,7 @@
                                     @endif
                                 </div>
                             </div>
-                                
+                            <br><a class="btn btn-primary" href="{{ route('product.removeCart') }}">@lang('messages.removeCart')</a><br>
                             <b>@lang('messages.total'):</b> {{$data["precio"]}}
                             
                             <div class="row">
@@ -41,11 +41,14 @@
                                         @csrf
                                         <button type="submit">@lang('messages.buy')</button>
                                     </form> 
+                                    @guest
+                                    @else
                                     <form action="{{ route('product.pdfView') }}" method="GET">
                                         @csrf
                                         <input type="hidden" name="pdf" value="{{Auth::user()->getName()}}">
                                         <button type="submit">@lang('messages.pdf')</button>
                                     </form> 
+                                    @endguest
                                 </div>
                             </div>
                         </div>        
