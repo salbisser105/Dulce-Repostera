@@ -47,9 +47,6 @@
                         <a class="nav-link" href="{{ route('product.cart') }}">
                             <b>@lang('messages.cart')</b>
                         </a>
-                        <a class="nav-link" href="{{ route('product.removeCart') }}">
-                            <b>@lang('messages.removeCart')</b>
-                        </a>
                         <a class="nav-link" href="{{ route('allies.api') }}">
                             <b>@lang('messages.allies')</b>
                         </a>
