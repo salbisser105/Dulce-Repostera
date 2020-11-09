@@ -21,6 +21,7 @@ class CreateOrders extends Migration
             $table->id();
             $table->integer('total');
             $table->timestamps();
+            $table->unsignedInteger('user_id');
         });
     }
 
