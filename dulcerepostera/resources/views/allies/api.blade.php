@@ -13,11 +13,16 @@
                     
                     <div class="card-body">
                         <h5 class="card-title" style="color:deeppink">{{ $post->title }}</h5>
-                        uID:{{ $post->userId }} ID:{{ $post->id}}<br><br>
-                        <b>body:</b>{{ $post->body }} <br><br>
+                        <img width="200" height="150" src='http://54.227.195.109{{ $post->cover_image }}' class="list-picture"> <br>
+                        <b>@lang('messages.alDescription'):</b>{{ $post->description }} <br>
+                        <b>@lang('messages.alCategories'):</b>{{ $post->categories}}<br>
+                        <b>@lang('messages.alContributors'):</b>{{ $post->contributors}}<br>
+                        <b>@lang('messages.alPrice'):</b>{{ $post->price}}<br>
+                        <br>
                     </div>
                 </div>
         @endforeach
+        <a href="http://54.227.195.109/login">@lang('messages.alSeeMore')</a>
         </div>
     </div>
 </div>
