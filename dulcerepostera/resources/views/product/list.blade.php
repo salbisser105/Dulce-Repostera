@@ -33,7 +33,7 @@
                     @if (Auth::user()->getRole()=="admin")
                     <div class="card bg-light mb-3 text-center">
                         <div class="card-body">
-                            <a href="{{ route('product.create') }}" id="button_go" class="btn btn-primary"><b>@lang('messages.newProduct')</b></a>
+                            <a href="{{ route('product.create') }}" id="button_goMuyBigger" class="btn btn-primary"><b>@lang('messages.newProduct')</b></a>
                         </div>
                     </div>
                     @endif

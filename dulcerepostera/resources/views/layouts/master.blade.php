@@ -6,11 +6,15 @@
     <meta charset="utf-8">
     <title>@yield('title','Home Page')</title>
     <!--Styles -->
+    <link rel="shortcut icon" sizes="114x100" href="{{ asset('img/DULCEREPOSTERA.jpg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link href="{{ asset('css/customStyle.css') }}" rel="stylesheet">
 </head>
-
+<div class="sidenav">
+        <a href="{{ route('allies.api') }}" style="text-align: center;">@lang('messages.allies')</a>
+    </div>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">

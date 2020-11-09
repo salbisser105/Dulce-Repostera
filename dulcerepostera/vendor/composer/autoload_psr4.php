@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'voku\\' => array($vendorDir . '/voku/portable-ascii/src/voku'),
-    'setasign\\Fpdi\\' => array($vendorDir . '/setasign/fpdi/src'),
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
@@ -40,7 +39,6 @@ return array(
     'Symfony\\Component\\ErrorHandler\\' => array($vendorDir . '/symfony/error-handler'),
     'Symfony\\Component\\CssSelector\\' => array($vendorDir . '/symfony/css-selector'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
-    'Svg\\' => array($vendorDir . '/phenx/php-svg-lib/src/Svg'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src'),
@@ -54,7 +52,6 @@ return array(
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'Opis\\Closure\\' => array($vendorDir . '/opis/closure/src'),
     'NunoMaduro\\Collision\\' => array($vendorDir . '/nunomaduro/collision/src'),
-    'Mpdf\\' => array($vendorDir . '/mpdf/mpdf/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
@@ -67,7 +64,6 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Fruitcake\\Cors\\' => array($vendorDir . '/fruitcake/laravel-cors/src'),
-    'FontLib\\' => array($vendorDir . '/phenx/php-font-lib/src/FontLib'),
     'Fideloper\\Proxy\\' => array($vendorDir . '/fideloper/proxy/src'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
     'Facade\\Ignition\\' => array($vendorDir . '/facade/ignition/src'),
@@ -75,7 +71,6 @@ return array(
     'Facade\\FlareClient\\' => array($vendorDir . '/facade/flare-client-php/src'),
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
-    'Dompdf\\' => array($vendorDir . '/dompdf/dompdf/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'Doctrine\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Inflector'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer'),
@@ -83,7 +78,6 @@ return array(
     'Cron\\' => array($vendorDir . '/dragonmantank/cron-expression/src/Cron'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
-    'Barryvdh\\DomPDF\\' => array($vendorDir . '/barryvdh/laravel-dompdf/src'),
-    'Asm89\\Stack\\' => array($vendorDir . '/asm89/stack-cors/src'),
+    'Asm89\\Stack\\' => array($vendorDir . '/asm89/stack-cors/src/Asm89/Stack'),
     'App\\' => array($baseDir . '/app'),
 );

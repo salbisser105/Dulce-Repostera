@@ -18,39 +18,41 @@
 
                             @for ($i = 0; $i < count($data["name"]);$i++)
                             <li>
-                                <b>@lang('messages.name')</b>: {{ $data["name"][$i] }} - <b>@lang('messages.productPrice')</b>: {{ $data["price"][$i]}}
+                                {{ $data["name"][$i] }} - <b>@lang('messages.productPrice')</b>: $ {{ $data["price"][$i]}}
                                 - <b>@lang('messages.quantity')</b>: {{ Session::get('products')[$data["id"][$i]] }}
                             </li>
                             @endfor
                             <br />
+                            <b>@lang('messages.total'):</b> $ {{$data["precio"]}}
                             <div class="row">
                                 <div class="col">
                                     @if ($data["moneda"] == 0)
-                                    <a class="btn btn-primary" href="{{ route('product.usd') }}">USD</a>
+                                    <a class="btn btn-primary" id="button_toUsd" href="{{ route('product.usd') }}">USD</a>
                                     @else
-                                    <a class="btn btn-primary" href="{{ route('product.cart') }}">COP</a>
+                                    <a class="btn btn-primary" id="button_toUsd" href="{{ route('product.cart') }}">COP</a>
                                     @endif
                                 </div>
                             </div>
-                            <br><a class="btn btn-primary" href="{{ route('product.removeCart') }}">@lang('messages.removeCart')</a><br>
-                            <b>@lang('messages.total'):</b> {{$data["precio"]}}
+                            
+                            
                             
                             <div class="row">
                                 <div class="col">
                                     <form action="{{ route('product.buy') }}" method="POST">
                                         @csrf
-                                        <button type="submit">@lang('messages.buy')</button>
+                                        <br><button type="submit" id="button_go" class="btn btn-primary">@lang('messages.buy')</button>
                                     </form> 
                                     @guest
                                     @else
                                     <form action="{{ route('product.pdfView') }}" method="GET">
                                         @csrf
                                         <input type="hidden" name="pdf" value="{{Auth::user()->getName()}}">
-                                        <button type="submit">@lang('messages.pdf')</button>
+                                        <br><button type="submit" id="button_goBigger" class="btn btn-primary">@lang('messages.pdf')</button>
                                     </form> 
                                     @endguest
                                 </div>
                             </div>
+                            <br><a class="btn btn-primary" id="button_delete" href="{{ route('product.removeCart') }}">@lang('messages.removeCart')</a><br>
                         </div>        
                     </div>
                 </div>
