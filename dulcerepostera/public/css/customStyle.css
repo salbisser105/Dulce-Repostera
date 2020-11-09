@@ -77,10 +77,10 @@
     display: block;
 }
   
-  /* When you mouse over the navigation links, change their color 
+  /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: deeppink;
-}*/
+    color: dimgray;
+}
 
 #button_toUsd{
     background-color: green;
