@@ -77,12 +77,24 @@ return [
     'total-sub-price' => 'Precio semi total',
     'total-price' => 'Precio total',
     'Tortas' => 'Tortas',
+    'Cupcakes' => 'Cupcakes',
+    'Trufas' => 'Trufas',
+    'Chocolates' => 'Chocolates',
+    'Galletas' => 'Galletas',
+    'Panes' => 'Panes',
+    'Alfajores' => 'Alfajores',
+    'Macarons' => 'Macarons',
     'pdf' => 'Descargar como PDF',
     'ir' => 'Ir',
     "newPost" => 'NUEVO POST',
     "newProduct" => 'NUEVO PRODUCTO',
     'toUSD' => 'A USD',
-    'allies' => 'Aliados'
+    'allies' => 'Aliados',
+    'alDescription' => 'Descripcion',
+    'alCategories' => 'Categorias',
+    'alContributors' => 'Contribuidores',
+    'alPrice' => 'Precio',
+    'alSeeMore' => 'Ver mas',
     //test
 ];
 

@@ -78,11 +78,23 @@ return [
     'total-price' => 'Total price',
     'pdf' => 'Download as PDF',
     'Tortas' => 'Cakes',
+    'Cupcakes' => 'Cupcakes',
+    'Trufas' => 'Trufles',
+    'Chocolates' => 'Chocolates',
+    'Galletas' => 'Cookies',
+    'Panes' => 'Breads',
+    'Alfajores' => 'Caramel cookies',
+    'Macarons' => 'Macarons',
     'ir' => 'Go',
     'newPost' => 'NEW POST',
     'newProduct' => 'NEW PRODUCT',
     'toUSD' => 'To USD',
-    'allies' => 'Allies'
+    'allies' => 'Allies',
+    'alDescription' => 'Description',
+    'alCategories' => 'Categories',
+    'alContributors' => 'Contributoss',
+    'alPrice' => 'Price',
+    'alSeeMore' => 'See more',
     //test
 ];
 
