@@ -10,7 +10,7 @@
     <link href="{{ asset('css/customStyle.css') }}" rel="stylesheet">
 </head>
 <div class="sidenav">
-        <a href="#" style="text-align: center;">About</a>
+        <a href="{{ route('allies.api') }}" style="text-align: center;">About</a>
         <a href="#" style="text-align: center;">Services</a>
         <a href="#" style="text-align: center;">Clients</a>
         <a href="#" style="text-align: center;">Contact</a>
