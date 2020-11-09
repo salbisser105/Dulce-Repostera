@@ -21,7 +21,7 @@
             @else
             <div class="card bg-light mb-3 text-center">
                 <div class="card-body">
-                    <a href="{{ route('post.create') }}" id="button_go" class="btn btn-primary"><b>@lang('messages.newPost')</b></a>
+                    <a href="{{ route('post.create') }}" id="button_go" class="btn btn-primary">@lang('messages.newPost')</a>
                 </div>
             </div>
             @endguest
