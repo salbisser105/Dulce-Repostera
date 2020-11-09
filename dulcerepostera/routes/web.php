@@ -63,5 +63,7 @@ Route::get('/cart/usd', 'ProductController@usd')->name("product.usd");
 Route::get('/allies/index','AlliesController@index')->name("allies.index");
 Route::get('/allies/api','AlliesController@api')->name("allies.api");
 
+Route::get('/order/list', 'OrderController@list')->name('order.list');
+
 });
 
