@@ -22,7 +22,7 @@
                     </div>
                 </div>
         @endforeach
-        <a href="http://54.227.195.109/login">@lang('messages.alSeeMore')</a>
+        <a href="http://54.227.195.109/login" style="color: deeppink;">@lang('messages.alSeeMore')</a>
         </div>
     </div>
 </div>

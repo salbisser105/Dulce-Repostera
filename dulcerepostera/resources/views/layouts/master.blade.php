@@ -6,14 +6,12 @@
     <meta charset="utf-8">
     <title>@yield('title','Home Page')</title>
     <!--Styles -->
+    <link rel="shortcut icon" sizes="114x100" href="{{ asset('img/DULCEREPOSTERA.jpg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link href="{{ asset('css/customStyle.css') }}" rel="stylesheet">
 </head>
 <div class="sidenav">
-        <a href="{{ route('allies.api') }}" style="text-align: center;">About</a>
-        <a href="#" style="text-align: center;">Services</a>
-        <a href="#" style="text-align: center;">Clients</a>
-        <a href="#" style="text-align: center;">Contact</a>
+        <a href="{{ route('allies.api') }}" style="text-align: center;">@lang('messages.allies')</a>
     </div>
 <body>
 
@@ -52,9 +50,6 @@
                         @endguest
                         <a class="nav-link" href="{{ route('product.cart') }}">
                             <b>@lang('messages.cart')</b>
-                        </a>
-                        <a class="nav-link" href="{{ route('allies.api') }}">
-                            <b>@lang('messages.allies')</b>
                         </a>
                     </ul>
                 
