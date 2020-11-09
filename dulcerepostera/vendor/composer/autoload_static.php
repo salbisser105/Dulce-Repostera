@@ -484,7 +484,7 @@ class ComposerStaticInitc8da399e62a5ac392877553e7c975793
         ),
         'Asm89\\Stack\\' => 
         array (
-            0 => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack',
+            0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
         ),
         'App\\' => 
         array (
@@ -560,8 +560,8 @@ class ComposerStaticInitc8da399e62a5ac392877553e7c975793
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\WishList' => __DIR__ . '/../..' . '/app/WishList.php',
-        'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
-        'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
+        'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
+        'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Barryvdh\\DomPDF\\Facade' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade.php',
         'Barryvdh\\DomPDF\\PDF' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/PDF.php',
