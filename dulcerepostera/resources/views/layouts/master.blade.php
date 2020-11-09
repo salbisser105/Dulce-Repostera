@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link href="{{ asset('css/customStyle.css') }}" rel="stylesheet">
 </head>
-<div class="sidenav">
-        <a href="{{ route('allies.api') }}" style="text-align: center;">@lang('messages.allies')</a>
-    </div>
+
 <body>
 
     <div id="app">
