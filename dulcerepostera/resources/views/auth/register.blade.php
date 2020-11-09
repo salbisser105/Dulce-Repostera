@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 padding-20">
             <div class="card">
-                <div class="card-header">@lang('messages.register')</div>
+                <h5 class="card-header" style="color: deeppink;" style="text-align: center;">@lang('messages.register')</h5>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -79,8 +79,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    @lang('messages.register')
+                                <button type="submit" id="button_register" class="btn btn-primary">
+                                    <b>@lang('messages.register')</b>
                                 </button>
                             </div>
                         </div>

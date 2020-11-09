@@ -26,7 +26,7 @@
                                     <input type="number" class="form-control" name="quantity" min="0" style="width: 65px;">
                                 </div>
                                 <div class="col-md">
-                                    <button type="submit" id="button_addCart" class="btn btn-primary" style="color:darkgreen">@lang('messages.add_cart')</button>
+                                    <button type="submit" id="button_addCart" class="btn btn-primary" style="color:darkgreen"><b>@lang('messages.add_cart')</b></button>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-2 ml-2">
@@ -127,7 +127,7 @@
 
                                 <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
                                 <input type="hidden" name="product_id" value='{{$data["product"]->getId()}}'>
-                                <input type="submit" value="@lang('messages.save')" id="button_add" class="btn btn-primary">
+                                <input type="submit" value="@lang('messages.save')" id="button_save" class="btn btn-primary">
                             </form>
                         @endguest
                     </div>
