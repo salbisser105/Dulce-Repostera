@@ -11,8 +11,8 @@
         <div class="col-md-8">
             @include('util.message')
             <div class="card">
-                <div class="card-header"> @lang('messages.createPost')</div>
                 <div class="card-body">
+                <h2 class="card-title" style="color: deeppink; text-align:center;"> @lang('messages.createPost')</h2>
                     @guest
                         @lang('messages.guestCreatePost')<a href="{{ route('login') }}">@lang('messages.login')</a>
                     @else
@@ -25,10 +25,10 @@
                         @endif
                         <form method="POST" action="{{ route('post.save') }}">
                             @csrf
-                        <br><input type="text" placeholder="@lang('messages.postName')" name="name" value="{{ old('name') }}" /> </br>
-                        <br><textarea name="description" cols="40" rows="5" placeholder="@lang('messages.postDescription')" value="">{{{old('description')}}}</textarea></br>
+                        <br><b>@lang('messages.postTitle'): </b><input type="text" placeholder="@lang('messages.postName')" name="name" value="{{ old('name') }}" /> </br>
+                        <br><b>@lang('messages.postDescriptionW'): </b><br><textarea name="description" cols="40" rows="5" placeholder="@lang('messages.postDescription')" value="">{{{old('description')}}}</textarea></br>
                         <input type="hidden" name="user_id" value="{{Auth::user()->getId()}}">
-                        <input type="submit" value="@lang('messages.save')" />
+                        <input type="submit" id="button_save" class="btn btn-primary" value="@lang('messages.save')" />
                         </form>
                     @endguest
                 </div>

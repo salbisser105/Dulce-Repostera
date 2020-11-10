@@ -10,8 +10,8 @@
         <div class="col-md-8">
             @include('util.message')
             <div class="card">
-                <div class="card-header">@lang('messages.createProduct')</div>
                 <div class="card-body">
+                <h2 class="card-title" style="color: deeppink; text-align:center;">@lang('messages.createProduct')</h2><br>
                 @guest
                     @lang('messages.guestCreateProduct')<a href="{{ route('home.index') }}">Dulce Repostera</a>
                 @else
@@ -57,7 +57,7 @@
                             <br><p>
                                 <b>@lang('messages.ingredients')</b>: <input type="text" placeholder="@lang('messages.ingredients')" name="ingredients" value="{{ old('ingredients') }}" />
                             </p>
-                            <br><input type="submit" value="@lang('messages.save')" />
+                            <br><input type="submit" id="button_save" class="btn btn-primary" value="@lang('messages.save')" />
                         </form>
                     @endif
                 @endguest
