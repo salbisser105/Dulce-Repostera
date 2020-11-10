@@ -19,7 +19,7 @@
             <div class="row">
                 @foreach($data["products"] as $product)
                 <div class="card bg-light mb-3 text-center">
-                    <img width="200" height="150" src='/img/product/{{ $product->getImage() }}' class="list-picture">
+                    <img width="200" height="150" src="{{ asset('/img/product/'.$product->getImage()) }}" class="list-picture">
                     <div class="card-body">
                         <h5 class="card-title" style="color:deeppink">{{ $product->getName() }}</h5>
                         $ {{ $product->getPrice() }}<br><br>
