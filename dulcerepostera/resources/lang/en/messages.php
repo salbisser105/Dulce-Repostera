@@ -36,6 +36,7 @@ return [
     'aboutUs' => 'About us',
     'contact' => 'Contact',
     'createProduct' => 'Create Product',
+    'editProduct' => 'Edit Product',
     'listProduct' => 'Product List',
     'productName' => 'Product\'s Name',
     'productCategory' => 'Product\'s Category',
@@ -44,6 +45,7 @@ return [
     'ingredients' => 'Ingredients',
     'image' => 'Image',
     'createPost' => 'Create Post',
+    'editPost' => 'Edit Post',
     'guestCreatePost' => 'To create a Post ',
     'listPost' => 'Post List',
     'postName' => 'Post\'s Name',
@@ -68,6 +70,7 @@ return [
     'postDeleted' => 'Post deleted',
     'productDeleted' => 'Product deleted',
     'productCreated' => 'Product created',
+    'productEdited' => 'Product edited',
     'productAddedToCart' => 'Product added to cart',
     'purchaseDone' => 'Purchase done',
     'deleteComment' => 'Comment deleted',
@@ -99,7 +102,8 @@ return [
     'myOrders' => 'My orders',
     'order' => 'Order',
     'postTitle' => 'Post name',
-    'postDescriptionW' => 'Post description'
+    'postDescriptionW' => 'Post description',
+    'edit'=>'Edit',
     //test
 ];
 

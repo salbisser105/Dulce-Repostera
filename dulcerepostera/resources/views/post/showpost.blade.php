@@ -22,6 +22,10 @@
                             </div>
                         </form>
                         @if (Auth::user()->getId()==$data["post"]->getUserId())
+                            <form method="POST" action='{{ route("post.edit",$data["post"]->getId()) }}'>
+                                @csrf
+                                <br><button type="submit" id="button_add" class="btn btn-primary">@lang('messages.edit')</button>
+                            </form>
                             <form method="POST" action='{{ route("post.delete",$data["post"]->getId()) }}'>
                                 @csrf
                                 <br><button type="submit" id="button_delete" class="btn btn-primary">@lang('messages.delete')</button>
@@ -47,6 +51,7 @@
                                         <br><button type="submit" id="button_delete" class="btn btn-primary">@lang('messages.delete')</button>
                                     </div>
                                 </form>
+                                
                             @endif
                         @endguest
                     </div>
