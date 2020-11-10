@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
@@ -111,6 +110,9 @@
                                     @endif
                                     <a class="dropdown-item" href="{{ route('post.create') }}">
                                         <b>@lang('messages.createPost')</b>
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('order.list') }}">
+                                        <b>@lang('messages.myOrders')</b>
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -8,8 +8,8 @@
 
     <div class="row">
         <div class="col-md">
-            <h1 class="page-header mt-4">
-                <small>laputacabra</small>
+            <h1 class="page-header mt-4" style="color: deeppink;">
+                @lang('messages.myOrders')
             </h1>
             <hr>
         </div>
@@ -28,8 +28,7 @@
                                             <i class="fa fa-clipboard-check" id="order_icon"></i>
                                         </div>
                                         <div class="col-md">
-                                            <a href="{{ route('order.show', $orders->getId()) }}"><h4>laputacabra {{ $orders->getDate() }}</h4></a>
-                                            <h4>laputacabra{{ $orders->getTotal() }}</h4>
+                                            <a href="{{ route('order.show', $orders->getId()) }}" style="color: deeppink;"><h5>{{ $orders->getId() }}: {{ $orders->getCreatedAt() }} </h5></a>
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +40,7 @@
         </div>
     @else
         <div class="col-md mt-4">
-            <div class="text-center" id="wishlist">
+            <div class="text-center" style="color: deeppink;">
                 <h3>@lang('messages.orderno')</h3>
             </div>
         </div>

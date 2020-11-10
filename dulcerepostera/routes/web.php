@@ -64,6 +64,7 @@ Route::get('/allies/index','AlliesController@index')->name("allies.index");
 Route::get('/allies/api','AlliesController@api')->name("allies.api");
 
 Route::get('/order/list', 'OrderController@list')->name('order.list');
+Route::get('/order/show/{id}', 'OrderController@show')->name('order.show');
 
 });
 

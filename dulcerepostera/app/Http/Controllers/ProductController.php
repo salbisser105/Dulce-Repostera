@@ -11,6 +11,7 @@ use App\Product;
 use App\Order;
 use App\Item;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
 class ProductController extends Controller {
@@ -155,6 +156,7 @@ class ProductController extends Controller {
     public function buy(Request $request){
         $order = new Order();
         $order->setTotal("0");
+        $order->setUserId(Auth::user()->id);
         $order->save();
         $precioTotal = 0;
 

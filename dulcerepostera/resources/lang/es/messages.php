@@ -95,7 +95,9 @@ return [
     'alContributors' => 'Contribuidores',
     'alPrice' => 'Precio',
     'alSeeMore' => 'Ver mas',
-    'orderno' => 'No tienes ordenes'
+    'orderno' => 'No tienes ordenes',
+    'myOrders' => 'Mis ordenes',
+    'order' => 'Orden'
     //test
 ];
 
