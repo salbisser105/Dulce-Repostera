@@ -107,6 +107,8 @@ return [
     'editProfile'=>'Edit Profile',
     'notAccess'=>'You can\'t access to this function',
     'userList'=>'Users List',
+    'pdf' => 'PDF',
+    'excel' => 'Excel',
     //test
 ];
 

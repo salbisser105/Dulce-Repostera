@@ -11,7 +11,7 @@
             <div class="row">
                 @foreach($data["products"] as $productWishlist)
                     <div class="card bg-light mb-3 text-center">
-                        <img width="200" height="150" src="{{asset('img/product/'.$productWishlist->product->getImage())}}" class="list-picture">
+                        <img width="200" height="150" src="{{ asset('/img/product/'.$productWishlist->product->getImage()) }}" class="list-picture">
                         <div class="card-body">
                             <h5 class="card-title" style="color:deeppink">{{ $productWishlist->product->getName() }}</h5>
                             $ {{ $productWishlist->product->getPrice() }}<br><br>
