@@ -176,6 +176,7 @@ return [
 
         /* my providers */
         Barryvdh\DomPDF\ServiceProvider::class,
+        App\Providers\FileServiceProvider::class,
 
     ],
 

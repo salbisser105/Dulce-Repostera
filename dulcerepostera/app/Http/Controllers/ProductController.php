@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\FileStorage;
 use DB;
 use PDF;
 use Illuminate\Http\Request;
@@ -175,7 +176,8 @@ class ProductController extends Controller {
             }
         }
         $message = Lang::get('messages.purchaseDone');
-        return back()->with('success', $message);
+        $id = $order->getId();
+        return view('product.buy')->with("id", $id);
     }
     
     public function pdfView(Request $request)
@@ -184,8 +186,6 @@ class ProductController extends Controller {
         $order['Total'] = 0;
         $userid = $request->input("pdf");
         $id = $request->input("id");
-        // $order->setUserId($id.toInteger());
-        // $order->save();
         $data = [];
         $data['products'] = [];
 
@@ -212,11 +212,46 @@ class ProductController extends Controller {
             view()->share('data',$data);
 
         }
-
-        // dd($id);
-
         $pdf = PDF::loadView('pdf/pdfview', $data);
         return $pdf->download('pdf_file.pdf');
+    }
+
+    public function dependency(Request $request, $id){
+        $data = [];
+        $userid = $request->input("pdf");
+        $data['products'] = [];
+
+        $precioTotal = 0;
+
+        $products = $request->session()->get("products");
+        if ($products)
+        {
+            $keys = array_keys($products);
+            for ($i=0;$i<count($keys);$i++)
+            {
+                $item = [];
+                $item['product'] = Product::find($keys[$i]);
+                $item['quantity'] = $products[$keys[$i]];
+                array_push($data['products'], $item);
+                $productActual = Product::find($keys[$i]);
+                $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
+            }
+
+            $order['Total']=($precioTotal);
+            $data['order'] = $order;
+            $data['userid']= $userid;
+            view()->share('data',$data);
+
+        }
+        
+        $select = $request->input('select');
+        $fileInterface = app()->makeWith(FileStorage::class, ['select' => $select]);
+        $order = Order::findOrFail($id);
+        $items = Item::where('order_id', $id)->get();
+        $data["order"] = $order;
+        $data['userid']= $userid;
+        $data["items"] = $items;
+        return $fileInterface->store($data);
     }
     
 

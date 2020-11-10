@@ -99,7 +99,9 @@ return [
     'myOrders' => 'My orders',
     'order' => 'Order',
     'postTitle' => 'Post name',
-    'postDescriptionW' => 'Post description'
+    'postDescriptionW' => 'Post description',
+    'pdf' => 'PDF',
+    'excel' => 'Excel'
     //test
 ];
 
