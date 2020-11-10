@@ -47,6 +47,7 @@
                                     <form action="{{ route('product.pdfView') }}" method="GET">
                                         @csrf
                                         <input type="hidden" name="pdf" value="{{Auth::user()->getName()}}">
+                                        <input type="hidden" name="id" value="{{Auth::user()->getId()}}">
                                         <br><button type="submit" id="button_goBigger" class="btn btn-primary">@lang('messages.pdf')</button>
                                     </form> 
                                     @endguest

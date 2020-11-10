@@ -180,10 +180,12 @@ class ProductController extends Controller {
     
     public function pdfView(Request $request)
     {
-        $order = new Order();
-        $order->setTotal("0");
-        $order->save();
+        $order = [];
+        $order['Total'] = 0;
         $userid = $request->input("pdf");
+        $id = $request->input("id");
+        // $order->setUserId($id.toInteger());
+        // $order->save();
         $data = [];
         $data['products'] = [];
 
@@ -199,21 +201,19 @@ class ProductController extends Controller {
                 $item['product'] = Product::find($keys[$i]);
                 $item['order'] = $order;
                 $item['quantity'] = $products[$keys[$i]];
-                $item['userid']= $userid;
                 array_push($data['products'], $item);
                 $productActual = Product::find($keys[$i]);
                 $precioTotal = $precioTotal + $productActual->getPrice()*$products[$keys[$i]];
             }
 
-            $order->setTotal($precioTotal);
-            $order->save();
+            $order['Total']=($precioTotal);
             $data['order'] = $order;
-
+            $data['userid']= $userid;
             view()->share('data',$data);
 
         }
 
-        //dd($data);
+        // dd($id);
 
         $pdf = PDF::loadView('pdf/pdfview', $data);
         return $pdf->download('pdf_file.pdf');
