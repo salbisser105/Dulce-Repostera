@@ -11,12 +11,9 @@
 </head>
 <body>
   <h1 class="page-header mt-4">
-    <small>@lang('messages.order_receipt')</small>
+    <small>@lang('messages.name')</small>
   </h1>
-  <h2 class="page-header mt-4">
-    <small>@lang('messages.order_number'): {{ $data['order']->getId() }}</small>
-  </h2>
-  <small>@lang('messages.productName')</small>
+  <small>{{$data['userid']}}</small>
   <table class="table table-bordered">
     <thead>
       <tr class="table-success">
@@ -32,7 +29,7 @@
       @foreach ($data['products'] as $item)
       <tr>
         <td>{{ $item['product']->getName() }}</td>
-        <td>{{ $item['userid'] }}</td>
+        <td>{{ $item['product']->getDescription() }}</td>
         <td>@lang('messages.' . $item['product']->getCategory())</td>
         <td>${{ $item['product']->getPrice() }}</td>
         <td>{{ $item['quantity'] }}</td>
@@ -42,7 +39,7 @@
     </tbody>
 
   </table>
-  <h5 class="page-header mt-4">@lang('messages.total-price'): ${{ $data['order']->getTotal() }}</h5>
+  <h5 class="page-header mt-4">@lang('messages.total-price'): ${{ $data['order']['Total'] }}</h5>
 </body>
 
 </html>
