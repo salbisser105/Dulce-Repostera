@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a747ee5c5e303863d7976e5e4f9d242f",
+    "content-hash": "b70aa776cacabe17ded3865eb5e4159c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -614,33 +614,30 @@
         },
         {
             "name": "fruitcake/laravel-cors",
-            "version": "v2.0.0",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruitcake/laravel-cors.git",
-                "reference": "8cc9f7e5f1b9b280ae2378b3624e6b5603e63e8c"
+                "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruitcake/laravel-cors/zipball/8cc9f7e5f1b9b280ae2378b3624e6b5603e63e8c",
-                "reference": "8cc9f7e5f1b9b280ae2378b3624e6b5603e63e8c",
+                "url": "https://api.github.com/repos/fruitcake/laravel-cors/zipball/01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
+                "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
                 "shasum": ""
             },
             "require": {
-                "asm89/stack-cors": "^2",
-                "illuminate/contracts": "^5.6|^6.0|^7.0|^8.0",
-                "illuminate/support": "^5.6|^6.0|^7.0|^8.0",
-                "php": ">=7.1",
-                "symfony/http-foundation": "^4.0|^5.0",
-                "symfony/http-kernel": "^4.0|^5.0"
+                "asm89/stack-cors": "^2.0.1",
+                "illuminate/contracts": "^6|^7|^8|^9",
+                "illuminate/support": "^6|^7|^8|^9",
+                "php": ">=7.2",
+                "symfony/http-foundation": "^4|^5",
+                "symfony/http-kernel": "^4.3.4|^5"
             },
             "require-dev": {
-                "laravel/framework": "^5.5|^6.0|^7.0|^8.0",
-                "orchestra/dusk-updater": "^1.2",
-                "orchestra/testbench": "^3.5|^4.0|^5.0|^6.0",
-                "orchestra/testbench-dusk": "^5.1",
-                "phpro/grumphp": "^0.16|^0.17",
-                "phpunit/phpunit": "^6.0|^7.0|^8.0",
+                "laravel/framework": "^6|^7|^8",
+                "orchestra/testbench-dusk": "^4|^5|^6",
+                "phpunit/phpunit": "^6|^7|^8",
                 "squizlabs/php_codesniffer": "^3.5"
             },
             "type": "library",
@@ -686,7 +683,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-05-11T09:29:18+00:00"
+            "time": "2020-10-22T13:57:20+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
