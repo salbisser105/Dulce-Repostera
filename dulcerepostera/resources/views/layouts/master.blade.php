@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link href="{{ asset('css/customStyle.css') }}" rel="stylesheet">
 </head>
-<div class="sidenav">
-        <a href="{{ route('allies.api') }}" style="text-align: center;">@lang('messages.allies')</a>
-    </div>
-<body>
-
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
@@ -113,6 +108,9 @@
                                     @endif
                                     <a class="dropdown-item" href="{{ route('post.create') }}">
                                         <b>@lang('messages.createPost')</b>
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('order.list') }}">
+                                        <b>@lang('messages.myOrders')</b>
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

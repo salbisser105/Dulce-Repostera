@@ -29,6 +29,15 @@ class OrderController extends Controller
         return view('order.list')->with("data", $data);
     }
 
+    public function show($id){
+        $data = [];
+        $order = Order::findOrFail($id);
+        $items = Item::where('order_id', $id)->get();
+        $data["order"] = $order;
+        $data["items"] = $items;
+
+        return view('order.show')->with("data", $data);
+    }
 }
 
 ?>
