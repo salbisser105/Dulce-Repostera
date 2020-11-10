@@ -107,6 +107,9 @@
                                         <a class="dropdown-item" href="{{ route('product.create') }}">
                                             <b>@lang('messages.createProduct')</b>
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('user.list') }}">
+                                            <b>@lang('messages.userList')</b>
+                                        </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('post.create') }}">
                                         <b>@lang('messages.createPost')</b>
@@ -114,6 +117,12 @@
                                     <a class="dropdown-item" href="{{ route('order.list') }}">
                                         <b>@lang('messages.myOrders')</b>
                                     </a>
+
+                                    <a class="dropdown-item" href="{{ route('user.edit',Auth::user()->getId()) }}">
+                                        <b>@lang('messages.editProfile')</b>
+                                    </a>
+
+
 
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">

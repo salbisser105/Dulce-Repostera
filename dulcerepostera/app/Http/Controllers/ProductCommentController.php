@@ -16,7 +16,11 @@ class ProductCommentController extends Controller {
 
         $productRating = Product::findOrFail($comment->product_id)->getRating();
         $numRatings = count(ProductComment::where('product_id',$comment->product_id)->get());
-        $productRating = (($productRating*$numRatings)-($comment->getRating()))/($numRatings-1);
+        if ($numRatings - 1 == 0){
+            $productRating =0;
+        }else{
+            $productRating = (($productRating*$numRatings)-($comment->getRating()))/($numRatings-1);
+        }
         $update = Product::where('id',$comment->product_id)->update(['rating' => $productRating]);
 
         $comment->delete();

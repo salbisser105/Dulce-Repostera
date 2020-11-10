@@ -64,9 +64,19 @@ Route::get('/allies/api','AlliesController@api')->name("allies.api");
 Route::get('/order/list', 'OrderController@list')->name('order.list');
 Route::get('/order/show/{id}', 'OrderController@show')->name('order.show');
 
+Route::post('/product/edit/{id}', 'ProductController@edit')->name("product.edit");
+Route::post('/product/saveEdit', 'ProductController@saveEdit')->name("product.saveEdit");
+
+
+Route::post('/post/edit/{id}', 'PostController@edit')->name("post.edit");
+Route::post('/post/saveEdit', 'PostController@saveEdit')->name("post.saveEdit");
+
+Route::get('/user/list', 'UserController@list')->name("user.list");
+Route::get('/user/edit/{id}', 'UserController@edit')->name("user.edit");
+Route::post('/user/saveEdit', 'UserController@saveEdit')->name("user.saveEdit");
+
 Route::post('/cart/buy', 'ProductController@buy')->name("product.buy");
 Route::post('/cart/generate-file/{id}', 'ProductController@dependency')->name("product.generateFile");
-
 
 });
 

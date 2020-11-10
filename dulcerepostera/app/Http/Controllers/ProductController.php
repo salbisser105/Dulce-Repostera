@@ -12,6 +12,8 @@ use App\Product;
 use App\Order;
 use App\Item;
 use App\User;
+use App\WishList;
+use App\ProductComment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 
@@ -24,6 +26,15 @@ class ProductController extends Controller {
         $data["product"] = $product;
         return view('product.show')->with("data", $data);
     }
+
+    public function edit($id){
+        $data = [];
+        $product = Product::findOrFail($id);
+        $data["title"] = $product->getName();
+        $data["product"] = $product;
+        return view('product.edit')->with("data", $data);
+    }
+
 
     public function create(){
         $data = [];
@@ -48,10 +59,61 @@ class ProductController extends Controller {
     }
 
     public function delete($id){
+        $others = Item::where("product_id",$id)->get();
+        if($others != null){
+            foreach($others as $other){
+                $other->delete();
+            }
+        }
+        $others = WishList::where("product_id",$id)->get();
+        if($others != null){
+            foreach($others as $other){
+                $other->delete();
+            }
+        }
+        $others = ProductComment::where("product_id",$id)->get();
+        if($others != null){
+            foreach($others as $other){
+                $other->delete();
+            }
+        }
         $product = Product::find($id);
         $product->delete();
         $message = Lang::get('messages.productDeleted');
         return redirect('product/list')->with('deleted', $message);
+    }
+
+    public function saveEdit(Request $request){
+        $name = "";
+        if($request->hasFile('product_image')){
+            $file = $request->file('product_image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img/product/',$name);
+        }
+        $request->validate(Product::validate());
+
+        $id =$request->input('id');
+
+        if($request->hasFile('product_image')){
+            Product::where('id',$id)->update([
+                'name' => $request->input('name'),
+                'price' => $request->input('price'),
+                'category' => $request->input('category'),
+                'description' => $request->input('description'),
+                'image' => $name,
+                'ingredients' => $request->input('ingredients')
+            ]);
+        } else {
+            Product::where('id',$request->input('id'))->update([
+                'name' => $request->input('name'),
+                'price' => $request->input('price'),
+                'category' => $request->input('category'),
+                'description' => $request->input('description'),
+                'ingredients' => $request->input('ingredients')
+            ]);
+        }
+        $message = Lang::get('messages.productEdited');
+        return redirect()->route('product.show',$id)->with('success',$message);
     }
 
     public function save(Request $request){

@@ -48,6 +48,12 @@
                             </div>
                         </form>
                         @if (Auth::user()->getRole()=="admin")
+                            <form method="POST" action='{{ route("product.edit",$data["product"]->getId()) }}'>
+                                @csrf
+                                <div>
+                                    <br><button type="submit" id="button_add" class="btn btn-primary">@lang('messages.edit')</button>
+                                </div>
+                            </form>
                             <form method="POST" action='{{ route("product.delete",$data["product"]->getId()) }}'>
                                 @csrf
                                 <div>
@@ -102,16 +108,6 @@
                                 @csrf
                                 @lang('messages.commentDescription'): <input type="text" placeholder="@lang('messages.commentDescription')" name="description" value="{{ old('description') }}" />
                                 <br><br><h5><b> @lang('messages.rating'):</b></h5>
-                                <!--<input type="radio" name="rating" value="1" {{ (old('rating') == "1") ? "checked" : ""}}>
-                                <label for="radio-inline">1</label><br>
-                                <input type="radio" name="rating" value="2" {{ (old('rating') == "2") ? "checked" : ""}}>
-                                <label for="radio-inline">2</label><br>
-                                <input type="radio" name="rating" value="3" {{ (old('rating') == "3") ? "checked" : ""}}>
-                                <label for="radio-inline">3</label><br>
-                                <input type="radio" name="rating" value="4" {{ (old('rating') == "4") ? "checked" : ""}}>
-                                <label for="radio-inline">4</label><br>
-                                <input type="radio" name="rating" value="5" {{ (old('rating') == "5") ? "checked" : ""}}>
-                                <label for="radio-inline">5</label><br>-->
                                 <div class="rate">
                                     <input type="radio" id="star5" name="rating" value="5" {{ (old('rating') == "5") ? "checked" : ""}}>
                                     <label for="star5" title="text">5 stars</label>
