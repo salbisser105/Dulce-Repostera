@@ -45,7 +45,6 @@ Route::post('/post/delete/{id}', 'PostController@delete')->name("post.delete");
 Route::post('/products/add-to-cart/{id}', 'ProductController@addToCart')->name("product.addToCart");
 Route::get('/cart/remove', 'ProductController@removeCart')->name("product.removeCart");
 Route::get('/cart/cart', 'ProductController@cart')->name("product.cart");
-Route::post('/cart/buy', 'ProductController@buy')->name("product.buy");
 
 Route::post('/wishlist/save/{id}', 'WishListController@save')->name("wishlist.save");
 Route::get('/wishlist/show', 'WishListController@list')->name("wishlist.show");
@@ -57,7 +56,6 @@ Route::post('/favposts/delete/{id}', 'FavPostsController@delete')->name("favpost
 
 
 Route::get('cart/pdfView','ProductController@pdfView')->name("product.pdfView");
-
 Route::get('/cart/usd', 'ProductController@usd')->name("product.usd");
 
 Route::get('/allies/index','AlliesController@index')->name("allies.index");
@@ -65,6 +63,10 @@ Route::get('/allies/api','AlliesController@api')->name("allies.api");
 
 Route::get('/order/list', 'OrderController@list')->name('order.list');
 Route::get('/order/show/{id}', 'OrderController@show')->name('order.show');
+
+Route::post('/cart/buy', 'ProductController@buy')->name("product.buy");
+Route::post('/cart/generate-file/{id}', 'ProductController@dependency')->name("product.generateFile");
+
 
 });
 
