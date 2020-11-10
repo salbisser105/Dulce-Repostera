@@ -104,6 +104,9 @@ return [
     'postTitle' => 'Nombre del post',
     'postDescriptionW' => 'Descripcion del post',
     'edit'=>'Editar',
+    'editProfile'=>'Editar Perfil',
+    'notAccess'=>'No puedes acceder a esta funcion',
+    'userList'=>'Lista Usuarios',
     //test
 ];
 

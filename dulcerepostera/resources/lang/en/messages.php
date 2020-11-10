@@ -104,6 +104,9 @@ return [
     'postTitle' => 'Post name',
     'postDescriptionW' => 'Post description',
     'edit'=>'Edit',
+    'editProfile'=>'Edit Profile',
+    'notAccess'=>'You can\'t access to this function',
+    'userList'=>'Users List',
     //test
 ];
 

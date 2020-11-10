@@ -73,5 +73,9 @@ Route::post('/product/saveEdit', 'ProductController@saveEdit')->name("product.sa
 Route::post('/post/edit/{id}', 'PostController@edit')->name("post.edit");
 Route::post('/post/saveEdit', 'PostController@saveEdit')->name("post.saveEdit");
 
+Route::get('/user/list', 'UserController@list')->name("user.list");
+Route::get('/user/edit/{id}', 'UserController@edit')->name("user.edit");
+Route::post('/user/saveEdit', 'UserController@saveEdit')->name("user.saveEdit");
+
 });
 
