@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header">@lang('messages.dashboard')</div>
                 <div class="card-body">
-                    Dulce Repostera
+                    
                     @guest
                     @else
                         @if (Auth::user()->getRole()=="admin")

@@ -58,6 +58,14 @@
 	height: 40px;
 }
 
+.custom-file-upload {
+    border: 1px solid #ccc;
+    background-color: deeppink;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
 .sidenav {
     height: 100%;
     width: 160px;

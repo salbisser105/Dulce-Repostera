@@ -97,7 +97,9 @@ return [
     'alSeeMore' => 'See more',
     'orderno' => 'You have no orders',
     'myOrders' => 'My orders',
-    'order' => 'Order'
+    'order' => 'Order',
+    'postTitle' => 'Post name',
+    'postDescriptionW' => 'Post description'
     //test
 ];
 
