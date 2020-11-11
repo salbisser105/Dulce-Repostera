@@ -1,6 +1,7 @@
 # Dulce-Repostera
 Proyecto.
 
+## Primera entrega
 Antes de correr el proyecto modifique en el '.env' la información para conectar a la base de datos que creó.
 
 Para correr el proyecto realice el siguiente comando en la ruta del proyecto Dulce-Repostera\dulcerepostera:
@@ -24,3 +25,14 @@ Si se desea correr las pruebas unitarias se debe correr el siguiente comando en 
 ```php
 $ vendor/bin/phpunit --filter WelcomeTest
 ```
+
+## Segunda entrega
+Para correr el proyecto de manera local se deben seguir las mismas instrucciones que en la primera entrega.
+
+El documento de la entrega se encuentra en la carpeta Entrega 2.
+
+Debido a problemas con el despliegue en Docker de este repositorio el codigo con el que se desplego se encuentra en:
+https://github.com/rsaldarris/prueba
+
+El dominio .tk es:
+http://dulcerepostera.tk/public/
